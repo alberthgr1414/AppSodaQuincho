@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnAbrirTurno = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpTeclado = new System.Windows.Forms.FlowLayoutPanel();
             this.Tecla1 = new System.Windows.Forms.Button();
             this.Tecla2 = new System.Windows.Forms.Button();
             this.Tecla3 = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.button14 = new System.Windows.Forms.Button();
             this.txtDinero = new System.Windows.Forms.MaskedTextBox();
             this.txtCodigoAsistente = new System.Windows.Forms.MaskedTextBox();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flpTeclado.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -98,23 +98,23 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // flowLayoutPanel1
+            // flpTeclado
             // 
-            this.flowLayoutPanel1.Controls.Add(this.Tecla1);
-            this.flowLayoutPanel1.Controls.Add(this.Tecla2);
-            this.flowLayoutPanel1.Controls.Add(this.Tecla3);
-            this.flowLayoutPanel1.Controls.Add(this.Tecla4);
-            this.flowLayoutPanel1.Controls.Add(this.Tecla5);
-            this.flowLayoutPanel1.Controls.Add(this.Tecla6);
-            this.flowLayoutPanel1.Controls.Add(this.Tecla7);
-            this.flowLayoutPanel1.Controls.Add(this.Tecla8);
-            this.flowLayoutPanel1.Controls.Add(this.button11);
-            this.flowLayoutPanel1.Controls.Add(this.button12);
-            this.flowLayoutPanel1.Controls.Add(this.button14);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(26, 114);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(282, 187);
-            this.flowLayoutPanel1.TabIndex = 6;
+            this.flpTeclado.Controls.Add(this.Tecla1);
+            this.flpTeclado.Controls.Add(this.Tecla2);
+            this.flpTeclado.Controls.Add(this.Tecla3);
+            this.flpTeclado.Controls.Add(this.Tecla4);
+            this.flpTeclado.Controls.Add(this.Tecla5);
+            this.flpTeclado.Controls.Add(this.Tecla6);
+            this.flpTeclado.Controls.Add(this.Tecla7);
+            this.flpTeclado.Controls.Add(this.Tecla8);
+            this.flpTeclado.Controls.Add(this.button11);
+            this.flpTeclado.Controls.Add(this.button12);
+            this.flpTeclado.Controls.Add(this.button14);
+            this.flpTeclado.Location = new System.Drawing.Point(26, 114);
+            this.flpTeclado.Name = "flpTeclado";
+            this.flpTeclado.Size = new System.Drawing.Size(282, 187);
+            this.flpTeclado.TabIndex = 6;
             // 
             // Tecla1
             // 
@@ -265,7 +265,7 @@
             this.ClientSize = new System.Drawing.Size(320, 344);
             this.Controls.Add(this.txtCodigoAsistente);
             this.Controls.Add(this.txtDinero);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flpTeclado);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAbrirTurno);
             this.Controls.Add(this.label2);
@@ -276,7 +276,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "borrar";
             this.Text = "Abrir Turno";
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.frmAbrirTurno_Load);
+            this.flpTeclado.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,7 +290,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAbrirTurno;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpTeclado;
         private System.Windows.Forms.Button Tecla1;
         private System.Windows.Forms.Button Tecla2;
         private System.Windows.Forms.Button Tecla3;

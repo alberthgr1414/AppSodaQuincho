@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,11 @@ namespace AppSodaQuincho
             }
         }
         private void btnAbrirTurno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmAbrirTurno_Load(object sender, EventArgs e)
         {
 
         }

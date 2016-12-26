@@ -149,6 +149,7 @@
             this.tsbCerrarTurno.Text = "Cerrar Turno";
             this.tsbCerrarTurno.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbCerrarTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbCerrarTurno.Click += new System.EventHandler(this.tsbCerrarTurno_Click);
             // 
             // toolStripSeparator5
             // 
@@ -175,7 +176,7 @@
             // 
             this.mantenimientoProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoProductoToolStripMenuItem.Image")));
             this.mantenimientoProductoToolStripMenuItem.Name = "mantenimientoProductoToolStripMenuItem";
-            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.mantenimientoProductoToolStripMenuItem.Text = "Mantenimiento Producto";
             this.mantenimientoProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.mantenimientoProductoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoProductoToolStripMenuItem_Click);
@@ -183,13 +184,13 @@
             // mantenimientoExpressToolStripMenuItem
             // 
             this.mantenimientoExpressToolStripMenuItem.Name = "mantenimientoExpressToolStripMenuItem";
-            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.mantenimientoExpressToolStripMenuItem.Text = "Mantenimiento Express";
             // 
             // mantenimientoUsuariosToolStripMenuItem
             // 
             this.mantenimientoUsuariosToolStripMenuItem.Name = "mantenimientoUsuariosToolStripMenuItem";
-            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.mantenimientoUsuariosToolStripMenuItem.Text = "Mantenimiento Usuarios";
             // 
             // toolStripSeparator6

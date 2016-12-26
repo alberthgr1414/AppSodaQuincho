@@ -11,7 +11,7 @@ namespace DAL
 {
     public class TurnoDAL
     {
-        public static DataTable UltimoTurnoAbierto(int tipoPlato)
+        public static DataTable UltimoTurnoAbierto()
         {
             //Declaración de objeto SqlCommand           
             SqlCommand oCommand = new SqlCommand();
@@ -31,6 +31,21 @@ namespace DAL
             {
                 oDataTable.Dispose();
             }
+        }
+
+        public static bool VereificarTurnoAbierto()
+        {
+            DataTable dat = UltimoTurnoAbierto();
+            bool valor=false;
+            if (dat.Rows.Count == 0)
+            {
+                valor= false;
+            }
+            else
+            {
+                valor = true;
+            }
+            return valor;
         }
 
         public static int GuardarPlato(Turno pTurno)
@@ -58,5 +73,8 @@ namespace DAL
                 throw ex;
             }
         }
+
+
+
     }
 }
