@@ -40,5 +40,9 @@ namespace AppSodaQuincho
             }
             }
         }
+        private void btnAbrirTurno_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
