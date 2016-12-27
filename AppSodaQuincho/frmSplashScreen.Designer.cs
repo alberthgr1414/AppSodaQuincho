@@ -35,17 +35,21 @@
             // 
             // metroProgressBar1
             // 
-            this.metroProgressBar1.Location = new System.Drawing.Point(21, 333);
+            this.metroProgressBar1.Location = new System.Drawing.Point(23, 254);
+            this.metroProgressBar1.MarqueeAnimationSpeed = 50;
             this.metroProgressBar1.Name = "metroProgressBar1";
-            this.metroProgressBar1.Size = new System.Drawing.Size(541, 19);
+            this.metroProgressBar1.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.metroProgressBar1.Size = new System.Drawing.Size(406, 19);
             this.metroProgressBar1.TabIndex = 0;
+            this.metroProgressBar1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroProgressBar1.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AppSodaQuincho.Properties.Resources.Captura;
-            this.pictureBox1.Location = new System.Drawing.Point(49, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(-16, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(428, 217);
+            this.pictureBox1.Size = new System.Drawing.Size(406, 217);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -53,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 364);
+            this.ClientSize = new System.Drawing.Size(453, 304);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.metroProgressBar1);
             this.MaximizeBox = false;

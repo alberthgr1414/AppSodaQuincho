@@ -66,9 +66,9 @@
             this.toolStripSeparator5,
             this.toolStripDropDownButton1,
             this.toolStripSeparator6});
-            this.toolStrip1.Location = new System.Drawing.Point(20, 60);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(968, 70);
+            this.toolStrip1.Size = new System.Drawing.Size(1008, 70);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -207,8 +207,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "frmSodaQuincho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.SodaQuincho_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

@@ -250,6 +250,16 @@ namespace AppSodaQuincho
         {
 
         }
+
+        private void PanelPlato_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvPlato_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
  

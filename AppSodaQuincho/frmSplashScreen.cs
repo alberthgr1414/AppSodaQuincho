@@ -22,5 +22,10 @@ namespace AppSodaQuincho
         {
 
         }
+
+        private void metroToggle1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

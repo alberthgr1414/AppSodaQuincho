@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
@@ -16,7 +17,16 @@ namespace AppSodaQuincho
     {
         public frmSodaQuincho()
         {
+            Thread t = new Thread(new ThreadStart(StartForm));
+            t.Start();
+            Thread.Sleep(7000);
             InitializeComponent();
+            t.Abort();
+        }
+
+        public void StartForm()
+        {
+            System.Windows.Forms.Application.Run(new frmSplashScreen());
         }
 
         private void SodaQuincho_Load(object sender, EventArgs e)

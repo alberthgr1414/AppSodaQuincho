@@ -81,6 +81,7 @@
             this.PanelPlato.BackColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.PanelPlato, "PanelPlato");
             this.PanelPlato.Name = "PanelPlato";
+            this.PanelPlato.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelPlato_Paint);
             // 
             // PanelNumeros
             // 
@@ -320,6 +321,7 @@
             this.dgvPlato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.dgvPlato, "dgvPlato");
             this.dgvPlato.Name = "dgvPlato";
+            this.dgvPlato.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlato_CellContentClick);
             // 
             // panelCantidad
             // 
@@ -372,7 +374,6 @@
             this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelHora);
             this.Controls.Add(this.panelCantidad);
@@ -385,7 +386,6 @@
             this.Controls.Add(this.PanelNumeros);
             this.Controls.Add(this.PanelPlato);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Facturacion";
