@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,6 +28,23 @@ namespace BLL
             try
             {
                TurnoDAL.CerrarTurno();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void AbrirTurno(int codigo, int monto)
+        {
+            try
+            {
+                Turno oTurno = new Turno()
+                {
+                    ID_Usuario = codigo,
+                    Monto = monto,
+                };
+                TurnoDAL.AbrirTurno(oTurno);
             }
             catch (Exception ex)
             {

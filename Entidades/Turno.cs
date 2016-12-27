@@ -11,6 +11,7 @@ namespace Entidades
         public int ID_Usuario { set; get; }
         public DateTime Apertura { set; get; }
         public DateTime Cierre { set; get; }
+        public int Monto { set; get; }
         public int Estado { set; get; }
     }
 }

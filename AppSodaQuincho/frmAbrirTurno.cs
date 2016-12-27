@@ -55,7 +55,8 @@ namespace AppSodaQuincho
         }
         private void btnAbrirTurno_Click(object sender, EventArgs e)
         {
-
+            int IdEmpleado = int.Parse(txtCodigoAsistente.Text);
+            int monto = int.Parse(txtDinero.Text);
         }
 
         private void frmAbrirTurno_Load(object sender, EventArgs e)

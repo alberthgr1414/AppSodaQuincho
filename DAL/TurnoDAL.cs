@@ -92,6 +92,29 @@ namespace DAL
             }
         }
 
+        public static void AbrirTurno(Turno turno)
+        {
+            //Declaración de objeto SqlCommand
+            SqlCommand oCommand = new SqlCommand();
+            int registrosActualizados = 0;
+            oCommand.CommandText = "SpTurnoAbrir";
+            oCommand.CommandType = CommandType.StoredProcedure;
+
+            oCommand.Parameters.AddWithValue("@ID_Usuario", turno.ID_Usuario);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+
+            oCommand.Parameters.AddWithValue("@Fondo", turno.Monto);
+            oCommand.Parameters[1].Direction = ParameterDirection.Input;
+            try
+            {
+                registrosActualizados = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 }
