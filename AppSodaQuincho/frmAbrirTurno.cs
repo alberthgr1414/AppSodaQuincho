@@ -1,4 +1,5 @@
 ﻿using BLL;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace AppSodaQuincho
 {
-    public partial class frmAbrirTurno : Form
+    public partial class frmAbrirTurno : MetroForm
     {
         public frmAbrirTurno()
         {
@@ -28,39 +29,47 @@ namespace AppSodaQuincho
             }
         }
 
-        private void Tecla1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
         private void Tecla1_Click(object sender, EventArgs e)
         {
-            SendKeys.Send("1");
-            /*if (txtCodigoAsistente.Focus()==true)
-            {
-            Button cl = sender as Button;
-            string codigo = cl.Tag.ToString();
-            txtCodigoAsistente.Text = txtCodigoAsistente.Text.ToString() + codigo;
-            }
-            else
-            {
-            if (txtDinero.Focused==true)
-            {
-            Button cl = sender as Button;
-            string codigo = cl.Tag.ToString();
-            txtDinero.Text = txtDinero.Text.ToString() + codigo; 
-            }
-            }
-            */
+            //if (txtCodigoAsistente.()==true)
+            //{
+            //Button cl = sender as Button;
+            //string codigo = cl.Tag.ToString();
+            //txtCodigoAsistente.Text = txtCodigoAsistente.Text.ToString() + codigo;
+            //}
+            //else
+            //{
+            //Button cl = sender as Button;
+            //string codigo = cl.Tag.ToString();
+            //txtDinero.Text = txtDinero.Text.ToString() + codigo; 
+            //}
+          
         }
         private void btnAbrirTurno_Click(object sender, EventArgs e)
         {
             try
             {
-                int IdEmpleado = int.Parse(txtCodigoAsistente.Text);
-                int monto = int.Parse(txtDinero.Text);
-                TurnoBLL.AbrirTurno(IdEmpleado, monto);
-                System.Windows.MessageBox.Show("Turno Abierto con Exito");
+                if (txtCodigoAsistente.Text == "" || txtDinero.Text == "")
+                {
+                    if (txtCodigoAsistente.Text == "")
+                    {
+                        System.Windows.MessageBox.Show("Debe Digitar el codigo del Asistente");
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("Debe digitar el Fondo del turno");
+                    }
+                    
+                }
+                else
+                {
+                    int IdEmpleado = int.Parse(txtCodigoAsistente.Text);
+                    int monto = int.Parse(txtDinero.Text);
+                    TurnoBLL.AbrirTurno(IdEmpleado, monto);
+                    System.Windows.MessageBox.Show("Turno Abierto con Exito");
+                    this.Close();
+                }
+
             }
             catch (Exception ex)
             {
@@ -72,8 +81,22 @@ namespace AppSodaQuincho
 
         private void frmAbrirTurno_Load(object sender, EventArgs e)
         {
-            frmTeclado tcl = new frmTeclado();
-            tcl.Show();
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtDinero_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            txtDinero.Focus();
+        }
+
+        private void txtCodigoAsistente_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            txtCodigoAsistente.Focus();
         }
     }
 }

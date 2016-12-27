@@ -75,6 +75,15 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework">
+      <HintPath>C:\Users\Alberth\Downloads\Metro DLLS\Metro DLLS\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>C:\Users\Alberth\Downloads\Metro DLLS\Metro DLLS\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>C:\Users\Alberth\Downloads\Metro DLLS\Metro DLLS\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
