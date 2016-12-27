@@ -81,7 +81,16 @@ namespace AppSodaQuincho
 
                 if (System.Windows.MessageBox.Show("Desea cerrar el Turno", "Cerrar Turno?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    System.Windows.MessageBox.Show("Turno Cerrado con Exito");
+                    try
+                    {
+                        TurnoBLL.CerrarTurno();
+                        System.Windows.MessageBox.Show("Turno Cerrado con Exito");
+                    }
+                    catch (Exception ex)
+                    {
+                         throw ex;
+                    }
+                    
                 }
                 else
                 {

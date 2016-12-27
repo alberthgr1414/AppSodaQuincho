@@ -18,6 +18,16 @@ namespace AppSodaQuincho
             InitializeComponent();
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams param = base.CreateParams;
+                param.ExStyle |= 0x08000000;
+                return param;
+            }
+        }
+
         private void Tecla1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -25,7 +35,8 @@ namespace AppSodaQuincho
 
         private void Tecla1_Click(object sender, EventArgs e)
         {
-            if (txtCodigoAsistente.Focus()==true)
+            SendKeys.Send("1");
+            /*if (txtCodigoAsistente.Focus()==true)
             {
             Button cl = sender as Button;
             string codigo = cl.Tag.ToString();
@@ -40,6 +51,7 @@ namespace AppSodaQuincho
             txtDinero.Text = txtDinero.Text.ToString() + codigo; 
             }
             }
+            */
         }
         private void btnAbrirTurno_Click(object sender, EventArgs e)
         {
@@ -48,7 +60,8 @@ namespace AppSodaQuincho
 
         private void frmAbrirTurno_Load(object sender, EventArgs e)
         {
-
+            frmTeclado tcl = new frmTeclado();
+            tcl.Show();
         }
     }
 }

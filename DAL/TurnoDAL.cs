@@ -75,6 +75,23 @@ namespace DAL
         }
 
 
+        public static void CerrarTurno()
+        {
+            //Declaración de objeto SqlCommand
+            SqlCommand oCommand = new SqlCommand();
+            int registrosActualizados = 0;
+            oCommand.CommandText = "SpTurnoCerrar";
+            oCommand.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                registrosActualizados = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 }

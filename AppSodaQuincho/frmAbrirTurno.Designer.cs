@@ -48,6 +48,8 @@
             this.button14 = new System.Windows.Forms.Button();
             this.txtDinero = new System.Windows.Forms.MaskedTextBox();
             this.txtCodigoAsistente = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.flpTeclado.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +72,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(45, 84);
+            this.label2.Location = new System.Drawing.Point(22, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 24);
             this.label2.TabIndex = 3;
@@ -78,9 +80,9 @@
             // 
             // btnAbrirTurno
             // 
-            this.btnAbrirTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAbrirTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnAbrirTurno.ForeColor = System.Drawing.Color.Black;
-            this.btnAbrirTurno.Location = new System.Drawing.Point(26, 300);
+            this.btnAbrirTurno.Location = new System.Drawing.Point(26, 304);
             this.btnAbrirTurno.Name = "btnAbrirTurno";
             this.btnAbrirTurno.Size = new System.Drawing.Size(91, 40);
             this.btnAbrirTurno.TabIndex = 4;
@@ -91,11 +93,11 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnCancelar.Location = new System.Drawing.Point(214, 300);
+            this.btnCancelar.Location = new System.Drawing.Point(214, 304);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(94, 40);
             this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Salir";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // flpTeclado
@@ -243,9 +245,8 @@
             // 
             this.txtDinero.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDinero.Location = new System.Drawing.Point(190, 79);
-            this.txtDinero.Mask = "₡999.999";
             this.txtDinero.Name = "txtDinero";
-            this.txtDinero.Size = new System.Drawing.Size(100, 29);
+            this.txtDinero.Size = new System.Drawing.Size(118, 29);
             this.txtDinero.TabIndex = 8;
             // 
             // txtCodigoAsistente
@@ -254,15 +255,39 @@
             this.txtCodigoAsistente.Location = new System.Drawing.Point(190, 31);
             this.txtCodigoAsistente.Mask = "999999";
             this.txtCodigoAsistente.Name = "txtCodigoAsistente";
-            this.txtCodigoAsistente.Size = new System.Drawing.Size(89, 29);
+            this.txtCodigoAsistente.Size = new System.Drawing.Size(118, 29);
             this.txtCodigoAsistente.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(120, 304);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 40);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.Window;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(165, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 24);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "₡";
             // 
             // frmAbrirTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(320, 344);
+            this.ClientSize = new System.Drawing.Size(329, 356);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtCodigoAsistente);
             this.Controls.Add(this.txtDinero);
             this.Controls.Add(this.flpTeclado);
@@ -304,5 +329,7 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.MaskedTextBox txtDinero;
         private System.Windows.Forms.MaskedTextBox txtCodigoAsistente;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
     }
 }

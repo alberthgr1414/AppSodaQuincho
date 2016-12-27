@@ -21,5 +21,18 @@ namespace BLL
                 throw ex;
             }
         }
+
+        public static void CerrarTurno()
+        {
+            try
+            {
+               TurnoDAL.CerrarTurno();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
