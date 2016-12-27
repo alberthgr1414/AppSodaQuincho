@@ -55,8 +55,19 @@ namespace AppSodaQuincho
         }
         private void btnAbrirTurno_Click(object sender, EventArgs e)
         {
-            int IdEmpleado = int.Parse(txtCodigoAsistente.Text);
-            int monto = int.Parse(txtDinero.Text);
+            try
+            {
+                int IdEmpleado = int.Parse(txtCodigoAsistente.Text);
+                int monto = int.Parse(txtDinero.Text);
+                TurnoBLL.AbrirTurno(IdEmpleado, monto);
+                System.Windows.MessageBox.Show("Turno Abierto con Exito");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         private void frmAbrirTurno_Load(object sender, EventArgs e)
