@@ -8,15 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Entidades;
+using System.Globalization;
 
 namespace AppSodaQuincho
 {
-    public partial class Facturacion : Form
+    public partial class frmFacturacion : Form
     {
         List<Plato> ListaPlatos = new List<Plato>();
-        public Facturacion()
+        public frmFacturacion()
         {
+            
             InitializeComponent();
+            timerHora.Enabled = true;
+            timerHora.Start();
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -54,24 +58,24 @@ namespace AppSodaQuincho
             // Variables de Ancho y Alto de los PictureBox
             // Contador de Rows
             PanelPlato.Controls.Clear();
-            int AnchoPictureBox = 5;
-            int AltoPictureBox = 5;
-            int AnchoLabel = 5;
-            int AltoLabel = 100;
+            int AnchoPictureBox = 6;
+            int AltoPictureBox = 6;
+            int AnchoLabel = 6;
+            int AltoLabel = 99;
             int cont = 0;
             //--------------------------------------------
             //--------Scroll Bar a el Panel---------------
-            PanelPlato.AutoScroll = true;
-            PanelPlato.HorizontalScroll.Enabled = false;
-            PanelPlato.HorizontalScroll.Visible = false;
-            PanelPlato.HorizontalScroll.Maximum = 0;
-            PanelPlato.AutoScroll = true;
+            //PanelPlato.AutoScroll = true;
+            //PanelPlato.HorizontalScroll.Enabled = false;
+            //PanelPlato.HorizontalScroll.Visible = false;
+            //PanelPlato.HorizontalScroll.Maximum = 0;
+            //PanelPlato.AutoScroll = true;
             //--------------------------------------------
-            panelTipoPlato.AutoScroll = false;
-            panelTipoPlato.HorizontalScroll.Enabled = false;
-            panelTipoPlato.HorizontalScroll.Visible = false;
-            panelTipoPlato.HorizontalScroll.Maximum = 0;
-            panelTipoPlato.VerticalScroll.Visible = true;
+            //panelTipoPlato.AutoScroll = false;
+            //panelTipoPlato.HorizontalScroll.Enabled = false;
+            //panelTipoPlato.HorizontalScroll.Visible = false;
+            //panelTipoPlato.HorizontalScroll.Maximum = 0;
+            //panelTipoPlato.VerticalScroll.Visible = true;
             //--------------------------------------------
 
             DataTable ds = BLL.PlatoBLL.ListarPlatos(TipoPlato);
@@ -113,8 +117,8 @@ namespace AppSodaQuincho
                     PanelPlato.Controls.Add(pictbox);
                     pictbox.Click += new System.EventHandler(this.ptbProducto_Click);
                     //---------------------------------------------------
-                    AnchoPictureBox += 105;
-                    AnchoLabel += 105;
+                    AnchoPictureBox += 100;
+                    AnchoLabel += 100;
                     //Limpair Panel
                     //panel1.Controls.Clear();
                 }
@@ -257,6 +261,32 @@ namespace AppSodaQuincho
         }
 
         private void dgvPlato_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Efectivo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelCantidad_Paint(object sender, PaintEventArgs e)
+        {
+            lblCantidad.Text = "0";
+        }
+
+        private void timerHora_Tick(object sender, EventArgs e)
+        {
+            DateTime date1 = DateTime.Now;
+            string fecha = date1.ToString("dddd dd MMMM",
+                  CultureInfo.CreateSpecificCulture("es-CR"));
+            //date1 = new DateTime(2008, 1, 1, 18, 9, 1);
+            label2.Text = date1.ToString("hh:mm:ss tt",
+                              CultureInfo.InvariantCulture);
+            lblFecha.Text = fecha;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

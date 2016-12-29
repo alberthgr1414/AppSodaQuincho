@@ -31,160 +31,136 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSodaQuincho));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbVentaRapida = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbOrdenMesa = new System.Windows.Forms.ToolStripButton();
+            this.tsbExpress = new System.Windows.Forms.ToolStripButton();
             this.tsbAbrirTurno = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrarTurno = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbMantenimientos = new System.Windows.Forms.ToolStripDropDownButton();
             this.mantenimientoProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoExpressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
-            this.toolStrip1.BackColor = System.Drawing.Color.DarkGray;
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbVentaRapida,
-            this.toolStripSeparator1,
-            this.toolStripButton1,
-            this.toolStripSeparator3,
-            this.toolStripButton4,
-            this.toolStripSeparator4,
+            this.tsbOrdenMesa,
+            this.tsbExpress,
             this.tsbAbrirTurno,
-            this.toolStripSeparator2,
             this.tsbCerrarTurno,
-            this.toolStripSeparator5,
-            this.toolStripDropDownButton1,
-            this.toolStripSeparator6,
-            this.toolStripLabel1,
-            this.toolStripSeparator7});
+            this.tsbMantenimientos,
+            this.toolStripButton2});
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(1008, 69);
-            this.toolStrip1.Stretch = true;
+            this.toolStrip1.Size = new System.Drawing.Size(1024, 70);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.UseWaitCursor = true;
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // tsbVentaRapida
             // 
             this.tsbVentaRapida.AutoSize = false;
+            this.tsbVentaRapida.BackColor = System.Drawing.Color.Gray;
+            this.tsbVentaRapida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tsbVentaRapida.Image = ((System.Drawing.Image)(resources.GetObject("tsbVentaRapida.Image")));
             this.tsbVentaRapida.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbVentaRapida.Margin = new System.Windows.Forms.Padding(1);
             this.tsbVentaRapida.Name = "tsbVentaRapida";
-            this.tsbVentaRapida.Size = new System.Drawing.Size(90, 90);
+            this.tsbVentaRapida.Size = new System.Drawing.Size(90, 70);
             this.tsbVentaRapida.Tag = "Facturacion";
             this.tsbVentaRapida.Text = "Venta Rapida";
             this.tsbVentaRapida.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbVentaRapida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbVentaRapida.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripSeparator1
+            // tsbOrdenMesa
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 70);
+            this.tsbOrdenMesa.AutoSize = false;
+            this.tsbOrdenMesa.BackColor = System.Drawing.Color.Gray;
+            this.tsbOrdenMesa.Image = ((System.Drawing.Image)(resources.GetObject("tsbOrdenMesa.Image")));
+            this.tsbOrdenMesa.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbOrdenMesa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbOrdenMesa.Margin = new System.Windows.Forms.Padding(1);
+            this.tsbOrdenMesa.Name = "tsbOrdenMesa";
+            this.tsbOrdenMesa.Size = new System.Drawing.Size(90, 70);
+            this.tsbOrdenMesa.Text = "Orden Mesa";
+            this.tsbOrdenMesa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbOrdenMesa.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
-            // toolStripButton1
+            // tsbExpress
             // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(90, 90);
-            this.toolStripButton1.Text = "Orden Mesa";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 70);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.AutoSize = false;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(90, 90);
-            this.toolStripButton4.Text = "Express";
-            this.toolStripButton4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 70);
+            this.tsbExpress.AutoSize = false;
+            this.tsbExpress.BackColor = System.Drawing.Color.Gray;
+            this.tsbExpress.Image = ((System.Drawing.Image)(resources.GetObject("tsbExpress.Image")));
+            this.tsbExpress.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExpress.Margin = new System.Windows.Forms.Padding(1);
+            this.tsbExpress.Name = "tsbExpress";
+            this.tsbExpress.Size = new System.Drawing.Size(90, 70);
+            this.tsbExpress.Text = "Express";
+            this.tsbExpress.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbExpress.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbExpress.Click += new System.EventHandler(this.tsbExpress_Click);
             // 
             // tsbAbrirTurno
             // 
             this.tsbAbrirTurno.AutoSize = false;
+            this.tsbAbrirTurno.BackColor = System.Drawing.Color.Gray;
             this.tsbAbrirTurno.Image = ((System.Drawing.Image)(resources.GetObject("tsbAbrirTurno.Image")));
             this.tsbAbrirTurno.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAbrirTurno.Margin = new System.Windows.Forms.Padding(1);
             this.tsbAbrirTurno.Name = "tsbAbrirTurno";
-            this.tsbAbrirTurno.Size = new System.Drawing.Size(90, 90);
+            this.tsbAbrirTurno.Size = new System.Drawing.Size(90, 70);
             this.tsbAbrirTurno.Text = "Abrir Turno";
             this.tsbAbrirTurno.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbAbrirTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbAbrirTurno.Click += new System.EventHandler(this.tsbAbrirTurno_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 70);
-            // 
             // tsbCerrarTurno
             // 
             this.tsbCerrarTurno.AutoSize = false;
+            this.tsbCerrarTurno.BackColor = System.Drawing.Color.Gray;
             this.tsbCerrarTurno.Image = ((System.Drawing.Image)(resources.GetObject("tsbCerrarTurno.Image")));
             this.tsbCerrarTurno.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCerrarTurno.Margin = new System.Windows.Forms.Padding(1);
             this.tsbCerrarTurno.Name = "tsbCerrarTurno";
-            this.tsbCerrarTurno.Size = new System.Drawing.Size(90, 90);
+            this.tsbCerrarTurno.Size = new System.Drawing.Size(90, 70);
             this.tsbCerrarTurno.Text = "Cerrar Turno";
             this.tsbCerrarTurno.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbCerrarTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbCerrarTurno.Click += new System.EventHandler(this.tsbCerrarTurno_Click);
             // 
-            // toolStripSeparator5
+            // tsbMantenimientos
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 70);
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.AutoSize = false;
-            this.toolStripDropDownButton1.AutoToolTip = false;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbMantenimientos.AutoSize = false;
+            this.tsbMantenimientos.AutoToolTip = false;
+            this.tsbMantenimientos.BackColor = System.Drawing.Color.Gray;
+            this.tsbMantenimientos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mantenimientoProductoToolStripMenuItem,
             this.mantenimientoExpressToolStripMenuItem,
             this.mantenimientoUsuariosToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(120, 90);
-            this.toolStripDropDownButton1.Text = "Mantenimientos";
-            this.toolStripDropDownButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbMantenimientos.Image = ((System.Drawing.Image)(resources.GetObject("tsbMantenimientos.Image")));
+            this.tsbMantenimientos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbMantenimientos.Margin = new System.Windows.Forms.Padding(1);
+            this.tsbMantenimientos.Name = "tsbMantenimientos";
+            this.tsbMantenimientos.Size = new System.Drawing.Size(120, 70);
+            this.tsbMantenimientos.Text = "Mantenimientos";
+            this.tsbMantenimientos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbMantenimientos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbMantenimientos.Click += new System.EventHandler(this.tsbMantenimientos_Click);
             // 
             // mantenimientoProductoToolStripMenuItem
             // 
             this.mantenimientoProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoProductoToolStripMenuItem.Image")));
             this.mantenimientoProductoToolStripMenuItem.Name = "mantenimientoProductoToolStripMenuItem";
-            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.mantenimientoProductoToolStripMenuItem.Text = "Mantenimiento Producto";
             this.mantenimientoProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.mantenimientoProductoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoProductoToolStripMenuItem_Click);
@@ -192,38 +168,36 @@
             // mantenimientoExpressToolStripMenuItem
             // 
             this.mantenimientoExpressToolStripMenuItem.Name = "mantenimientoExpressToolStripMenuItem";
-            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.mantenimientoExpressToolStripMenuItem.Text = "Mantenimiento Express";
             // 
             // mantenimientoUsuariosToolStripMenuItem
             // 
             this.mantenimientoUsuariosToolStripMenuItem.Name = "mantenimientoUsuariosToolStripMenuItem";
-            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.mantenimientoUsuariosToolStripMenuItem.Text = "Mantenimiento Usuarios";
             // 
-            // toolStripSeparator6
+            // toolStripButton2
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 70);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(29, 66);
-            this.toolStripLabel1.Text = "Salir";
-            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 69);
+            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton2.AutoSize = false;
+            this.toolStripButton2.BackColor = System.Drawing.Color.Gray;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Margin = new System.Windows.Forms.Padding(350, 1, 1, 1);
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(90, 70);
+            this.toolStripButton2.Text = "Salir";
+            this.toolStripButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click_1);
             // 
             // frmSodaQuincho
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -245,19 +219,12 @@
         private System.Windows.Forms.ToolStripButton tsbVentaRapida;
         private System.Windows.Forms.ToolStripButton tsbAbrirTurno;
         private System.Windows.Forms.ToolStripButton tsbCerrarTurno;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton tsbMantenimientos;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoProductoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tsbExpress;
+        private System.Windows.Forms.ToolStripButton tsbOrdenMesa;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoExpressToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoUsuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
