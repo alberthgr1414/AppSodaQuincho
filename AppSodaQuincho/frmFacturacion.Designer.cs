@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturacion));
             this.PanelPlato = new System.Windows.Forms.Panel();
             this.panelTipoPlato = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -49,9 +50,15 @@
             this.dgvPlato = new System.Windows.Forms.DataGridView();
             this.panelCantidad = new System.Windows.Forms.Panel();
             this.panelHora = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Efectivo = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.BtnNum1 = new System.Windows.Forms.Button();
             this.BtnNum4 = new System.Windows.Forms.Button();
             this.BtnNum5 = new System.Windows.Forms.Button();
@@ -63,15 +70,23 @@
             this.BtnNum3 = new System.Windows.Forms.Button();
             this.BtnNum2 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.Efectivo = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.tsbHora = new System.Windows.Forms.ToolStripLabel();
+            this.tsbFecha = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panelTipoPlato.SuspendLayout();
             this.panelPagos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).BeginInit();
@@ -105,7 +120,7 @@
             this.panelTipoPlato.Controls.Add(this.btnMenuRegular);
             this.panelTipoPlato.Location = new System.Drawing.Point(503, 51);
             this.panelTipoPlato.Name = "panelTipoPlato";
-            this.panelTipoPlato.Size = new System.Drawing.Size(234, 317);
+            this.panelTipoPlato.Size = new System.Drawing.Size(234, 310);
             this.panelTipoPlato.TabIndex = 8;
             // 
             // button4
@@ -152,7 +167,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 77);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Precios";
+            this.button1.Text = "Precio";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // btnBebidas
@@ -232,13 +247,17 @@
             // panelPagos
             // 
             this.panelPagos.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelPagos.Controls.Add(this.button6);
+            this.panelPagos.Controls.Add(this.button5);
+            this.panelPagos.Controls.Add(this.button8);
+            this.panelPagos.Controls.Add(this.button7);
             this.panelPagos.Controls.Add(this.btnMesa);
             this.panelPagos.Controls.Add(this.btnComerAqui);
             this.panelPagos.Controls.Add(this.btnExpress);
             this.panelPagos.Controls.Add(this.btnLlevar);
-            this.panelPagos.Location = new System.Drawing.Point(503, 367);
+            this.panelPagos.Location = new System.Drawing.Point(503, 360);
             this.panelPagos.Name = "panelPagos";
-            this.panelPagos.Size = new System.Drawing.Size(234, 299);
+            this.panelPagos.Size = new System.Drawing.Size(234, 306);
             this.panelPagos.TabIndex = 11;
             // 
             // btnMesa
@@ -246,7 +265,7 @@
             this.btnMesa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMesa.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnMesa.Location = new System.Drawing.Point(1, 82);
+            this.btnMesa.Location = new System.Drawing.Point(2, 151);
             this.btnMesa.Name = "btnMesa";
             this.btnMesa.Size = new System.Drawing.Size(116, 77);
             this.btnMesa.TabIndex = 3;
@@ -258,7 +277,7 @@
             this.btnComerAqui.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnComerAqui.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComerAqui.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnComerAqui.Location = new System.Drawing.Point(118, 5);
+            this.btnComerAqui.Location = new System.Drawing.Point(118, 76);
             this.btnComerAqui.Name = "btnComerAqui";
             this.btnComerAqui.Size = new System.Drawing.Size(116, 77);
             this.btnComerAqui.TabIndex = 2;
@@ -270,7 +289,7 @@
             this.btnExpress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnExpress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpress.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnExpress.Location = new System.Drawing.Point(117, 82);
+            this.btnExpress.Location = new System.Drawing.Point(118, 151);
             this.btnExpress.Name = "btnExpress";
             this.btnExpress.Size = new System.Drawing.Size(116, 77);
             this.btnExpress.TabIndex = 1;
@@ -281,7 +300,7 @@
             // 
             this.btnLlevar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLlevar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLlevar.Location = new System.Drawing.Point(2, 5);
+            this.btnLlevar.Location = new System.Drawing.Point(3, 76);
             this.btnLlevar.Name = "btnLlevar";
             this.btnLlevar.Size = new System.Drawing.Size(116, 77);
             this.btnLlevar.TabIndex = 0;
@@ -319,6 +338,26 @@
             this.panelHora.Size = new System.Drawing.Size(282, 52);
             this.panelHora.TabIndex = 19;
             // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(43, 4);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(184, 24);
+            this.lblFecha.TabIndex = 1;
+            this.lblFecha.Text = "Jueves 29 diciembre";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(78, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "00:00:00 AM";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -353,6 +392,45 @@
             this.panel1.Size = new System.Drawing.Size(283, 142);
             this.panel1.TabIndex = 24;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Enabled = false;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(100, 12);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(161, 29);
+            this.textBox3.TabIndex = 27;
+            // 
+            // Efectivo
+            // 
+            this.Efectivo.AutoSize = true;
+            this.Efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Efectivo.Location = new System.Drawing.Point(22, 17);
+            this.Efectivo.Name = "Efectivo";
+            this.Efectivo.Size = new System.Drawing.Size(76, 24);
+            this.Efectivo.TabIndex = 26;
+            this.Efectivo.Text = "Efectivo";
+            this.Efectivo.Click += new System.EventHandler(this.Efectivo_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(100, 98);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(159, 29);
+            this.textBox2.TabIndex = 25;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(100, 55);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(159, 29);
+            this.textBox1.TabIndex = 24;
             // 
             // BtnNum1
             // 
@@ -523,74 +601,25 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(504, 52);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(100, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 29);
-            this.textBox1.TabIndex = 24;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(100, 98);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(159, 29);
-            this.textBox2.TabIndex = 25;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // Efectivo
-            // 
-            this.Efectivo.AutoSize = true;
-            this.Efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Efectivo.Location = new System.Drawing.Point(22, 17);
-            this.Efectivo.Name = "Efectivo";
-            this.Efectivo.Size = new System.Drawing.Size(76, 24);
-            this.Efectivo.TabIndex = 26;
-            this.Efectivo.Text = "Efectivo";
-            this.Efectivo.Click += new System.EventHandler(this.Efectivo_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(100, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(161, 29);
-            this.textBox3.TabIndex = 27;
-            // 
             // timerHora
             // 
             this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(78, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 24);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "00:00:00 AM";
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(43, 6);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(184, 24);
-            this.lblFecha.TabIndex = 1;
-            this.lblFecha.Text = "Jueves 29 diciembre";
             // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1});
+            this.toolStripButton1,
+            this.toolStripLabel2,
+            this.toolStripLabel3,
+            this.toolStripSeparator1,
+            this.toolStripButton2,
+            this.toolStripLabel1,
+            this.toolStripLabel4,
+            this.toolStripLabel5,
+            this.tsbFecha,
+            this.tsbHora,
+            this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 667);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1020, 25);
@@ -602,6 +631,120 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(47, 22);
             this.toolStripLabel1.Text = "Cajero: ";
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button5.Location = new System.Drawing.Point(2, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(116, 77);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Funciones POS";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button6.Location = new System.Drawing.Point(118, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(116, 77);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Eliminar";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button7.Location = new System.Drawing.Point(2, 229);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(116, 77);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Pago con Targeta";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button8.Location = new System.Drawing.Point(117, 229);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(116, 77);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "Orden en Mesa";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(51, 22);
+            this.toolStripLabel2.Text = "Gerente:";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(122, 22);
+            this.toolStripLabel3.Text = "Alberth Garita Retana ";
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(126, 22);
+            this.toolStripLabel4.Text = "Dayanna Garita Retana";
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(0, 22);
+            // 
+            // tsbHora
+            // 
+            this.tsbHora.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbHora.Name = "tsbHora";
+            this.tsbHora.Size = new System.Drawing.Size(70, 22);
+            this.tsbHora.Text = "00:00:00 PM";
+            // 
+            // tsbFecha
+            // 
+            this.tsbFecha.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbFecha.Name = "tsbFecha";
+            this.tsbFecha.Size = new System.Drawing.Size(113, 22);
+            this.tsbFecha.Text = "Jueves 29 Diciembre";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // frmFacturacion
             // 
@@ -689,6 +832,20 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+        private System.Windows.Forms.ToolStripLabel tsbFecha;
+        private System.Windows.Forms.ToolStripLabel tsbHora;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

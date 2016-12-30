@@ -284,6 +284,10 @@ namespace AppSodaQuincho
             label2.Text = date1.ToString("hh:mm:ss tt",
                               CultureInfo.InvariantCulture);
             lblFecha.Text = fecha;
+            tsbHora.Text = date1.ToString("hh:mm:ss tt",
+                              CultureInfo.InvariantCulture);
+            tsbFecha.Text = date1.ToString("dddd dd MMMM",
+                  CultureInfo.CreateSpecificCulture("es-CR"));
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
