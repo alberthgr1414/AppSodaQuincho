@@ -17,17 +17,11 @@ namespace AppSodaQuincho
         List<Plato> ListaPlatos = new List<Plato>();
         public frmFacturacion()
         {
-            
             InitializeComponent();
             timerHora.Enabled = true;
             timerHora.Start();
         }
 
-        public void Form1_Load(object sender, EventArgs e)
-        {
-            PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
-            llenarMenu(1);
-        }
 
         public void llenarPagoParaLLevar()
         {
@@ -245,31 +239,6 @@ namespace AppSodaQuincho
             
         }
 
-        private void lblCantidad_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void PanelPlato_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dgvPlato_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Efectivo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panelCantidad_Paint(object sender, PaintEventArgs e)
         {
             lblCantidad.Text = "0";
@@ -278,22 +247,37 @@ namespace AppSodaQuincho
         private void timerHora_Tick(object sender, EventArgs e)
         {
             DateTime date1 = DateTime.Now;
-            string fecha = date1.ToString("dddd dd MMMM",
-                  CultureInfo.CreateSpecificCulture("es-CR"));
-            //date1 = new DateTime(2008, 1, 1, 18, 9, 1);
-            label2.Text = date1.ToString("hh:mm:ss tt",
-                              CultureInfo.InvariantCulture);
-            lblFecha.Text = fecha;
             tsbHora.Text = date1.ToString("hh:mm:ss tt",
                               CultureInfo.InvariantCulture);
             tsbFecha.Text = date1.ToString("dddd dd MMMM",
                   CultureInfo.CreateSpecificCulture("es-CR"));
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void frmFacturacion_Load(object sender, EventArgs e)
         {
+            PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
+            llenarMenu(1);
+        }
+
+        private void btnFuncionesPOS_Click(object sender, EventArgs e)
+        {   //
+            //Crea el boton funciones Pos 
+            //
+            PanelPlato.Controls.Clear();
+            var btnIngresarCajero = new Button();
+            btnIngresarCajero.Location = new System.Drawing.Point(10, 10);
+            btnIngresarCajero.Size = new System.Drawing.Size(120, 40);
+            btnIngresarCajero.Text = "Ingresar Cajero";
+            btnIngresarCajero.Visible = true;
+            btnIngresarCajero.BackColor = System.Drawing.Color.White;
+            btnIngresarCajero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            btnIngresarCajero.Image = global::AppSodaQuincho.Properties.Resources.Captura;
+            PanelPlato.Controls.Add(btnIngresarCajero);
+            //--------------------------------------------------------------------------
+
 
         }
+
     }
 }
  

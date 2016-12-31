@@ -43,6 +43,10 @@
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTituloCantidad = new System.Windows.Forms.Label();
             this.panelPagos = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnFuncionesPOS = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.btnMesa = new System.Windows.Forms.Button();
             this.btnComerAqui = new System.Windows.Forms.Button();
             this.btnExpress = new System.Windows.Forms.Button();
@@ -72,20 +76,16 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.tsbHora = new System.Windows.Forms.ToolStripLabel();
             this.tsbFecha = new System.Windows.Forms.ToolStripLabel();
+            this.tsbHora = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panelTipoPlato.SuspendLayout();
             this.panelPagos.SuspendLayout();
@@ -103,9 +103,8 @@
             this.PanelPlato.Location = new System.Drawing.Point(0, 51);
             this.PanelPlato.Margin = new System.Windows.Forms.Padding(1);
             this.PanelPlato.Name = "PanelPlato";
-            this.PanelPlato.Size = new System.Drawing.Size(503, 615);
+            this.PanelPlato.Size = new System.Drawing.Size(503, 600);
             this.PanelPlato.TabIndex = 2;
-            this.PanelPlato.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelPlato_Paint);
             // 
             // panelTipoPlato
             // 
@@ -230,7 +229,6 @@
             this.lblCantidad.Size = new System.Drawing.Size(29, 31);
             this.lblCantidad.TabIndex = 9;
             this.lblCantidad.Text = "0";
-            this.lblCantidad.Click += new System.EventHandler(this.lblCantidad_Click);
             // 
             // lblTituloCantidad
             // 
@@ -248,7 +246,7 @@
             // 
             this.panelPagos.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelPagos.Controls.Add(this.button6);
-            this.panelPagos.Controls.Add(this.button5);
+            this.panelPagos.Controls.Add(this.btnFuncionesPOS);
             this.panelPagos.Controls.Add(this.button8);
             this.panelPagos.Controls.Add(this.button7);
             this.panelPagos.Controls.Add(this.btnMesa);
@@ -259,6 +257,55 @@
             this.panelPagos.Name = "panelPagos";
             this.panelPagos.Size = new System.Drawing.Size(234, 306);
             this.panelPagos.TabIndex = 11;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button6.Location = new System.Drawing.Point(118, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(116, 77);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Eliminar";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // btnFuncionesPOS
+            // 
+            this.btnFuncionesPOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnFuncionesPOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncionesPOS.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnFuncionesPOS.Location = new System.Drawing.Point(2, 0);
+            this.btnFuncionesPOS.Name = "btnFuncionesPOS";
+            this.btnFuncionesPOS.Size = new System.Drawing.Size(116, 77);
+            this.btnFuncionesPOS.TabIndex = 4;
+            this.btnFuncionesPOS.Text = "Funciones POS";
+            this.btnFuncionesPOS.UseVisualStyleBackColor = false;
+            this.btnFuncionesPOS.Click += new System.EventHandler(this.btnFuncionesPOS_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button8.Location = new System.Drawing.Point(117, 229);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(116, 77);
+            this.button8.TabIndex = 7;
+            this.button8.Text = "Orden en Mesa";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button7.Location = new System.Drawing.Point(2, 229);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(116, 77);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Pago con Targeta";
+            this.button7.UseVisualStyleBackColor = false;
             // 
             // btnMesa
             // 
@@ -315,7 +362,6 @@
             this.dgvPlato.Name = "dgvPlato";
             this.dgvPlato.Size = new System.Drawing.Size(283, 475);
             this.dgvPlato.TabIndex = 16;
-            this.dgvPlato.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlato_CellContentClick);
             // 
             // panelCantidad
             // 
@@ -391,7 +437,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 142);
             this.panel1.TabIndex = 24;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // textBox3
             // 
@@ -411,7 +456,6 @@
             this.Efectivo.Size = new System.Drawing.Size(76, 24);
             this.Efectivo.TabIndex = 26;
             this.Efectivo.Text = "Efectivo";
-            this.Efectivo.Click += new System.EventHandler(this.Efectivo_Click);
             // 
             // textBox2
             // 
@@ -421,7 +465,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(159, 29);
             this.textBox2.TabIndex = 25;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -626,60 +669,6 @@
             this.toolStrip1.TabIndex = 26;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(47, 22);
-            this.toolStripLabel1.Text = "Cajero: ";
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button5.Location = new System.Drawing.Point(2, 0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(116, 77);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Funciones POS";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button6.Location = new System.Drawing.Point(118, 0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(116, 77);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Eliminar";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(2, 229);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(116, 77);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Pago con Targeta";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button8.Location = new System.Drawing.Point(117, 229);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(116, 77);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Orden en Mesa";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -688,6 +677,23 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(51, 22);
+            this.toolStripLabel2.Text = "Gerente:";
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(122, 22);
+            this.toolStripLabel3.Text = "Alberth Garita Retana ";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButton2
             // 
@@ -698,22 +704,11 @@
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // toolStripLabel2
+            // toolStripLabel1
             // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(51, 22);
-            this.toolStripLabel2.Text = "Gerente:";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(122, 22);
-            this.toolStripLabel3.Text = "Alberth Garita Retana ";
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(47, 22);
+            this.toolStripLabel1.Text = "Cajero: ";
             // 
             // toolStripLabel4
             // 
@@ -726,19 +721,19 @@
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(0, 22);
             // 
-            // tsbHora
-            // 
-            this.tsbHora.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbHora.Name = "tsbHora";
-            this.tsbHora.Size = new System.Drawing.Size(70, 22);
-            this.tsbHora.Text = "00:00:00 PM";
-            // 
             // tsbFecha
             // 
             this.tsbFecha.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsbFecha.Name = "tsbFecha";
             this.tsbFecha.Size = new System.Drawing.Size(113, 22);
             this.tsbFecha.Text = "Jueves 29 Diciembre";
+            // 
+            // tsbHora
+            // 
+            this.tsbHora.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbHora.Name = "tsbHora";
+            this.tsbHora.Size = new System.Drawing.Size(70, 22);
+            this.tsbHora.Text = "00:00:00 PM";
             // 
             // toolStripSeparator2
             // 
@@ -769,7 +764,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmFacturacion_Load);
             this.panelTipoPlato.ResumeLayout(false);
             this.panelPagos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).EndInit();
@@ -835,7 +830,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnFuncionesPOS;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;

@@ -134,6 +134,12 @@
     <Compile Include="frmMantenimientoUsuario.Designer.cs">
       <DependentUpon>frmMantenimientoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPruebas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPruebas.Designer.cs">
+      <DependentUpon>frmPruebas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPruebas.resx">
+      <DependentUpon>frmPruebas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
@@ -251,11 +260,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\flecha-a-la-izquierda-volver.png" />
-    <None Include="Resources\flecha-a-la-izquierda-volver %281%29.png" />
+    <None Include="Resources\Captura.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Captura.PNG" />
+    <Content Include="Imagenes\empleado.png" />
+    <Content Include="Imagenes\gerente.png" />
+    <Content Include="Resources\empleado.png" />
+    <Content Include="Resources\gerente.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
