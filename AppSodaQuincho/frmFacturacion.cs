@@ -20,8 +20,19 @@ namespace AppSodaQuincho
             InitializeComponent();
             timerHora.Enabled = true;
             timerHora.Start();
+            Scrolls();
         }
 
+        public void Scrolls()
+        {
+            //--------Scroll Bar a el Panel---------------
+            PanelPlato.HorizontalScroll.Enabled = false;
+            PanelPlato.HorizontalScroll.Visible = false;
+            //PanelPlato.HorizontalScroll.Maximum = 0;
+            PanelPlato.VerticalScroll.Visible = true;
+            PanelPlato.Controls.OfType<VScrollBar>().First().Width = 20;
+            //--------------------------------------------
+        }
 
         public void llenarPagoParaLLevar()
         {
@@ -52,25 +63,11 @@ namespace AppSodaQuincho
             // Variables de Ancho y Alto de los PictureBox
             // Contador de Rows
             PanelPlato.Controls.Clear();
-            int AnchoPictureBox = 6;
-            int AltoPictureBox = 6;
-            int AnchoLabel = 6;
+            int AnchoPictureBox = 5;
+            int AltoPictureBox = 5;
+            int AnchoLabel = 5;
             int AltoLabel = 99;
             int cont = 0;
-            //--------------------------------------------
-            //--------Scroll Bar a el Panel---------------
-            //PanelPlato.AutoScroll = true;
-            //PanelPlato.HorizontalScroll.Enabled = false;
-            //PanelPlato.HorizontalScroll.Visible = false;
-            //PanelPlato.HorizontalScroll.Maximum = 0;
-            //PanelPlato.AutoScroll = true;
-            //--------------------------------------------
-            //panelTipoPlato.AutoScroll = false;
-            //panelTipoPlato.HorizontalScroll.Enabled = false;
-            //panelTipoPlato.HorizontalScroll.Visible = false;
-            //panelTipoPlato.HorizontalScroll.Maximum = 0;
-            //panelTipoPlato.VerticalScroll.Visible = true;
-            //--------------------------------------------
 
             DataTable ds = BLL.PlatoBLL.ListarPlatos(TipoPlato);
             for (int i = 0; i < ds.Rows.Count; i++)
@@ -111,10 +108,8 @@ namespace AppSodaQuincho
                     PanelPlato.Controls.Add(pictbox);
                     pictbox.Click += new System.EventHandler(this.ptbProducto_Click);
                     //---------------------------------------------------
-                    AnchoPictureBox += 100;
-                    AnchoLabel += 100;
-                    //Limpair Panel
-                    //panel1.Controls.Clear();
+                    AnchoPictureBox += 95;
+                    AnchoLabel += 95;
                 }
                 else
                 {
@@ -122,9 +117,9 @@ namespace AppSodaQuincho
                     {
                         //Para el salto de linea 
                         AnchoPictureBox = 5;
-                        AltoPictureBox += 125;
+                        AltoPictureBox += 123;
                         AnchoLabel = 5;
-                        AltoLabel += 125;
+                        AltoLabel += 123;
                         cont = 0;
                         i -= 1;
                     }
@@ -147,27 +142,27 @@ namespace AppSodaQuincho
 
         private void ptbProducto_Click(object sender, EventArgs e)
         {
-            string resultado="";
+            string resultado = "";
             PictureBox cl = sender as PictureBox;
-            cl.BorderStyle= BorderStyle.Fixed3D;
+            cl.BorderStyle = BorderStyle.Fixed3D;
             for (int i = 0; i < 1000000; i++)
             {
                 if (i == 999999)
                 {
-                    cl.BorderStyle = BorderStyle.None;  
+                    cl.BorderStyle = BorderStyle.None;
                 }
             }
             int Codigo = int.Parse(cl.Tag.ToString());
             Plato plato = new Plato();
             plato.ID_Plato = Codigo;
-            for (int i = 0; i < ListaPlatos.Count ; i++)
+            for (int i = 0; i < ListaPlatos.Count; i++)
             {
-                resultado += ListaPlatos[i].ID_Plato+"/n";
+                resultado += ListaPlatos[i].ID_Plato + "/n";
             }
-            RefrescarFactura(); 
+            RefrescarFactura();
         }
 
-        public void RefrescarFactura() 
+        public void RefrescarFactura()
         {
             dgvPlato.DataSource = ListaPlatos;
         }
@@ -181,20 +176,6 @@ namespace AppSodaQuincho
             //valor= i;
             // }
             // textBox1.Text= valor.ToString();
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            panelTipoPlato.AutoScrollPosition = new Point(0,0);
-        }
-
-        private void button16_Click(object sender, EventArgs e)
-        {
-            int cantidad = 100;
-            int cont = 0;
-            cont += 1;
-            panelTipoPlato.AutoScrollPosition = new Point(0,cantidad);
-            cantidad = cantidad + 100;
         }
 
         private void btnMenuRegular_Click(object sender, EventArgs e)
@@ -223,20 +204,20 @@ namespace AppSodaQuincho
             Button cl = sender as Button;
             if (cantidad < 10)
             {
-                if (cantidad==0)
+                if (cantidad == 0)
                 {
-                    lblCantidad.Text = cl.Tag.ToString(); 
+                    lblCantidad.Text = cl.Tag.ToString();
                 }
                 else
                 {
                     lblCantidad.Text += cl.Tag.ToString();
                 }
             }
-            else 
+            else
             {
                 lblCantidad.Text = "0";
             }
-            
+
         }
 
         private void panelCantidad_Paint(object sender, PaintEventArgs e)
@@ -260,24 +241,229 @@ namespace AppSodaQuincho
         }
 
         private void btnFuncionesPOS_Click(object sender, EventArgs e)
-        {   //
-            //Crea el boton funciones Pos 
-            //
+        {
+            //Limpia el panel
             PanelPlato.Controls.Clear();
-            var btnIngresarCajero = new Button();
-            btnIngresarCajero.Location = new System.Drawing.Point(10, 10);
-            btnIngresarCajero.Size = new System.Drawing.Size(120, 40);
-            btnIngresarCajero.Text = "Ingresar Cajero";
-            btnIngresarCajero.Visible = true;
-            btnIngresarCajero.BackColor = System.Drawing.Color.White;
-            btnIngresarCajero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            btnIngresarCajero.Image = global::AppSodaQuincho.Properties.Resources.Captura;
-            PanelPlato.Controls.Add(btnIngresarCajero);
-            //--------------------------------------------------------------------------
+            //--------------------------------------------
+
+            //Creacion de el pictureBox Ingresar Cajero
+            var ptbIngresarCajero = new PictureBox();
+            ptbIngresarCajero.Location = new System.Drawing.Point(10, 10);
+            ptbIngresarCajero.Size = new System.Drawing.Size(90, 90);
+            ptbIngresarCajero.BackColor = System.Drawing.Color.White;
+            ptbIngresarCajero.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbIngresarCajero.Visible = true;
+            ptbIngresarCajero.Image = global::AppSodaQuincho.Properties.Resources.IngresarCajero;
+            PanelPlato.Controls.Add(ptbIngresarCajero);
+            ptbIngresarCajero.Click += new System.EventHandler(this.ptbIngresarCajero_Click);
+            //--------------------------------------------
+
+            //Creacion de Label Ingresar Cajero
+            var lblIngresarCajero = new Label();
+            lblIngresarCajero.Location = new System.Drawing.Point(10, 100);
+            lblIngresarCajero.Size = new System.Drawing.Size(90, 20);
+            lblIngresarCajero.Text = "Ingresar Cajero";
+            lblIngresarCajero.Visible = true;
+            lblIngresarCajero.BackColor = System.Drawing.Color.White;
+            lblIngresarCajero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            PanelPlato.Controls.Add(lblIngresarCajero);
+            lblIngresarCajero.Click += new System.EventHandler(this.ptbIngresarCajero_Click);
+            //--------------------------------------------
+
+            //Creacion de el pictureBox Cierre Cajero
+            var ptbCierreCajero = new PictureBox();
+            ptbCierreCajero.Location = new System.Drawing.Point(110,10);
+            ptbCierreCajero.Size = new System.Drawing.Size(90, 90);
+            ptbCierreCajero.BackColor = System.Drawing.Color.White;
+            ptbCierreCajero.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbCierreCajero.Visible = true;
+            ptbCierreCajero.Image = global::AppSodaQuincho.Properties.Resources.CierreCajero;
+            PanelPlato.Controls.Add(ptbCierreCajero);
+            ptbCierreCajero.Click += new System.EventHandler(this.ptbCierreCajero_Click);
+            //--------------------------------------------
+
+            //Creacion de Label Cierre Cajero 
+            var lblCierreCajero = new Label();
+            lblCierreCajero.Location = new System.Drawing.Point(110, 100);
+            lblCierreCajero.Size = new System.Drawing.Size(90, 20);
+            lblCierreCajero.Text = "Cierre Cajero";
+            lblCierreCajero.Visible = true;
+            lblCierreCajero.BackColor = System.Drawing.Color.White;
+            lblCierreCajero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            PanelPlato.Controls.Add(lblCierreCajero);
+            lblCierreCajero.Click += new System.EventHandler(this.ptbCierreCajero_Click);
+            //--------------------------------------------
+
+            //Creacion de el pictureBox Estado Caja
+            var ptbEstadoCaja = new PictureBox();
+            ptbEstadoCaja.Location = new System.Drawing.Point(10, 130);
+            ptbEstadoCaja.Size = new System.Drawing.Size(90, 90);
+            ptbEstadoCaja.BackColor = System.Drawing.Color.White;
+            ptbEstadoCaja.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbEstadoCaja.Visible = true;
+            ptbEstadoCaja.Image = global::AppSodaQuincho.Properties.Resources.money;
+            PanelPlato.Controls.Add(ptbEstadoCaja);
+            ptbEstadoCaja.Click += new System.EventHandler(this.ptbEstadoCaja_Click);
+            //--------------------------------------------
+
+            //Creacion de Label Estado Caja
+            var lblEstadoCaja = new Label();
+            lblEstadoCaja.Location = new System.Drawing.Point(10, 220);
+            lblEstadoCaja.Size = new System.Drawing.Size(90, 20);
+            lblEstadoCaja.Text = "Estado de Caja";
+            lblEstadoCaja.Visible = true;
+            lblEstadoCaja.BackColor = System.Drawing.Color.White;
+            lblEstadoCaja.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            PanelPlato.Controls.Add(lblEstadoCaja);
+            lblEstadoCaja.Click += new System.EventHandler(this.ptbEstadoCaja_Click);
+            //--------------------------------------------
+
+            //Creacion de el pictureBox Abrir Gaveta
+            var ptbAbrirGaveta = new PictureBox();
+            ptbAbrirGaveta.Location = new System.Drawing.Point(110, 130);
+            ptbAbrirGaveta.Size = new System.Drawing.Size(90, 90);
+            ptbAbrirGaveta.BackColor = System.Drawing.Color.White;
+            ptbAbrirGaveta.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbAbrirGaveta.Visible = true;
+            ptbAbrirGaveta.Image = global::AppSodaQuincho.Properties.Resources.key;
+            PanelPlato.Controls.Add(ptbAbrirGaveta);
+            ptbAbrirGaveta.Click += new System.EventHandler(this.ptbAbrirGaveta_Click);
+            //--------------------------------------------
+
+            //Creacion de Label Abrir Gaveta 
+            var lblAbrirGaveta = new Label();
+            lblAbrirGaveta.Location = new System.Drawing.Point(110, 220);
+            lblAbrirGaveta.Size = new System.Drawing.Size(90, 20);
+            lblAbrirGaveta.Text = "Abrir Gaveta";
+            lblAbrirGaveta.Visible = true;
+            lblAbrirGaveta.BackColor = System.Drawing.Color.White;
+            lblAbrirGaveta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            PanelPlato.Controls.Add(lblAbrirGaveta);
+            lblAbrirGaveta.Click += new System.EventHandler(this.ptbAbrirGaveta_Click);
+            //--------------------------------------------
+
+            //Creacion de el pictureBox Nulo
+            var ptbNulo = new PictureBox();
+            ptbNulo.Location = new System.Drawing.Point(210, 130);
+            ptbNulo.Size = new System.Drawing.Size(90, 90);
+            ptbNulo.BackColor = System.Drawing.Color.White;
+            ptbNulo.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbNulo.Visible = true;
+            ptbNulo.Image = global::AppSodaQuincho.Properties.Resources.erase;
+            PanelPlato.Controls.Add(ptbNulo);
+            ptbNulo.Click += new System.EventHandler(this.ptbNulo_Click);
+            //--------------------------------------------
+
+            //Creacion de Label Nulo 
+            var lblNulo = new Label();
+            lblNulo.Location = new System.Drawing.Point(210, 220);
+            lblNulo.Size = new System.Drawing.Size(90, 20);
+            lblNulo.Text = "Nulo";
+            lblNulo.Visible = true;
+            lblNulo.BackColor = System.Drawing.Color.White;
+            lblNulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            PanelPlato.Controls.Add(lblNulo);
+            lblNulo.Click += new System.EventHandler(this.ptbNulo_Click);
+            //--------------------------------------------
+
+            //Creacion de el pictureBox Ingresar Efectivo
+            var ptbIngresarEfectivo = new PictureBox();
+            ptbIngresarEfectivo.Location = new System.Drawing.Point(10, 250);
+            ptbIngresarEfectivo.Size = new System.Drawing.Size(90, 90);
+            ptbIngresarEfectivo.BackColor = System.Drawing.Color.White;
+            ptbIngresarEfectivo.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbIngresarEfectivo.Visible = true;
+            ptbIngresarEfectivo.Image = global::AppSodaQuincho.Properties.Resources.deposite;
+            PanelPlato.Controls.Add(ptbIngresarEfectivo);
+            ptbIngresarEfectivo.Click += new System.EventHandler(this.ptbIngresarEfectivo_Click);
+            //--------------------------------------------
+
+            //Creacion de Label Ingresar Efectivo
+            var lblIngresarEfectivo = new Label();
+            lblIngresarEfectivo.Location = new System.Drawing.Point(10, 340);
+            lblIngresarEfectivo.Size = new System.Drawing.Size(90, 20);
+            lblIngresarEfectivo.Text = "Ingresar Efectivo";
+            lblIngresarEfectivo.Visible = true;
+            lblIngresarEfectivo.BackColor = System.Drawing.Color.White;
+            lblIngresarEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            PanelPlato.Controls.Add(lblIngresarEfectivo);
+            lblIngresarEfectivo.Click += new System.EventHandler(this.ptbIngresarEfectivo_Click);
+            //--------------------------------------------
+
+            //Creacion de el pictureBox Retiro Efectivo
+            var ptbRetiroEfectivo = new PictureBox();
+            ptbRetiroEfectivo.Location = new System.Drawing.Point(110, 250);
+            ptbRetiroEfectivo.Size = new System.Drawing.Size(90, 90);
+            ptbRetiroEfectivo.BackColor = System.Drawing.Color.White;
+            ptbRetiroEfectivo.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbRetiroEfectivo.Visible = true;
+            ptbRetiroEfectivo.Image = global::AppSodaQuincho.Properties.Resources.Sacar;
+            PanelPlato.Controls.Add(ptbRetiroEfectivo);
+            ptbRetiroEfectivo.Click += new System.EventHandler(this.ptbRetiroEfectivo_Click);
+            //--------------------------------------------
+
+            //Creacion de Label Retiro Efectivo
+            var lblRetiroEfectivo = new Label();
+            lblRetiroEfectivo.Location = new System.Drawing.Point(110, 340);
+            lblRetiroEfectivo.Size = new System.Drawing.Size(90, 20);
+            lblRetiroEfectivo.Text = "Retiro Efectivo";
+            lblRetiroEfectivo.Visible = true;
+            lblRetiroEfectivo.BackColor = System.Drawing.Color.White;
+            lblRetiroEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            PanelPlato.Controls.Add(lblRetiroEfectivo);
+            lblRetiroEfectivo.Click += new System.EventHandler(this.ptbRetiroEfectivo_Click);
+            //--------------------------------------------
 
 
         }
 
+        private void ptbIngresarCajero_Click(object sender, EventArgs e)
+        {
+            frmIngresarCajero IngresarCajero = new frmIngresarCajero();
+            IngresarCajero.ShowDialog();
+        }
+
+        private void ptbCierreCajero_Click(object sender, EventArgs e)
+        {
+            frmIngresarCajero IngresarCajero = new frmIngresarCajero();
+            IngresarCajero.ShowDialog();
+        }
+
+        private void ptbEstadoCaja_Click(object sender, EventArgs e)
+        {
+            frmIngresarCajero IngresarCajero = new frmIngresarCajero();
+            IngresarCajero.ShowDialog();
+        }
+
+        private void ptbAbrirGaveta_Click(object sender, EventArgs e)
+        {
+            frmIngresarCajero IngresarCajero = new frmIngresarCajero();
+            IngresarCajero.ShowDialog();
+        }
+
+        private void ptbNulo_Click(object sender, EventArgs e)
+        {
+            frmIngresarCajero IngresarCajero = new frmIngresarCajero();
+            IngresarCajero.ShowDialog();
+        }
+
+        private void ptbIngresarEfectivo_Click(object sender, EventArgs e)
+        {
+            frmIngresarCajero IngresarCajero = new frmIngresarCajero();
+            IngresarCajero.ShowDialog();
+        }
+
+
+        private void ptbRetiroEfectivo_Click(object sender, EventArgs e)
+        {
+            frmIngresarCajero IngresarCajero = new frmIngresarCajero();
+            IngresarCajero.ShowDialog();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
  

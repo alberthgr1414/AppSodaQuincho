@@ -184,7 +184,7 @@ namespace AppSodaQuincho
 
                 PlatoBLL.GuardarPlato(ID_TipoPlato, Nombre_Plato, Precio, fotografia);
                 MessageBox.Show("Datos Insertados correctamente");
-                deshabilitarDatos();
+                //deshabilitarDatos();
             }
             catch (Exception ex)
             {

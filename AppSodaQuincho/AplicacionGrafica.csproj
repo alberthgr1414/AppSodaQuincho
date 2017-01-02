@@ -110,6 +110,12 @@
     <Compile Include="frmAbrirTurno.Designer.cs">
       <DependentUpon>frmAbrirTurno.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIngresarCajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresarCajero.Designer.cs">
+      <DependentUpon>frmIngresarCajero.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     <Compile Include="TipoMantenimiento.cs" />
     <EmbeddedResource Include="frmAbrirTurno.resx">
       <DependentUpon>frmAbrirTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresarCajero.resx">
+      <DependentUpon>frmIngresarCajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngreso.resx">
       <DependentUpon>frmIngreso.cs</DependentUpon>
@@ -265,8 +274,18 @@
   <ItemGroup>
     <Content Include="Imagenes\empleado.png" />
     <Content Include="Imagenes\gerente.png" />
-    <Content Include="Resources\empleado.png" />
-    <Content Include="Resources\gerente.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\clock.png" />
+    <None Include="Resources\Sacar.png" />
+    <None Include="Resources\deposite.png" />
+    <None Include="Resources\erase.png" />
+    <None Include="Resources\ComidaEmpleado.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\money.png" />
+    <None Include="Resources\IngresarCajero.png" />
+    <None Include="Resources\CierreCajero.png" />
+    <None Include="Resources\gerente.png" />
+    <None Include="Resources\empleado.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
