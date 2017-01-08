@@ -28,9 +28,7 @@ namespace AppSodaQuincho
             //--------Scroll Bar a el Panel---------------
             PanelPlato.HorizontalScroll.Enabled = false;
             PanelPlato.HorizontalScroll.Visible = false;
-            //PanelPlato.HorizontalScroll.Maximum = 0;
             PanelPlato.VerticalScroll.Visible = true;
-            PanelPlato.Controls.OfType<VScrollBar>().First().Width = 20;
             //--------------------------------------------
         }
 
