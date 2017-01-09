@@ -27,11 +27,11 @@ namespace AppSodaQuincho
             //PanelPlato.HorizontalScroll.Maximum = 0;
             //PanelPlato.AutoScroll = true;
             //--------------------------------------------
-            panel1.AutoScroll = false;
-            panel1.HorizontalScroll.Enabled = false;
-            panel1.HorizontalScroll.Visible = false;
-            panel1.HorizontalScroll.Maximum = 0;
-            panel1.VerticalScroll.Visible = true;
+            //panel1.AutoScroll = false;
+            //panel1.HorizontalScroll.Enabled = false;
+            //panel1.HorizontalScroll.Visible = false;
+            //panel1.HorizontalScroll.Maximum = 0;
+            //panel1.VerticalScroll.Visible = true;
             //--------------------------------------------
         }
     }

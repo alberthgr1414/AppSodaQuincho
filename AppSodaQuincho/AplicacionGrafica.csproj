@@ -170,6 +170,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="StudioTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TipoMantenimiento.cs" />
     <EmbeddedResource Include="frmAbrirTurno.resx">
       <DependentUpon>frmAbrirTurno.cs</DependentUpon>
