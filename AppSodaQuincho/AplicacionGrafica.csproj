@@ -275,8 +275,6 @@
     <None Include="Resources\Captura.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Imagenes\empleado.png" />
-    <Content Include="Imagenes\gerente.png" />
     <None Include="Resources\calendar.png" />
     <None Include="Resources\clock.png" />
     <None Include="Resources\Sacar.png" />
