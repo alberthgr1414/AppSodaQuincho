@@ -5,7 +5,14 @@ using System.Text;
 
 namespace Entidades
 {
-    class Caja
+    public class Caja
     {
+        public int ID_Turno { set; get; }
+        public int ID_Caja { set; get; }
+        public int ID_Usuario { set; get; }
+        public DateTime Apertura { set; get; }
+        public DateTime Cierre { set; get; }
+        public double Fondo { set; get; }
+        public int Estado { set; get; }
     }
 }
