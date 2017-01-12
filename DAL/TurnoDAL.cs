@@ -48,32 +48,6 @@ namespace DAL
             return valor;
         }
 
-        public static int GuardarPlato(Turno pTurno)
-        {
-            //Declaración de objeto SqlCommand
-            SqlCommand oCommand = new SqlCommand();
-            int registrosActualizados = 0;
-            oCommand.CommandText = "SpTurnoInsertar";
-            oCommand.CommandType = CommandType.StoredProcedure;
-
-            //Crear los Parámetros del procedimiento y sus valores
-            oCommand.Parameters.AddWithValue("@ID_Usuario", 1);
-            oCommand.Parameters[0].Direction = ParameterDirection.Input;
-
-            oCommand.Parameters.AddWithValue("@Monto", 1);
-            oCommand.Parameters[1].Direction = ParameterDirection.Input;
-
-            try
-            {
-                registrosActualizados = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
-                return registrosActualizados;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
 
         public static void CerrarTurno()
         {

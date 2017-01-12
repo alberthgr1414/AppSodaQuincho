@@ -17,7 +17,7 @@ namespace DAL
             SqlCommand oCommand = new SqlCommand();
             //Declaración de Objeto DataTable
             DataTable oDataTable = new DataTable();
-            oCommand.CommandText = "SpTurnoListar";
+            oCommand.CommandText = "SpCajaListar";
             oCommand.CommandType = CommandType.StoredProcedure;
             try
             {
@@ -48,39 +48,12 @@ namespace DAL
             return valor;
         }
 
-        public static int GuardarCaja(Turno pTurno)
-        {
-            //Declaración de objeto SqlCommand
-            SqlCommand oCommand = new SqlCommand();
-            int registrosActualizados = 0;
-            oCommand.CommandText = "SpTurnoInsertar";
-            oCommand.CommandType = CommandType.StoredProcedure;
-
-            //Crear los Parámetros del procedimiento y sus valores
-            oCommand.Parameters.AddWithValue("@ID_Usuario", 1);
-            oCommand.Parameters[0].Direction = ParameterDirection.Input;
-
-            oCommand.Parameters.AddWithValue("@Monto", 1);
-            oCommand.Parameters[1].Direction = ParameterDirection.Input;
-
-            try
-            {
-                registrosActualizados = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
-                return registrosActualizados;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-
         public static void CerrarCaja()
         {
             //Declaración de objeto SqlCommand
             SqlCommand oCommand = new SqlCommand();
             int registrosActualizados = 0;
-            oCommand.CommandText = "SpTurnoCerrar";
+            oCommand.CommandText = "SpCajaCerrar";
             oCommand.CommandType = CommandType.StoredProcedure;
             try
             {
@@ -97,7 +70,7 @@ namespace DAL
             //Declaración de objeto SqlCommand
             SqlCommand oCommand = new SqlCommand();
             int registrosActualizados = 0;
-            oCommand.CommandText = "SpTurnoAbrir";
+            oCommand.CommandText = "SpCajaAbrir";
             oCommand.CommandType = CommandType.StoredProcedure;
 
             oCommand.Parameters.AddWithValue("@ID_Usuario", caja.ID_Usuario);
