@@ -71,7 +71,7 @@
             this.BtnNum2 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
@@ -87,13 +87,13 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).BeginInit();
             this.panelCantidad.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelPlato
@@ -627,31 +627,29 @@
             // 
             this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
-            // toolStrip1
+            // flowLayoutPanel2
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripLabel2,
-            this.toolStripLabel3,
-            this.toolStripSeparator1,
-            this.toolStripButton2,
-            this.toolStripLabel1,
-            this.toolStripLabel4,
-            this.toolStripLabel5,
-            this.tsbFecha,
-            this.toolStripButton4,
-            this.toolStripSeparator4,
-            this.tsbHora,
-            this.toolStripButton3,
-            this.toolStripSeparator2,
-            this.toolStripSeparator3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 667);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1020, 25);
-            this.toolStrip1.TabIndex = 26;
-            this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.flowLayoutPanel2.Controls.Add(this.btnMenuRegular);
+            this.flowLayoutPanel2.Controls.Add(this.btnCombos);
+            this.flowLayoutPanel2.Controls.Add(this.btnBevidas);
+            this.flowLayoutPanel2.Controls.Add(this.btnPostres);
+            this.flowLayoutPanel2.Controls.Add(this.btnAdicionales);
+            this.flowLayoutPanel2.Controls.Add(this.btnPrecio);
+            this.flowLayoutPanel2.Controls.Add(this.btnProductosTemporada);
+            this.flowLayoutPanel2.Controls.Add(this.btnPedidoEspecial);
+            this.flowLayoutPanel2.Controls.Add(this.btnFuncionesPOS);
+            this.flowLayoutPanel2.Controls.Add(this.button6);
+            this.flowLayoutPanel2.Controls.Add(this.btnLlevar);
+            this.flowLayoutPanel2.Controls.Add(this.btnComerAqui);
+            this.flowLayoutPanel2.Controls.Add(this.btnMesa);
+            this.flowLayoutPanel2.Controls.Add(this.btnExpress);
+            this.flowLayoutPanel2.Controls.Add(this.button7);
+            this.flowLayoutPanel2.Controls.Add(this.button8);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(504, 52);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(235, 616);
+            this.flowLayoutPanel2.TabIndex = 27;
             // 
             // toolStripButton1
             // 
@@ -756,29 +754,31 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // flowLayoutPanel2
+            // toolStrip1
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.flowLayoutPanel2.Controls.Add(this.btnMenuRegular);
-            this.flowLayoutPanel2.Controls.Add(this.btnCombos);
-            this.flowLayoutPanel2.Controls.Add(this.btnBevidas);
-            this.flowLayoutPanel2.Controls.Add(this.btnPostres);
-            this.flowLayoutPanel2.Controls.Add(this.btnAdicionales);
-            this.flowLayoutPanel2.Controls.Add(this.btnPrecio);
-            this.flowLayoutPanel2.Controls.Add(this.btnProductosTemporada);
-            this.flowLayoutPanel2.Controls.Add(this.btnPedidoEspecial);
-            this.flowLayoutPanel2.Controls.Add(this.btnFuncionesPOS);
-            this.flowLayoutPanel2.Controls.Add(this.button6);
-            this.flowLayoutPanel2.Controls.Add(this.btnLlevar);
-            this.flowLayoutPanel2.Controls.Add(this.btnComerAqui);
-            this.flowLayoutPanel2.Controls.Add(this.btnMesa);
-            this.flowLayoutPanel2.Controls.Add(this.btnExpress);
-            this.flowLayoutPanel2.Controls.Add(this.button7);
-            this.flowLayoutPanel2.Controls.Add(this.button8);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(504, 52);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(235, 616);
-            this.flowLayoutPanel2.TabIndex = 27;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripLabel2,
+            this.toolStripLabel3,
+            this.toolStripSeparator1,
+            this.toolStripButton2,
+            this.toolStripLabel1,
+            this.toolStripLabel4,
+            this.toolStripLabel5,
+            this.tsbFecha,
+            this.toolStripButton4,
+            this.toolStripSeparator4,
+            this.tsbHora,
+            this.toolStripButton3,
+            this.toolStripSeparator2,
+            this.toolStripSeparator3});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 667);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1020, 25);
+            this.toolStrip1.TabIndex = 26;
+            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // frmFacturacion
             // 
@@ -809,9 +809,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -856,27 +856,27 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer timerHora;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnFuncionesPOS;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
         private System.Windows.Forms.ToolStripLabel tsbFecha;
-        private System.Windows.Forms.ToolStripLabel tsbHora;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripLabel tsbHora;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
 
