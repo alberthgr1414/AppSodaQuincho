@@ -52,5 +52,17 @@ namespace BLL
             }
         }
 
+        public static string Turno()
+        {
+            try
+            {
+                return TurnoDAL.Turno();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

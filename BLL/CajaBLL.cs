@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    class CajaBLL
+    public class CajaBLL
     {
-        public static bool VereificarTurnoAbierto()
+        public static bool VereificarCajaAbierta()
         {
             try
             {
@@ -34,7 +34,7 @@ namespace BLL
             }
         }
 
-        public static void AbrirTurno(int codigo, int monto)
+        public static void AbrirCaja(int codigo, int monto)
         {
             try
             {
@@ -44,6 +44,18 @@ namespace BLL
                     Fondo = monto,
                 };
                 CajaDAL.AbrirCaja(oCaja);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string Caja()
+        {
+            try
+            {
+                return CajaDAL.Caja();
             }
             catch (Exception ex)
             {

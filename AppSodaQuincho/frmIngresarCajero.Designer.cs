@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtCodigoAsistente = new System.Windows.Forms.MaskedTextBox();
-            this.txtDinero = new System.Windows.Forms.MaskedTextBox();
+            this.tnLimpiar = new System.Windows.Forms.Button();
+            this.txtFondo = new System.Windows.Forms.MaskedTextBox();
             this.flpTeclado = new System.Windows.Forms.FlowLayoutPanel();
             this.Tecla1 = new System.Windows.Forms.Button();
             this.Tecla2 = new System.Windows.Forms.Button();
@@ -44,12 +43,11 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAbrirTurno = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnAbrirCaja = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodigoCajero = new System.Windows.Forms.TextBox();
             this.flpTeclado.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,39 +56,30 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Window;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(166, 141);
+            this.label3.Location = new System.Drawing.Point(162, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 24);
             this.label3.TabIndex = 20;
             this.label3.Text = "₡";
             // 
-            // button1
+            // tnLimpiar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(135, 373);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 40);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.tnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.tnLimpiar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tnLimpiar.Location = new System.Drawing.Point(131, 333);
+            this.tnLimpiar.Name = "tnLimpiar";
+            this.tnLimpiar.Size = new System.Drawing.Size(67, 40);
+            this.tnLimpiar.TabIndex = 19;
+            this.tnLimpiar.Text = "Limpiar";
+            this.tnLimpiar.UseVisualStyleBackColor = false;
             // 
-            // txtCodigoAsistente
+            // txtFondo
             // 
-            this.txtCodigoAsistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoAsistente.Location = new System.Drawing.Point(191, 55);
-            this.txtCodigoAsistente.Mask = "999999";
-            this.txtCodigoAsistente.Name = "txtCodigoAsistente";
-            this.txtCodigoAsistente.Size = new System.Drawing.Size(123, 29);
-            this.txtCodigoAsistente.TabIndex = 18;
-            // 
-            // txtDinero
-            // 
-            this.txtDinero.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDinero.Location = new System.Drawing.Point(191, 138);
-            this.txtDinero.Name = "txtDinero";
-            this.txtDinero.Size = new System.Drawing.Size(120, 29);
-            this.txtDinero.TabIndex = 17;
+            this.txtFondo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFondo.Location = new System.Drawing.Point(187, 98);
+            this.txtFondo.Name = "txtFondo";
+            this.txtFondo.Size = new System.Drawing.Size(120, 29);
+            this.txtFondo.TabIndex = 17;
             // 
             // flpTeclado
             // 
@@ -105,7 +94,7 @@
             this.flpTeclado.Controls.Add(this.button11);
             this.flpTeclado.Controls.Add(this.button12);
             this.flpTeclado.Controls.Add(this.button14);
-            this.flpTeclado.Location = new System.Drawing.Point(27, 183);
+            this.flpTeclado.Location = new System.Drawing.Point(23, 143);
             this.flpTeclado.Name = "flpTeclado";
             this.flpTeclado.Size = new System.Drawing.Size(284, 184);
             this.flpTeclado.TabIndex = 16;
@@ -221,81 +210,70 @@
             this.button14.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // btnCancelar
+            // btnSalir
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnCancelar.Location = new System.Drawing.Point(240, 373);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(70, 40);
-            this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Salir";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSalir.Location = new System.Drawing.Point(236, 333);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(70, 40);
+            this.btnSalir.TabIndex = 15;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnAbrirTurno
+            // btnAbrirCaja
             // 
-            this.btnAbrirTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnAbrirTurno.ForeColor = System.Drawing.Color.Black;
-            this.btnAbrirTurno.Location = new System.Drawing.Point(27, 373);
-            this.btnAbrirTurno.Name = "btnAbrirTurno";
-            this.btnAbrirTurno.Size = new System.Drawing.Size(67, 40);
-            this.btnAbrirTurno.TabIndex = 14;
-            this.btnAbrirTurno.Text = "Abrir Turno";
-            this.btnAbrirTurno.UseVisualStyleBackColor = false;
+            this.btnAbrirCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAbrirCaja.ForeColor = System.Drawing.Color.Black;
+            this.btnAbrirCaja.Location = new System.Drawing.Point(23, 333);
+            this.btnAbrirCaja.Name = "btnAbrirCaja";
+            this.btnAbrirCaja.Size = new System.Drawing.Size(67, 40);
+            this.btnAbrirCaja.TabIndex = 14;
+            this.btnAbrirCaja.Text = "Abrir Caja";
+            this.btnAbrirCaja.UseVisualStyleBackColor = false;
+            this.btnAbrirCaja.Click += new System.EventHandler(this.btnAbrirCaja_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 140);
+            this.label2.Location = new System.Drawing.Point(23, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 24);
             this.label2.TabIndex = 13;
             this.label2.Text = "Dinero Inicial";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 24);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Codigo Asistente";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 100);
+            this.label4.Location = new System.Drawing.Point(23, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 24);
+            this.label4.Size = new System.Drawing.Size(131, 24);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Codigo Empleado";
+            this.label4.Text = "Codigo Cajero";
             // 
-            // textBox1
+            // txtCodigoCajero
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(193, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(118, 29);
-            this.textBox1.TabIndex = 22;
+            this.txtCodigoCajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoCajero.Location = new System.Drawing.Point(189, 60);
+            this.txtCodigoCajero.Name = "txtCodigoCajero";
+            this.txtCodigoCajero.Size = new System.Drawing.Size(118, 29);
+            this.txtCodigoCajero.TabIndex = 22;
             // 
             // frmIngresarCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 424);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(337, 389);
+            this.Controls.Add(this.txtCodigoCajero);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtCodigoAsistente);
-            this.Controls.Add(this.txtDinero);
+            this.Controls.Add(this.tnLimpiar);
+            this.Controls.Add(this.txtFondo);
             this.Controls.Add(this.flpTeclado);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAbrirTurno);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnAbrirCaja);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "frmIngresarCajero";
             this.Text = "Ingresar Cajero";
             this.Load += new System.EventHandler(this.frmIngresarCajero_Load);
@@ -308,9 +286,8 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox txtCodigoAsistente;
-        private System.Windows.Forms.MaskedTextBox txtDinero;
+        private System.Windows.Forms.Button tnLimpiar;
+        private System.Windows.Forms.MaskedTextBox txtFondo;
         private System.Windows.Forms.FlowLayoutPanel flpTeclado;
         private System.Windows.Forms.Button Tecla1;
         private System.Windows.Forms.Button Tecla2;
@@ -323,11 +300,10 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAbrirTurno;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnAbrirCaja;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCodigoCajero;
     }
 }

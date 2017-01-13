@@ -187,5 +187,9 @@ namespace AppSodaQuincho
             SetColores();
             tsbMantenimientos.BackColor = System.Drawing.Color.Transparent;
         }
+
+
+
+
     }
 }

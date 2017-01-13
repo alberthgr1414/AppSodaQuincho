@@ -87,5 +87,24 @@ namespace DAL
                 throw ex;
             }
         }
+
+
+        public static string Caja()
+        {
+            //Declaración de objeto SqlCommand
+            SqlCommand oCommand = new SqlCommand();
+            string registro = "";
+            oCommand.CommandText = "SpCaja";
+            oCommand.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                registro = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSQLScalar(oCommand);
+                return registro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

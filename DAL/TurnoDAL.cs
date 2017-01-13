@@ -89,6 +89,24 @@ namespace DAL
             }
         }
 
+        public static string Turno()
+        {
+            //Declaración de objeto SqlCommand
+            SqlCommand oCommand = new SqlCommand();
+            string registro = "";
+            oCommand.CommandText = "SpTurno";
+            oCommand.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                registro = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSQLScalar(oCommand);
+                return registro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 }

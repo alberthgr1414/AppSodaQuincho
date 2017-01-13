@@ -9,6 +9,8 @@ using System.Text;
 using System.Windows.Forms;
 using Entidades;
 using System.Globalization;
+using BLL;
+using System.Windows;
 
 namespace AppSodaQuincho
 {
@@ -140,7 +142,6 @@ namespace AppSodaQuincho
 
         private void ptbProducto_Click(object sender, EventArgs e)
         {
-            string resultado = "";
             PictureBox cl = sender as PictureBox;
             cl.BorderStyle = BorderStyle.Fixed3D;
             for (int i = 0; i < 1000000; i++)
@@ -151,13 +152,9 @@ namespace AppSodaQuincho
                 }
             }
             int Codigo = int.Parse(cl.Tag.ToString());
-            Plato plato = new Plato();
-            plato.ID_Plato = Codigo;
-            for (int i = 0; i < ListaPlatos.Count; i++)
-            {
-                resultado += ListaPlatos[i].ID_Plato + "/n";
-            }
-            RefrescarFactura();
+            string caja = CajaBLL.Caja();
+            string turno = TurnoBLL.Turno();
+            System.Windows.MessageBox.Show("Caja: "+caja+" Turno: "+turno+" Producto: "+Codigo);
         }
 
         public void RefrescarFactura()
@@ -253,7 +250,7 @@ namespace AppSodaQuincho
             ptbIngresarCajero.Visible = true;
             ptbIngresarCajero.Image = global::AppSodaQuincho.Properties.Resources.IngresarCajero;
             PanelPlato.Controls.Add(ptbIngresarCajero);
-            ptbIngresarCajero.Click += new System.EventHandler(this.ptbIngresarCajero_Click);
+            ptbIngresarCajero.Click += new System.EventHandler(this.btnAbrirCaja_Click);
             //--------------------------------------------
 
             //Creacion de Label Ingresar Cajero
@@ -265,7 +262,7 @@ namespace AppSodaQuincho
             lblIngresarCajero.BackColor = System.Drawing.Color.White;
             lblIngresarCajero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             PanelPlato.Controls.Add(lblIngresarCajero);
-            lblIngresarCajero.Click += new System.EventHandler(this.ptbIngresarCajero_Click);
+            lblIngresarCajero.Click += new System.EventHandler(this.btnAbrirCaja_Click);
             //--------------------------------------------
 
             //Creacion de el pictureBox Cierre Cajero
@@ -277,7 +274,7 @@ namespace AppSodaQuincho
             ptbCierreCajero.Visible = true;
             ptbCierreCajero.Image = global::AppSodaQuincho.Properties.Resources.CierreCajero;
             PanelPlato.Controls.Add(ptbCierreCajero);
-            ptbCierreCajero.Click += new System.EventHandler(this.ptbCierreCajero_Click);
+            ptbCierreCajero.Click += new System.EventHandler(this.btnCerrarCaja_Click);
             //--------------------------------------------
 
             //Creacion de Label Cierre Cajero 
@@ -289,7 +286,7 @@ namespace AppSodaQuincho
             lblCierreCajero.BackColor = System.Drawing.Color.White;
             lblCierreCajero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             PanelPlato.Controls.Add(lblCierreCajero);
-            lblCierreCajero.Click += new System.EventHandler(this.ptbCierreCajero_Click);
+            lblCierreCajero.Click += new System.EventHandler(this.btnCerrarCaja_Click);
             //--------------------------------------------
 
             //Creacion de el pictureBox Estado Caja
@@ -460,6 +457,55 @@ namespace AppSodaQuincho
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+
+        }
+
+        private void PanelPlato_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void btnAbrirCaja_Click(object sender, EventArgs e)
+        {
+            if (CajaBLL.VereificarCajaAbierta() == true)
+            {
+               
+                System.Windows.MessageBox.Show("Ya ahi cajero Ingresado Caja Numero= ");
+            }
+            else
+            {
+                frmIngresarCajero AbrirCaja = new frmIngresarCajero();
+                AbrirCaja.ShowDialog();
+            }
+
+        }
+
+        private void btnCerrarCaja_Click(object sender, EventArgs e)
+        {
+            if (CajaBLL.VereificarCajaAbierta() == false)
+            {
+                System.Windows.MessageBox.Show("No ahi una Caja para Cerrar");
+            }
+            else
+            {
+
+                if (System.Windows.MessageBox.Show("Desea cerrar la Caja", "Cerrar Caja?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        CajaBLL.CerrarCaja();
+                        System.Windows.MessageBox.Show("Caja Cerrado con Exito");
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
 
         }
     }
