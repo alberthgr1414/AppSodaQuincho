@@ -142,8 +142,27 @@ namespace AppSodaQuincho
 
         public void RefrescarDataGrid()
         {
-            int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
-            dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
+            DataTable factura = EncFacturaBLL.ListarEncFactura();
+            if (factura.Rows.Count == 0)
+            {
+               
+            }
+            else
+            {
+                int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
+                dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
+                TotalFactura();
+            }
+        }
+
+        public void TotalFactura()
+        {
+            double total=0.0;
+            for (int i = 0; i < dgvPlatos.Rows.Count; i++)
+            {
+                total += double.Parse(dgvPlatos[3, i].Value.ToString());
+            }
+            txtTotalFactura.Text = total.ToString();
         }
 
         private void ptbProducto_Click(object sender, EventArgs e)
@@ -174,6 +193,7 @@ namespace AppSodaQuincho
                             int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
                             DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
                             RefrescarDataGrid();
+                            TotalFactura();
                         }
                         else
                         {
@@ -182,6 +202,7 @@ namespace AppSodaQuincho
                             int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
                             DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
                             RefrescarDataGrid();
+                            TotalFactura();
                         }
                     }
                     else
@@ -263,7 +284,7 @@ namespace AppSodaQuincho
             PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
             llenarMenu(1);
             RefrescarDataGrid();
-            dgvPlatos.DefaultCellStyle.Font = new Font("Tahoma", 15);
+            dgvPlatos.DefaultCellStyle.Font = new Font("Tahoma", 12);
             dgvPlatos.DefaultCellStyle.ForeColor = Color.Blue;
             dgvPlatos.DefaultCellStyle.BackColor = Color.Beige;
             dgvPlatos.DefaultCellStyle.SelectionForeColor = Color.Yellow;
@@ -552,17 +573,27 @@ namespace AppSodaQuincho
 
         private void lblTituloCantidad_Click(object sender, EventArgs e)
         {
-
+            lblCantidad.Text = "1";
         }
 
         private void lblCantidad_Click(object sender, EventArgs e)
         {
-
+            lblCantidad.Text = "1";
         }
 
         private void dgvPlato_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
 
+        private void btnLlevar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelCantidad_MouseClick(object sender, MouseEventArgs e)
+        {
+            lblCantidad.Text = "1";
         }
     }
 }
