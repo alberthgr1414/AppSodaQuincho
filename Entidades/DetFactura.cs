@@ -5,13 +5,12 @@ using System.Text;
 
 namespace Entidades
 {
-    public class EncFactura
+    public class DetFactura
     {
+        public int ID_DetFactura { set; get; }
         public int ID_EncFactura { set; get; }
-        public int ID_Turno { set; get; }
-        public int ID_Caja { set; get; }
-        public DateTime Fecha { set; get; }
+        public int ID_Plato { set; get; }
+        public int Cantidad { set; get; }
         public double Total { set; get; }
-        public int Estado { set; get; }
     }
 }

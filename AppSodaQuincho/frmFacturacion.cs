@@ -140,6 +140,12 @@ namespace AppSodaQuincho
             return returnImage;
         }
 
+        public void RefrescarDataGrid()
+        {
+            int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
+            dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
+        }
+
         private void ptbProducto_Click(object sender, EventArgs e)
         {
             PictureBox cl = sender as PictureBox;
@@ -151,26 +157,54 @@ namespace AppSodaQuincho
                     cl.BorderStyle = BorderStyle.None;
                 }
             }
-            int Codigo = int.Parse(cl.Tag.ToString());
-            string caja = CajaBLL.Caja();
-            string turno = TurnoBLL.Turno();
-            System.Windows.MessageBox.Show("Caja: "+caja+" Turno: "+turno+" Producto: "+Codigo);
+            try
+            {
+                if (TurnoBLL.VereificarTurnoAbierto() == true)
+                {
+                    if (CajaBLL.VereificarCajaAbierta() == true)
+                    {
+                        DataTable factura = EncFacturaBLL.ListarEncFactura();
+                        if (factura.Rows.Count == 0)
+                        {
+                            int cantidad = int.Parse(lblCantidad.Text);
+                            int Codigo = int.Parse(cl.Tag.ToString());
+                            int caja = int.Parse(CajaBLL.Caja());
+                            int turno = int.Parse(TurnoBLL.Turno());
+                            EncFacturaBLL.NuevoEncFactura(turno, caja);
+                            int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
+                            DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
+                            RefrescarDataGrid();
+                        }
+                        else
+                        {
+                            int cantidad = int.Parse(lblCantidad.Text);
+                            int Codigo = int.Parse(cl.Tag.ToString());
+                            int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
+                            DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
+                            RefrescarDataGrid();
+                        }
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("No ahi Cajero Ingresado");
+                    }
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("No ahi turno abirto");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         public void RefrescarFactura()
         {
-            dgvPlato.DataSource = ListaPlatos;
-        }
-
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            // int valor=0;
-            //  for (int i = 0; i < listView1.Items.Count; i++)
-            //{
-            //if (listView1.Items[i].Selected == true)
-            //valor= i;
-            // }
-            // textBox1.Text= valor.ToString();
+            dgvPlatos.DataSource = ListaPlatos;
         }
 
         private void btnMenuRegular_Click(object sender, EventArgs e)
@@ -199,7 +233,7 @@ namespace AppSodaQuincho
             Button cl = sender as Button;
             if (cantidad < 10)
             {
-                if (cantidad == 0)
+                if (cantidad == 1)
                 {
                     lblCantidad.Text = cl.Tag.ToString();
                 }
@@ -210,14 +244,9 @@ namespace AppSodaQuincho
             }
             else
             {
-                lblCantidad.Text = "0";
+                lblCantidad.Text = "1";
             }
 
-        }
-
-        private void panelCantidad_Paint(object sender, PaintEventArgs e)
-        {
-            lblCantidad.Text = "0";
         }
 
         private void timerHora_Tick(object sender, EventArgs e)
@@ -233,6 +262,12 @@ namespace AppSodaQuincho
         {
             PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
             llenarMenu(1);
+            RefrescarDataGrid();
+            dgvPlatos.DefaultCellStyle.Font = new Font("Tahoma", 15);
+            dgvPlatos.DefaultCellStyle.ForeColor = Color.Blue;
+            dgvPlatos.DefaultCellStyle.BackColor = Color.Beige;
+            dgvPlatos.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+            dgvPlatos.DefaultCellStyle.SelectionBackColor = Color.Black;
         }
 
         private void btnFuncionesPOS_Click(object sender, EventArgs e)
@@ -466,17 +501,23 @@ namespace AppSodaQuincho
         }
         private void btnAbrirCaja_Click(object sender, EventArgs e)
         {
-            if (CajaBLL.VereificarCajaAbierta() == true)
+            if (TurnoBLL.VereificarTurnoAbierto() == true)
             {
-               
-                System.Windows.MessageBox.Show("Ya ahi cajero Ingresado Caja Numero= ");
+                if (CajaBLL.VereificarCajaAbierta() == true)
+                {
+
+                    System.Windows.MessageBox.Show("Ya ahi cajero Ingresado Caja Numero= ");
+                }
+                else
+                {
+                    frmIngresarCajero AbrirCaja = new frmIngresarCajero();
+                    AbrirCaja.ShowDialog();
+                }
             }
             else
             {
-                frmIngresarCajero AbrirCaja = new frmIngresarCajero();
-                AbrirCaja.ShowDialog();
+                System.Windows.MessageBox.Show("No ahi turno Abirto");
             }
-
         }
 
         private void btnCerrarCaja_Click(object sender, EventArgs e)
@@ -506,6 +547,21 @@ namespace AppSodaQuincho
 
                 }
             }
+
+        }
+
+        private void lblTituloCantidad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCantidad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPlato_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

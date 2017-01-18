@@ -49,7 +49,6 @@
             this.btnComerAqui = new System.Windows.Forms.Button();
             this.btnExpress = new System.Windows.Forms.Button();
             this.btnLlevar = new System.Windows.Forms.Button();
-            this.dgvPlato = new System.Windows.Forms.DataGridView();
             this.panelCantidad = new System.Windows.Forms.Panel();
             this.panelHora = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -87,13 +86,22 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).BeginInit();
+            this.tspBarraCarga = new System.Windows.Forms.ToolStrip();
+            this.dgvPlatos = new System.Windows.Forms.DataGridView();
+            this.dBSodaQuinchoDataSet = new AppSodaQuincho.DBSodaQuinchoDataSet();
+            this.detFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.detFacturaTableAdapter = new AppSodaQuincho.DBSodaQuinchoDataSetTableAdapters.DetFacturaTableAdapter();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelCantidad.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.tspBarraCarga.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBSodaQuinchoDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detFacturaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelPlato
@@ -229,7 +237,8 @@
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(29, 31);
             this.lblCantidad.TabIndex = 9;
-            this.lblCantidad.Text = "0";
+            this.lblCantidad.Text = "1";
+            this.lblCantidad.Click += new System.EventHandler(this.lblCantidad_Click);
             // 
             // lblTituloCantidad
             // 
@@ -242,6 +251,7 @@
             this.lblTituloCantidad.Size = new System.Drawing.Size(131, 31);
             this.lblTituloCantidad.TabIndex = 10;
             this.lblTituloCantidad.Text = "Cantidad:";
+            this.lblTituloCantidad.Click += new System.EventHandler(this.lblTituloCantidad_Click);
             // 
             // button6
             // 
@@ -355,15 +365,6 @@
             this.btnLlevar.Text = "Pago para Llevar";
             this.btnLlevar.UseVisualStyleBackColor = false;
             // 
-            // dgvPlato
-            // 
-            this.dgvPlato.AllowUserToAddRows = false;
-            this.dgvPlato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlato.Location = new System.Drawing.Point(740, 52);
-            this.dgvPlato.Name = "dgvPlato";
-            this.dgvPlato.Size = new System.Drawing.Size(279, 475);
-            this.dgvPlato.TabIndex = 16;
-            // 
             // panelCantidad
             // 
             this.panelCantidad.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -373,7 +374,6 @@
             this.panelCantidad.Name = "panelCantidad";
             this.panelCantidad.Size = new System.Drawing.Size(235, 50);
             this.panelCantidad.TabIndex = 18;
-            this.panelCantidad.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCantidad_Paint);
             // 
             // panelHora
             // 
@@ -387,7 +387,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 17);
+            this.label3.Location = new System.Drawing.Point(36, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 24);
             this.label3.TabIndex = 22;
@@ -397,7 +397,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 101);
+            this.label1.Location = new System.Drawing.Point(12, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 24);
             this.label1.TabIndex = 20;
@@ -412,16 +412,16 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(740, 528);
+            this.panel1.Location = new System.Drawing.Point(740, 543);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(279, 140);
+            this.panel1.Size = new System.Drawing.Size(279, 125);
             this.panel1.TabIndex = 24;
             // 
             // textBox3
             // 
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(100, 12);
+            this.textBox3.Location = new System.Drawing.Point(93, 7);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(161, 29);
             this.textBox3.TabIndex = 27;
@@ -430,7 +430,7 @@
             // 
             this.Efectivo.AutoSize = true;
             this.Efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Efectivo.Location = new System.Drawing.Point(18, 58);
+            this.Efectivo.Location = new System.Drawing.Point(11, 52);
             this.Efectivo.Name = "Efectivo";
             this.Efectivo.Size = new System.Drawing.Size(76, 24);
             this.Efectivo.TabIndex = 26;
@@ -440,7 +440,7 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(100, 98);
+            this.textBox2.Location = new System.Drawing.Point(93, 89);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(159, 29);
             this.textBox2.TabIndex = 25;
@@ -449,7 +449,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(100, 55);
+            this.textBox1.Location = new System.Drawing.Point(93, 49);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(159, 29);
             this.textBox1.TabIndex = 24;
@@ -754,10 +754,10 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStrip1
+            // tspBarraCarga
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspBarraCarga.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tspBarraCarga.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripLabel2,
             this.toolStripLabel3,
@@ -773,12 +773,64 @@
             this.toolStripButton3,
             this.toolStripSeparator2,
             this.toolStripSeparator3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 667);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1020, 25);
-            this.toolStrip1.TabIndex = 26;
-            this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            this.tspBarraCarga.Location = new System.Drawing.Point(0, 667);
+            this.tspBarraCarga.Name = "tspBarraCarga";
+            this.tspBarraCarga.Size = new System.Drawing.Size(1020, 25);
+            this.tspBarraCarga.TabIndex = 26;
+            this.tspBarraCarga.Text = "toolStrip1";
+            this.tspBarraCarga.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            // 
+            // dgvPlatos
+            // 
+            this.dgvPlatos.AllowUserToAddRows = false;
+            this.dgvPlatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvPlatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPlatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cantidad,
+            this.Nombre,
+            this.Precio});
+            this.dgvPlatos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvPlatos.Location = new System.Drawing.Point(740, 52);
+            this.dgvPlatos.Name = "dgvPlatos";
+            this.dgvPlatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvPlatos.RowTemplate.Height = 30;
+            this.dgvPlatos.Size = new System.Drawing.Size(279, 492);
+            this.dgvPlatos.TabIndex = 28;
+            // 
+            // dBSodaQuinchoDataSet
+            // 
+            this.dBSodaQuinchoDataSet.DataSetName = "DBSodaQuinchoDataSet";
+            this.dBSodaQuinchoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // detFacturaBindingSource
+            // 
+            this.detFacturaBindingSource.DataMember = "DetFactura";
+            this.detFacturaBindingSource.DataSource = this.dBSodaQuinchoDataSet;
+            // 
+            // detFacturaTableAdapter
+            // 
+            this.detFacturaTableAdapter.ClearBeforeFill = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "#";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 30;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre_Plato";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 135;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "Total";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 70;
             // 
             // frmFacturacion
             // 
@@ -786,13 +838,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 692);
+            this.Controls.Add(this.dgvPlatos);
             this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tspBarraCarga);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelHora);
             this.Controls.Add(this.panelCantidad);
-            this.Controls.Add(this.dgvPlato);
             this.Controls.Add(this.PanelPlato);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -803,15 +855,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmFacturacion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).EndInit();
             this.panelCantidad.ResumeLayout(false);
             this.panelCantidad.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tspBarraCarga.ResumeLayout(false);
+            this.tspBarraCarga.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBSodaQuinchoDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detFacturaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -830,7 +884,6 @@
         private System.Windows.Forms.Button btnMesa;
         private System.Windows.Forms.Button btnComerAqui;
         private System.Windows.Forms.Button btnExpress;
-        private System.Windows.Forms.DataGridView dgvPlato;
         private System.Windows.Forms.Panel panelCantidad;
         private System.Windows.Forms.Panel panelHora;
         private System.Windows.Forms.Button btnCombos;
@@ -876,7 +929,14 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tspBarraCarga;
+        private System.Windows.Forms.DataGridView dgvPlatos;
+        private DBSodaQuinchoDataSet dBSodaQuinchoDataSet;
+        private System.Windows.Forms.BindingSource detFacturaBindingSource;
+        private DBSodaQuinchoDataSetTableAdapters.DetFacturaTableAdapter detFacturaTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
     }
 }
 

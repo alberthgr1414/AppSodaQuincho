@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CajaDAL.cs" />
+    <Compile Include="DetFacturaDAL.cs" />
     <Compile Include="EncFacturaDAL.cs" />
     <Compile Include="PlatoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caja.cs" />
+    <Compile Include="DetFactura.cs" />
     <Compile Include="EncFactura.cs" />
     <Compile Include="Plato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
