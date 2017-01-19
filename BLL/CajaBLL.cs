@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+
+
     public class CajaBLL
     {
         public static bool VereificarCajaAbierta()
