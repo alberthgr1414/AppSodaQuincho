@@ -15,7 +15,7 @@ namespace BLL
         public static bool VereificarCajaAbierta()
         {
             try
-            {
+            { 
                 return CajaDAL.VereificarCajaAbierta();
             }
             catch (Exception ex)

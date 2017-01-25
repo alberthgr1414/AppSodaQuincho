@@ -31,6 +31,25 @@ namespace BLL
             }
         }
 
+        public static int EliminarDetFactura(int ID_EncFactura, int ID_DetFactura)
+        {
+            //Construir el cliente
+
+            DetFactura oDetFactura = new DetFactura()
+            {
+                ID_EncFactura = ID_EncFactura,
+                ID_DetFactura = ID_DetFactura
+            };
+            try
+            {
+                 return DetFacturaDAL.EliminarDetFactura(oDetFactura);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static DataTable ListarDetFactura(int ID_EncFactura)
         {
             DetFactura oDetFactura = new DetFactura()
@@ -40,6 +59,18 @@ namespace BLL
             try
             {
                 return DetFacturaDAL.ListarDetalleFactura(oDetFactura);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string SumDetFactura(int ID_EncFactura)
+        {
+            try
+            {
+                return DetFacturaDAL.SumDetFactura(ID_EncFactura);
             }
             catch (Exception ex)
             {

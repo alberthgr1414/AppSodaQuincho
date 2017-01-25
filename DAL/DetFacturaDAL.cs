@@ -41,6 +41,33 @@ namespace DAL
             }
         }
 
+        public static int EliminarDetFactura(DetFactura pDetFactura)
+        {
+            //Declaración de objeto SqlCommand
+
+            SqlCommand oCommand = new SqlCommand();
+            int registrosActualizados = 0;
+            oCommand.CommandText = "SpEliminarDetFactura";
+            oCommand.CommandType = CommandType.StoredProcedure;
+
+            //Crear los Parámetros del procedimiento y sus valores
+            oCommand.Parameters.AddWithValue("@ID_EncFactura", pDetFactura.ID_EncFactura);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+
+            oCommand.Parameters.AddWithValue("@ID_DetFactura", pDetFactura.ID_DetFactura);
+            oCommand.Parameters[1].Direction = ParameterDirection.Input;
+
+            try
+            {
+                registrosActualizados = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
+                return registrosActualizados;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public static DataTable ListarDetalleFactura(DetFactura detfactura)
         {
@@ -56,6 +83,27 @@ namespace DAL
             try
             {
                 registro = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarConsultaDataTable(oCommand);
+                return registro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string SumDetFactura(int ID_EncFactura)
+        {
+            //Declaración de objeto SqlCommand
+            SqlCommand oCommand = new SqlCommand();
+            string registro;
+            oCommand.CommandText = "SpDetFacturaSum";
+            oCommand.CommandType = CommandType.StoredProcedure;
+            //Crear los Parámetros del procedimiento y sus valores
+            oCommand.Parameters.AddWithValue("@ID_EncFactura", ID_EncFactura);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+            try
+            {
+                registro = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSQLScalar(oCommand);
                 return registro;
             }
             catch (Exception ex)

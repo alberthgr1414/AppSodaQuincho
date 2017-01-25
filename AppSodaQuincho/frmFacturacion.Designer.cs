@@ -41,19 +41,19 @@
             this.btnMenuRegular = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTituloCantidad = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnFuncionesPOS = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.btnMesa = new System.Windows.Forms.Button();
             this.btnComerAqui = new System.Windows.Forms.Button();
             this.btnExpress = new System.Windows.Forms.Button();
             this.btnLlevar = new System.Windows.Forms.Button();
             this.panelCantidad = new System.Windows.Forms.Panel();
             this.panelHora = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTotalFactura = new System.Windows.Forms.MaskedTextBox();
             this.Efectivo = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -86,23 +86,30 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tspBarraCarga = new System.Windows.Forms.ToolStrip();
-            this.dgvPlatos = new System.Windows.Forms.DataGridView();
             this.dBSodaQuinchoDataSet = new AppSodaQuincho.DBSodaQuinchoDataSet();
             this.detFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.detFacturaTableAdapter = new AppSodaQuincho.DBSodaQuinchoDataSetTableAdapters.DetFacturaTableAdapter();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PanelEstadoFactura = new System.Windows.Forms.Panel();
+            this.lblEstadoFactura = new System.Windows.Forms.Label();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTotalFactura = new System.Windows.Forms.MaskedTextBox();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPlatos = new System.Windows.Forms.DataGridView();
+            this.PanelTimerFactura = new System.Windows.Forms.Panel();
+            this.lblTiempoFactura = new System.Windows.Forms.Label();
+            this.timerFactura = new System.Windows.Forms.Timer(this.components);
             this.panelCantidad.SuspendLayout();
+            this.panelHora.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tspBarraCarga.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBSodaQuinchoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detFacturaBindingSource)).BeginInit();
+            this.PanelEstadoFactura.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).BeginInit();
+            this.PanelTimerFactura.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelPlato
@@ -114,73 +121,73 @@
             this.PanelPlato.Name = "PanelPlato";
             this.PanelPlato.Size = new System.Drawing.Size(502, 615);
             this.PanelPlato.TabIndex = 2;
-            this.PanelPlato.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelPlato_Paint);
             // 
             // btnCombos
             // 
-            this.btnCombos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnCombos.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnCombos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCombos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnCombos.Location = new System.Drawing.Point(118, 1);
             this.btnCombos.Margin = new System.Windows.Forms.Padding(1);
             this.btnCombos.Name = "btnCombos";
-            this.btnCombos.Size = new System.Drawing.Size(115, 75);
+            this.btnCombos.Size = new System.Drawing.Size(115, 86);
             this.btnCombos.TabIndex = 8;
             this.btnCombos.Text = "Combos";
             this.btnCombos.UseVisualStyleBackColor = false;
             // 
             // btnPedidoEspecial
             // 
-            this.btnPedidoEspecial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnPedidoEspecial.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnPedidoEspecial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPedidoEspecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnPedidoEspecial.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnPedidoEspecial.Location = new System.Drawing.Point(118, 232);
+            this.btnPedidoEspecial.Location = new System.Drawing.Point(118, 265);
             this.btnPedidoEspecial.Margin = new System.Windows.Forms.Padding(1);
             this.btnPedidoEspecial.Name = "btnPedidoEspecial";
-            this.btnPedidoEspecial.Size = new System.Drawing.Size(115, 75);
+            this.btnPedidoEspecial.Size = new System.Drawing.Size(115, 86);
             this.btnPedidoEspecial.TabIndex = 7;
             this.btnPedidoEspecial.Text = "Pedido Especial";
             this.btnPedidoEspecial.UseVisualStyleBackColor = false;
             // 
             // btnProductosTemporada
             // 
-            this.btnProductosTemporada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnProductosTemporada.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnProductosTemporada.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProductosTemporada.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnProductosTemporada.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnProductosTemporada.Location = new System.Drawing.Point(1, 232);
+            this.btnProductosTemporada.Location = new System.Drawing.Point(1, 265);
             this.btnProductosTemporada.Margin = new System.Windows.Forms.Padding(1);
             this.btnProductosTemporada.Name = "btnProductosTemporada";
-            this.btnProductosTemporada.Size = new System.Drawing.Size(115, 75);
+            this.btnProductosTemporada.Size = new System.Drawing.Size(115, 86);
             this.btnProductosTemporada.TabIndex = 6;
             this.btnProductosTemporada.Text = "Productos de Temporada";
             this.btnProductosTemporada.UseVisualStyleBackColor = false;
             // 
             // btnPrecio
             // 
-            this.btnPrecio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnPrecio.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnPrecio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnPrecio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnPrecio.Location = new System.Drawing.Point(118, 155);
+            this.btnPrecio.Location = new System.Drawing.Point(118, 177);
             this.btnPrecio.Margin = new System.Windows.Forms.Padding(1);
             this.btnPrecio.Name = "btnPrecio";
-            this.btnPrecio.Size = new System.Drawing.Size(115, 75);
+            this.btnPrecio.Size = new System.Drawing.Size(115, 86);
             this.btnPrecio.TabIndex = 5;
             this.btnPrecio.Text = "Precio";
             this.btnPrecio.UseVisualStyleBackColor = false;
+            this.btnPrecio.Click += new System.EventHandler(this.btnPrecio_Click);
             // 
             // btnBevidas
             // 
-            this.btnBevidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnBevidas.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnBevidas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBevidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnBevidas.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBevidas.Location = new System.Drawing.Point(1, 78);
+            this.btnBevidas.Location = new System.Drawing.Point(1, 89);
             this.btnBevidas.Margin = new System.Windows.Forms.Padding(1);
             this.btnBevidas.Name = "btnBevidas";
-            this.btnBevidas.Size = new System.Drawing.Size(115, 75);
+            this.btnBevidas.Size = new System.Drawing.Size(115, 86);
             this.btnBevidas.TabIndex = 4;
             this.btnBevidas.Text = "Bevidas";
             this.btnBevidas.UseVisualStyleBackColor = false;
@@ -188,13 +195,13 @@
             // 
             // btnAdicionales
             // 
-            this.btnAdicionales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAdicionales.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnAdicionales.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdicionales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btnAdicionales.Location = new System.Drawing.Point(1, 155);
+            this.btnAdicionales.Location = new System.Drawing.Point(1, 177);
             this.btnAdicionales.Margin = new System.Windows.Forms.Padding(1);
             this.btnAdicionales.Name = "btnAdicionales";
-            this.btnAdicionales.Size = new System.Drawing.Size(115, 75);
+            this.btnAdicionales.Size = new System.Drawing.Size(115, 86);
             this.btnAdicionales.TabIndex = 3;
             this.btnAdicionales.Text = "Adicionales";
             this.btnAdicionales.UseVisualStyleBackColor = false;
@@ -202,13 +209,13 @@
             // 
             // btnPostres
             // 
-            this.btnPostres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnPostres.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnPostres.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPostres.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnPostres.Location = new System.Drawing.Point(118, 78);
+            this.btnPostres.Location = new System.Drawing.Point(118, 89);
             this.btnPostres.Margin = new System.Windows.Forms.Padding(1);
             this.btnPostres.Name = "btnPostres";
-            this.btnPostres.Size = new System.Drawing.Size(115, 75);
+            this.btnPostres.Size = new System.Drawing.Size(115, 86);
             this.btnPostres.TabIndex = 1;
             this.btnPostres.Text = "Postres";
             this.btnPostres.UseVisualStyleBackColor = false;
@@ -216,14 +223,14 @@
             // 
             // btnMenuRegular
             // 
-            this.btnMenuRegular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnMenuRegular.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnMenuRegular.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnMenuRegular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnMenuRegular.Location = new System.Drawing.Point(1, 1);
             this.btnMenuRegular.Margin = new System.Windows.Forms.Padding(1);
             this.btnMenuRegular.Name = "btnMenuRegular";
-            this.btnMenuRegular.Size = new System.Drawing.Size(115, 75);
+            this.btnMenuRegular.Size = new System.Drawing.Size(115, 86);
             this.btnMenuRegular.TabIndex = 0;
             this.btnMenuRegular.Text = "Menu Regular";
             this.btnMenuRegular.UseVisualStyleBackColor = false;
@@ -254,19 +261,20 @@
             this.lblTituloCantidad.Text = "Cantidad:";
             this.lblTituloCantidad.Click += new System.EventHandler(this.lblTituloCantidad_Click);
             // 
-            // button6
+            // btnEliminar
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button6.Location = new System.Drawing.Point(118, 309);
-            this.button6.Margin = new System.Windows.Forms.Padding(1);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(115, 75);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Eliminar";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnEliminar.Location = new System.Drawing.Point(118, 353);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(1);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(115, 86);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnFuncionesPOS
             // 
@@ -274,42 +282,14 @@
             this.btnFuncionesPOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFuncionesPOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFuncionesPOS.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnFuncionesPOS.Location = new System.Drawing.Point(1, 309);
+            this.btnFuncionesPOS.Location = new System.Drawing.Point(1, 353);
             this.btnFuncionesPOS.Margin = new System.Windows.Forms.Padding(1);
             this.btnFuncionesPOS.Name = "btnFuncionesPOS";
-            this.btnFuncionesPOS.Size = new System.Drawing.Size(115, 75);
+            this.btnFuncionesPOS.Size = new System.Drawing.Size(115, 86);
             this.btnFuncionesPOS.TabIndex = 4;
             this.btnFuncionesPOS.Text = "Funciones POS";
             this.btnFuncionesPOS.UseVisualStyleBackColor = false;
             this.btnFuncionesPOS.Click += new System.EventHandler(this.btnFuncionesPOS_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button8.Location = new System.Drawing.Point(118, 540);
-            this.button8.Margin = new System.Windows.Forms.Padding(1);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(115, 75);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Orden en Mesa";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(1, 540);
-            this.button7.Margin = new System.Windows.Forms.Padding(1);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(115, 75);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Pago con Targeta";
-            this.button7.UseVisualStyleBackColor = false;
             // 
             // btnMesa
             // 
@@ -317,12 +297,12 @@
             this.btnMesa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMesa.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnMesa.Location = new System.Drawing.Point(1, 463);
+            this.btnMesa.Location = new System.Drawing.Point(1, 529);
             this.btnMesa.Margin = new System.Windows.Forms.Padding(1);
             this.btnMesa.Name = "btnMesa";
-            this.btnMesa.Size = new System.Drawing.Size(115, 75);
+            this.btnMesa.Size = new System.Drawing.Size(115, 86);
             this.btnMesa.TabIndex = 3;
-            this.btnMesa.Text = "Orden en Mesa";
+            this.btnMesa.Text = "Orden Mesa";
             this.btnMesa.UseVisualStyleBackColor = false;
             // 
             // btnComerAqui
@@ -331,10 +311,10 @@
             this.btnComerAqui.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnComerAqui.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComerAqui.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnComerAqui.Location = new System.Drawing.Point(118, 386);
+            this.btnComerAqui.Location = new System.Drawing.Point(118, 441);
             this.btnComerAqui.Margin = new System.Windows.Forms.Padding(1);
             this.btnComerAqui.Name = "btnComerAqui";
-            this.btnComerAqui.Size = new System.Drawing.Size(115, 75);
+            this.btnComerAqui.Size = new System.Drawing.Size(115, 86);
             this.btnComerAqui.TabIndex = 2;
             this.btnComerAqui.Text = "Pago para Comer Aqui";
             this.btnComerAqui.UseVisualStyleBackColor = false;
@@ -345,10 +325,10 @@
             this.btnExpress.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExpress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpress.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnExpress.Location = new System.Drawing.Point(118, 463);
+            this.btnExpress.Location = new System.Drawing.Point(118, 529);
             this.btnExpress.Margin = new System.Windows.Forms.Padding(1);
             this.btnExpress.Name = "btnExpress";
-            this.btnExpress.Size = new System.Drawing.Size(115, 75);
+            this.btnExpress.Size = new System.Drawing.Size(115, 86);
             this.btnExpress.TabIndex = 1;
             this.btnExpress.Text = "Express";
             this.btnExpress.UseVisualStyleBackColor = false;
@@ -358,10 +338,10 @@
             this.btnLlevar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLlevar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLlevar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLlevar.Location = new System.Drawing.Point(1, 386);
+            this.btnLlevar.Location = new System.Drawing.Point(1, 441);
             this.btnLlevar.Margin = new System.Windows.Forms.Padding(1);
             this.btnLlevar.Name = "btnLlevar";
-            this.btnLlevar.Size = new System.Drawing.Size(115, 75);
+            this.btnLlevar.Size = new System.Drawing.Size(115, 86);
             this.btnLlevar.TabIndex = 0;
             this.btnLlevar.Text = "Pago para Llevar";
             this.btnLlevar.UseVisualStyleBackColor = false;
@@ -380,29 +360,41 @@
             // 
             // panelHora
             // 
-            this.panelHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panelHora.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelHora.Controls.Add(this.label2);
             this.panelHora.Location = new System.Drawing.Point(740, 1);
             this.panelHora.Name = "panelHora";
-            this.panelHora.Size = new System.Drawing.Size(279, 50);
+            this.panelHora.Size = new System.Drawing.Size(209, 50);
             this.panelHora.TabIndex = 19;
+            this.panelHora.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHora_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Factura";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(115, 11);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 24);
+            this.label3.Size = new System.Drawing.Size(68, 29);
             this.label3.TabIndex = 22;
             this.label3.Text = "Total";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 81);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(18, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 24);
+            this.label1.Size = new System.Drawing.Size(97, 29);
             this.label1.TabIndex = 20;
             this.label1.Text = "Cambio";
             // 
@@ -415,42 +407,54 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(740, 555);
+            this.panel1.Location = new System.Drawing.Point(740, 529);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(279, 118);
+            this.panel1.Size = new System.Drawing.Size(279, 139);
             this.panel1.TabIndex = 24;
+            // 
+            // txtTotalFactura
+            // 
+            this.txtTotalFactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtTotalFactura.Enabled = false;
+            this.txtTotalFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalFactura.Location = new System.Drawing.Point(117, 14);
+            this.txtTotalFactura.Mask = "₡ 999999";
+            this.txtTotalFactura.Name = "txtTotalFactura";
+            this.txtTotalFactura.ReadOnly = true;
+            this.txtTotalFactura.Size = new System.Drawing.Size(149, 33);
+            this.txtTotalFactura.TabIndex = 28;
             // 
             // Efectivo
             // 
             this.Efectivo.AutoSize = true;
-            this.Efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Efectivo.Location = new System.Drawing.Point(91, 46);
+            this.Efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Efectivo.Location = new System.Drawing.Point(18, 57);
             this.Efectivo.Name = "Efectivo";
-            this.Efectivo.Size = new System.Drawing.Size(76, 24);
+            this.Efectivo.Size = new System.Drawing.Size(98, 29);
             this.Efectivo.TabIndex = 26;
             this.Efectivo.Text = "Efectivo";
             // 
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(172, 76);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(117, 92);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(102, 29);
+            this.textBox2.Size = new System.Drawing.Size(149, 33);
             this.textBox2.TabIndex = 25;
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(173, 41);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(117, 53);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(101, 29);
+            this.textBox1.Size = new System.Drawing.Size(149, 33);
             this.textBox1.TabIndex = 24;
             // 
             // BtnNum1
             // 
-            this.BtnNum1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum1.Location = new System.Drawing.Point(2, 1);
@@ -465,7 +469,7 @@
             // 
             // BtnNum4
             // 
-            this.BtnNum4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum4.Location = new System.Drawing.Point(152, 1);
@@ -480,7 +484,7 @@
             // 
             // BtnNum5
             // 
-            this.BtnNum5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum5.Location = new System.Drawing.Point(202, 1);
@@ -495,7 +499,7 @@
             // 
             // BtnNum6
             // 
-            this.BtnNum6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum6.Location = new System.Drawing.Point(252, 1);
@@ -510,7 +514,7 @@
             // 
             // BtnNum9
             // 
-            this.BtnNum9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum9.Location = new System.Drawing.Point(402, 1);
@@ -525,7 +529,7 @@
             // 
             // BtnNum0
             // 
-            this.BtnNum0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum0.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum0.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum0.Location = new System.Drawing.Point(452, 1);
@@ -540,7 +544,7 @@
             // 
             // BtnNum7
             // 
-            this.BtnNum7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum7.Location = new System.Drawing.Point(302, 1);
@@ -555,7 +559,7 @@
             // 
             // BtnNum8
             // 
-            this.BtnNum8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum8.Location = new System.Drawing.Point(352, 1);
@@ -570,7 +574,7 @@
             // 
             // BtnNum3
             // 
-            this.BtnNum3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum3.Location = new System.Drawing.Point(102, 1);
@@ -585,7 +589,7 @@
             // 
             // BtnNum2
             // 
-            this.BtnNum2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.BtnNum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.BtnNum2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum2.Location = new System.Drawing.Point(52, 1);
@@ -616,6 +620,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(502, 50);
             this.flowLayoutPanel1.TabIndex = 25;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // timerHora
             // 
@@ -633,13 +638,11 @@
             this.flowLayoutPanel2.Controls.Add(this.btnProductosTemporada);
             this.flowLayoutPanel2.Controls.Add(this.btnPedidoEspecial);
             this.flowLayoutPanel2.Controls.Add(this.btnFuncionesPOS);
-            this.flowLayoutPanel2.Controls.Add(this.button6);
+            this.flowLayoutPanel2.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel2.Controls.Add(this.btnLlevar);
             this.flowLayoutPanel2.Controls.Add(this.btnComerAqui);
             this.flowLayoutPanel2.Controls.Add(this.btnMesa);
             this.flowLayoutPanel2.Controls.Add(this.btnExpress);
-            this.flowLayoutPanel2.Controls.Add(this.button7);
-            this.flowLayoutPanel2.Controls.Add(this.button8);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(504, 52);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(235, 616);
@@ -651,25 +654,25 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 21);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(51, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(51, 21);
             this.toolStripLabel2.Text = "Gerente:";
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(122, 22);
+            this.toolStripLabel3.Size = new System.Drawing.Size(122, 21);
             this.toolStripLabel3.Text = "Alberth Garita Retana ";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 24);
             // 
             // toolStripButton2
             // 
@@ -677,31 +680,31 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 21);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(47, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(47, 21);
             this.toolStripLabel1.Text = "Cajero: ";
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(126, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(126, 21);
             this.toolStripLabel4.Text = "Dayanna Garita Retana";
             // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(0, 22);
+            this.toolStripLabel5.Size = new System.Drawing.Size(0, 21);
             // 
             // tsbFecha
             // 
             this.tsbFecha.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsbFecha.Name = "tsbFecha";
-            this.tsbFecha.Size = new System.Drawing.Size(113, 22);
+            this.tsbFecha.Size = new System.Drawing.Size(113, 21);
             this.tsbFecha.Text = "Jueves 29 Diciembre";
             // 
             // toolStripButton4
@@ -711,20 +714,20 @@
             this.toolStripButton4.Image = global::AppSodaQuincho.Properties.Resources.calendar;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 21);
             this.toolStripButton4.Text = "toolStripButton4";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 24);
             // 
             // tsbHora
             // 
             this.tsbHora.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsbHora.Name = "tsbHora";
-            this.tsbHora.Size = new System.Drawing.Size(70, 22);
+            this.tsbHora.Size = new System.Drawing.Size(70, 21);
             this.tsbHora.Text = "00:00:00 PM";
             // 
             // toolStripButton3
@@ -734,22 +737,23 @@
             this.toolStripButton3.Image = global::AppSodaQuincho.Properties.Resources.clock;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 21);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 24);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 24);
             // 
             // tspBarraCarga
             // 
+            this.tspBarraCarga.AutoSize = false;
             this.tspBarraCarga.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tspBarraCarga.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
@@ -767,30 +771,11 @@
             this.toolStripButton3,
             this.toolStripSeparator2,
             this.toolStripSeparator3});
-            this.tspBarraCarga.Location = new System.Drawing.Point(0, 667);
+            this.tspBarraCarga.Location = new System.Drawing.Point(0, 668);
             this.tspBarraCarga.Name = "tspBarraCarga";
-            this.tspBarraCarga.Size = new System.Drawing.Size(1020, 25);
-            this.tspBarraCarga.TabIndex = 26;
+            this.tspBarraCarga.Size = new System.Drawing.Size(1020, 24);
+            this.tspBarraCarga.TabIndex = 24;
             this.tspBarraCarga.Text = "toolStrip1";
-            this.tspBarraCarga.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
-            // 
-            // dgvPlatos
-            // 
-            this.dgvPlatos.AllowUserToAddRows = false;
-            this.dgvPlatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvPlatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvPlatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Cantidad,
-            this.Nombre,
-            this.Precio});
-            this.dgvPlatos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvPlatos.Location = new System.Drawing.Point(740, 52);
-            this.dgvPlatos.Name = "dgvPlatos";
-            this.dgvPlatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvPlatos.RowTemplate.Height = 30;
-            this.dgvPlatos.Size = new System.Drawing.Size(279, 504);
-            this.dgvPlatos.TabIndex = 28;
             // 
             // dBSodaQuinchoDataSet
             // 
@@ -806,26 +791,24 @@
             // 
             this.detFacturaTableAdapter.ClearBeforeFill = true;
             // 
-            // Id
+            // PanelEstadoFactura
             // 
-            this.Id.DataPropertyName = "ID_DetFactura";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
+            this.PanelEstadoFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.PanelEstadoFactura.Controls.Add(this.lblEstadoFactura);
+            this.PanelEstadoFactura.Location = new System.Drawing.Point(739, 500);
+            this.PanelEstadoFactura.Name = "PanelEstadoFactura";
+            this.PanelEstadoFactura.Size = new System.Drawing.Size(280, 28);
+            this.PanelEstadoFactura.TabIndex = 29;
             // 
-            // Cantidad
+            // lblEstadoFactura
             // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "#";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 30;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre_Plato";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 135;
+            this.lblEstadoFactura.AutoSize = true;
+            this.lblEstadoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstadoFactura.Location = new System.Drawing.Point(85, 3);
+            this.lblEstadoFactura.Name = "lblEstadoFactura";
+            this.lblEstadoFactura.Size = new System.Drawing.Size(125, 24);
+            this.lblEstadoFactura.TabIndex = 0;
+            this.lblEstadoFactura.Text = "No Facturado";
             // 
             // Precio
             // 
@@ -834,17 +817,77 @@
             this.Precio.Name = "Precio";
             this.Precio.Width = 70;
             // 
-            // txtTotalFactura
+            // Nombre
             // 
-            this.txtTotalFactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtTotalFactura.Enabled = false;
-            this.txtTotalFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalFactura.Location = new System.Drawing.Point(173, 6);
-            this.txtTotalFactura.Mask = "$ 999999";
-            this.txtTotalFactura.Name = "txtTotalFactura";
-            this.txtTotalFactura.ReadOnly = true;
-            this.txtTotalFactura.Size = new System.Drawing.Size(101, 29);
-            this.txtTotalFactura.TabIndex = 28;
+            this.Nombre.DataPropertyName = "Nombre_Plato";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 135;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "#";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 30;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ID_DetFactura";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // dgvPlatos
+            // 
+            this.dgvPlatos.AllowUserToAddRows = false;
+            this.dgvPlatos.AllowUserToOrderColumns = true;
+            this.dgvPlatos.AllowUserToResizeColumns = false;
+            this.dgvPlatos.AllowUserToResizeRows = false;
+            this.dgvPlatos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPlatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvPlatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPlatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Cantidad,
+            this.Nombre,
+            this.Precio});
+            this.dgvPlatos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvPlatos.GridColor = System.Drawing.Color.DarkGray;
+            this.dgvPlatos.Location = new System.Drawing.Point(740, 52);
+            this.dgvPlatos.MultiSelect = false;
+            this.dgvPlatos.Name = "dgvPlatos";
+            this.dgvPlatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvPlatos.RowTemplate.Height = 30;
+            this.dgvPlatos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvPlatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPlatos.Size = new System.Drawing.Size(279, 448);
+            this.dgvPlatos.TabIndex = 28;
+            // 
+            // PanelTimerFactura
+            // 
+            this.PanelTimerFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PanelTimerFactura.Controls.Add(this.lblTiempoFactura);
+            this.PanelTimerFactura.Location = new System.Drawing.Point(945, 1);
+            this.PanelTimerFactura.Name = "PanelTimerFactura";
+            this.PanelTimerFactura.Size = new System.Drawing.Size(75, 50);
+            this.PanelTimerFactura.TabIndex = 1;
+            // 
+            // lblTiempoFactura
+            // 
+            this.lblTiempoFactura.AutoSize = true;
+            this.lblTiempoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempoFactura.ForeColor = System.Drawing.Color.Black;
+            this.lblTiempoFactura.Location = new System.Drawing.Point(19, 14);
+            this.lblTiempoFactura.Name = "lblTiempoFactura";
+            this.lblTiempoFactura.Size = new System.Drawing.Size(40, 24);
+            this.lblTiempoFactura.TabIndex = 0;
+            this.lblTiempoFactura.Text = "000";
+            // 
+            // timerFactura
+            // 
+            this.timerFactura.Interval = 1000;
+            this.timerFactura.Tick += new System.EventHandler(this.timerFactura_Tick);
             // 
             // frmFacturacion
             // 
@@ -852,6 +895,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 692);
+            this.Controls.Add(this.PanelTimerFactura);
+            this.Controls.Add(this.PanelEstadoFactura);
             this.Controls.Add(this.dgvPlatos);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.tspBarraCarga);
@@ -871,17 +916,22 @@
             this.Load += new System.EventHandler(this.frmFacturacion_Load);
             this.panelCantidad.ResumeLayout(false);
             this.panelCantidad.PerformLayout();
+            this.panelHora.ResumeLayout(false);
+            this.panelHora.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tspBarraCarga.ResumeLayout(false);
             this.tspBarraCarga.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBSodaQuinchoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detFacturaBindingSource)).EndInit();
+            this.PanelEstadoFactura.ResumeLayout(false);
+            this.PanelEstadoFactura.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).EndInit();
+            this.PanelTimerFactura.ResumeLayout(false);
+            this.PanelTimerFactura.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -922,9 +972,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer timerHora;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnFuncionesPOS;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
@@ -943,15 +991,21 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStrip tspBarraCarga;
-        private System.Windows.Forms.DataGridView dgvPlatos;
         private DBSodaQuinchoDataSet dBSodaQuinchoDataSet;
         private System.Windows.Forms.BindingSource detFacturaBindingSource;
         private DBSodaQuinchoDataSetTableAdapters.DetFacturaTableAdapter detFacturaTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.MaskedTextBox txtTotalFactura;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel PanelEstadoFactura;
+        private System.Windows.Forms.Label lblEstadoFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridView dgvPlatos;
+        private System.Windows.Forms.Panel PanelTimerFactura;
+        private System.Windows.Forms.Label lblTiempoFactura;
+        private System.Windows.Forms.Timer timerFactura;
     }
 }
 
