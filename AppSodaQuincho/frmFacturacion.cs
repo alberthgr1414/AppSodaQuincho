@@ -15,13 +15,15 @@ namespace AppSodaQuincho
 { 
     public partial class frmFacturacion : Form
     {
+        // Tiempo de la factura
         public static int Tiempo;
+        // Precio del producto
         public bool PrecioProducto=false;
-        //Lista los Platos
+        // Lista los Platos
         List<Plato> ListaPlatos = new List<Plato>();
-        //Array que Tiene los billetes
+        // Array que Tiene los billetes
         ArrayList arrayBilletes = new ArrayList();
-        //Array con los botones del Teclado
+        // Array con los botones del Teclado
         ArrayList arrayTeclado = new ArrayList();
         public frmFacturacion()
         {
@@ -37,6 +39,7 @@ namespace AppSodaQuincho
         public void Scrolls()
         {
             //--------Scroll Bar a el Panel---------------
+            PanelPlato.AutoScroll = false;
             PanelPlato.HorizontalScroll.Enabled = false;
             PanelPlato.HorizontalScroll.Visible = false;
             PanelPlato.VerticalScroll.Visible = true;
@@ -139,6 +142,16 @@ namespace AppSodaQuincho
                 {
                     int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
                     dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
+                    //DataTable datos = DetFacturaBLL.ListarDetFactura(Numfactura);
+                    //for (int i = 0; i < datos.Rows.Count; i++)
+                    //{
+                    //    DataRow row = datos.Rows[i];
+                    //    for (int f = 0; f < 2; f++)
+                    //    {
+                    //        dgvPlatos[i, f].Value = "Albertn";
+                    //    }
+                       
+                    //}
                     TotalFactura();
 
                 }
@@ -152,8 +165,16 @@ namespace AppSodaQuincho
         public void TotalFactura()
         {
             int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
-            double total = double.Parse(DetFacturaBLL.SumDetFactura(Numfactura));
-            txtTotalFactura.Text = total.ToString();
+            string Suma = DetFacturaBLL.SumDetFactura(Numfactura);
+            if (Suma == "")
+            {
+            }
+            else
+            {
+                double total = double.Parse(Suma);
+                txtTotalFactura.Text = total.ToString();
+            }
+
         }
 
         public void IniciarTimerFactura()
@@ -164,16 +185,19 @@ namespace AppSodaQuincho
 
         private void ptbProducto_Click(object sender, EventArgs e)
         {
+            PictureBox cl = sender as PictureBox;
             if (PrecioProducto == true)
-            {
-                System.Windows.MessageBox.Show("Nombre: Taco   Precio: 700");
+            {   
+                DataTable plato = PlatoBLL.ListarPlatoScalar(int.Parse(cl.Tag.ToString()));
+                DataRow row = plato.Rows[0];
+                MessageBoxTemporal.Show("Nombre: "+ row["Nombre_Plato"].ToString().ToUpper() + "\n"+ "\n"+
+                                        "Precio: " + row["Precio_Plato"].ToString(), "Informacion del Producto", 5, false);
                 btnPrecio.BackColor = System.Drawing.Color.NavajoWhite;
                 PrecioProducto = false;
             }
             else
             {
             IniciarTimerFactura();
-            PictureBox cl = sender as PictureBox;
             cl.BorderStyle = BorderStyle.Fixed3D;
             for (int i = 0; i < 1000000; i++)
             {
@@ -293,6 +317,7 @@ namespace AppSodaQuincho
             StyleDataGrid();
             RefrescarDataGrid();
             dgvPlatos.ClearSelection();
+            
             //dgvPlatos.CurrentCell = dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Cells[0];
             //dgvPlatos.Refresh();
             //int indice = dgvPlatos.Rows.Count - 1;
@@ -920,8 +945,24 @@ namespace AppSodaQuincho
             else
             {
                 PrecioProducto = true;
-                btnPrecio.BackColor = System.Drawing.Color.Red;
+                btnPrecio.BackColor = System.Drawing.Color.Coral;
+                MessageBoxTemporal.Show("Selecciona un Producto", "Informacion", 1, false);
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void panelCantidad_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void timerPicture_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

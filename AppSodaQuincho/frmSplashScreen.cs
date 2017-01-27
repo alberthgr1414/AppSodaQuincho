@@ -27,5 +27,10 @@ namespace AppSodaQuincho
         {
 
         }
+
+        private void metroProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

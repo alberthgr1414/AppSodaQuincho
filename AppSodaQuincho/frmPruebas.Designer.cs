@@ -33,7 +33,7 @@
             this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.fusionTheme1 = new CS_ClassLibraryTester.FusionTheme();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,21 +52,37 @@
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
-            // panel1
+            // fusionTheme1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(301, 416);
-            this.panel1.TabIndex = 1;
+            this.fusionTheme1.BackColor = System.Drawing.Color.White;
+            this.fusionTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.fusionTheme1.Customization = "Mi8v/zc0NP8yLy////////////8AAAD/Pzw8/z88PP8AAAD/////AD88PP8=";
+            this.fusionTheme1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fusionTheme1.Font = new System.Drawing.Font("Verdana", 8F);
+            this.fusionTheme1.Image = null;
+            this.fusionTheme1.Location = new System.Drawing.Point(0, 0);
+            this.fusionTheme1.Movable = true;
+            this.fusionTheme1.Name = "fusionTheme1";
+            this.fusionTheme1.NoRounding = false;
+            this.fusionTheme1.Sizable = true;
+            this.fusionTheme1.Size = new System.Drawing.Size(497, 417);
+            this.fusionTheme1.SmartBounds = true;
+            this.fusionTheme1.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
+            this.fusionTheme1.TabIndex = 1;
+            this.fusionTheme1.Text = "fusionTheme1";
+            this.fusionTheme1.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.fusionTheme1.Transparent = false;
             // 
             // frmPruebas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 417);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.fusionTheme1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPruebas";
             this.Text = "frmPruebas";
+            this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.frmPruebas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
@@ -78,6 +94,6 @@
         private MetroFramework.Components.MetroStyleExtender metroStyleExtender1;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
-        private System.Windows.Forms.Panel panel1;
+        private CS_ClassLibraryTester.FusionTheme fusionTheme1;
     }
 }

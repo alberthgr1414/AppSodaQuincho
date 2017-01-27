@@ -107,5 +107,30 @@ namespace DAL
                 oDataTable.Dispose();
             }
         }
+
+
+        public static DataTable ListarPlatoScalar(int ID_Plato)
+        {
+            //Declaración de objeto SqlCommand           
+            SqlCommand oCommand = new SqlCommand();
+            //Declaración de Objeto DataTable
+            DataTable oDataTable = new DataTable();
+            oCommand.CommandText = "SpPlatoListarScalar";
+            oCommand.CommandType = CommandType.StoredProcedure;
+            oCommand.Parameters.AddWithValue("@ID_Plato", ID_Plato);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+            try
+            {
+                return PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarConsultaDataTable(oCommand);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                oDataTable.Dispose();
+            }
+        }
     }
 }

@@ -67,5 +67,17 @@ namespace BLL
                 throw ex;
             }
         }
+
+        public static DataTable ListarPlatoScalar(int ID_Plato)
+        {
+            try
+            {
+                return PlatoDAL.ListarPlatoScalar(ID_Plato);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
