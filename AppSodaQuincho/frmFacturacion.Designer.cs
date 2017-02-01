@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturacion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelPlato = new System.Windows.Forms.Panel();
             this.btnCombos = new System.Windows.Forms.Button();
             this.btnPedidoEspecial = new System.Windows.Forms.Button();
@@ -94,14 +94,14 @@
             this.PanelEstadoFactura = new System.Windows.Forms.Panel();
             this.lblEstadoFactura = new System.Windows.Forms.Label();
             this.dgvPlatos = new System.Windows.Forms.DataGridView();
-            this.PanelTimerFactura = new System.Windows.Forms.Panel();
-            this.lblTiempoFactura = new System.Windows.Forms.Label();
-            this.timerFactura = new System.Windows.Forms.Timer(this.components);
-            this.timerPicture = new System.Windows.Forms.Timer(this.components);
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PanelTimerFactura = new System.Windows.Forms.Panel();
+            this.lblTiempoFactura = new System.Windows.Forms.Label();
+            this.timerFactura = new System.Windows.Forms.Timer(this.components);
+            this.timerPicture = new System.Windows.Forms.Timer(this.components);
             this.panelCantidad.SuspendLayout();
             this.panelHora.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -119,10 +119,10 @@
             // 
             this.PanelPlato.AutoScroll = true;
             this.PanelPlato.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.PanelPlato.Location = new System.Drawing.Point(1, 53);
+            this.PanelPlato.Location = new System.Drawing.Point(1, 52);
             this.PanelPlato.Margin = new System.Windows.Forms.Padding(1);
             this.PanelPlato.Name = "PanelPlato";
-            this.PanelPlato.Size = new System.Drawing.Size(502, 615);
+            this.PanelPlato.Size = new System.Drawing.Size(502, 616);
             this.PanelPlato.TabIndex = 2;
             // 
             // btnCombos
@@ -137,6 +137,7 @@
             this.btnCombos.TabIndex = 8;
             this.btnCombos.Text = "Combos";
             this.btnCombos.UseVisualStyleBackColor = false;
+            this.btnCombos.Click += new System.EventHandler(this.btnCombos_Click);
             // 
             // btnPedidoEspecial
             // 
@@ -307,6 +308,7 @@
             this.btnMesa.TabIndex = 3;
             this.btnMesa.Text = "Orden Mesa";
             this.btnMesa.UseVisualStyleBackColor = false;
+            this.btnMesa.Click += new System.EventHandler(this.btnMesa_Click);
             // 
             // btnComerAqui
             // 
@@ -321,6 +323,7 @@
             this.btnComerAqui.TabIndex = 2;
             this.btnComerAqui.Text = "Pago para Comer Aqui";
             this.btnComerAqui.UseVisualStyleBackColor = false;
+            this.btnComerAqui.Click += new System.EventHandler(this.btnComerAqui_Click);
             // 
             // btnExpress
             // 
@@ -335,6 +338,7 @@
             this.btnExpress.TabIndex = 1;
             this.btnExpress.Text = "Express";
             this.btnExpress.UseVisualStyleBackColor = false;
+            this.btnExpress.Click += new System.EventHandler(this.btnExpress_Click);
             // 
             // btnLlevar
             // 
@@ -835,18 +839,18 @@
             this.dgvPlatos.Name = "dgvPlatos";
             this.dgvPlatos.ReadOnly = true;
             this.dgvPlatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPlatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPlatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvPlatos.RowHeadersVisible = false;
             this.dgvPlatos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvPlatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            this.dgvPlatos.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvPlatos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dgvPlatos.RowTemplate.Height = 30;
             this.dgvPlatos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -857,35 +861,6 @@
             this.dgvPlatos.ShowRowErrors = false;
             this.dgvPlatos.Size = new System.Drawing.Size(279, 445);
             this.dgvPlatos.TabIndex = 28;
-            // 
-            // PanelTimerFactura
-            // 
-            this.PanelTimerFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.PanelTimerFactura.Controls.Add(this.lblTiempoFactura);
-            this.PanelTimerFactura.Location = new System.Drawing.Point(945, 1);
-            this.PanelTimerFactura.Name = "PanelTimerFactura";
-            this.PanelTimerFactura.Size = new System.Drawing.Size(75, 50);
-            this.PanelTimerFactura.TabIndex = 1;
-            // 
-            // lblTiempoFactura
-            // 
-            this.lblTiempoFactura.AutoSize = true;
-            this.lblTiempoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTiempoFactura.ForeColor = System.Drawing.Color.Black;
-            this.lblTiempoFactura.Location = new System.Drawing.Point(19, 14);
-            this.lblTiempoFactura.Name = "lblTiempoFactura";
-            this.lblTiempoFactura.Size = new System.Drawing.Size(40, 24);
-            this.lblTiempoFactura.TabIndex = 0;
-            this.lblTiempoFactura.Text = "000";
-            // 
-            // timerFactura
-            // 
-            this.timerFactura.Interval = 1000;
-            this.timerFactura.Tick += new System.EventHandler(this.timerFactura_Tick);
-            // 
-            // timerPicture
-            // 
-            this.timerPicture.Tick += new System.EventHandler(this.timerPicture_Tick);
             // 
             // Id
             // 
@@ -918,6 +893,35 @@
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
             this.Precio.Width = 105;
+            // 
+            // PanelTimerFactura
+            // 
+            this.PanelTimerFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PanelTimerFactura.Controls.Add(this.lblTiempoFactura);
+            this.PanelTimerFactura.Location = new System.Drawing.Point(945, 1);
+            this.PanelTimerFactura.Name = "PanelTimerFactura";
+            this.PanelTimerFactura.Size = new System.Drawing.Size(75, 50);
+            this.PanelTimerFactura.TabIndex = 1;
+            // 
+            // lblTiempoFactura
+            // 
+            this.lblTiempoFactura.AutoSize = true;
+            this.lblTiempoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempoFactura.ForeColor = System.Drawing.Color.Black;
+            this.lblTiempoFactura.Location = new System.Drawing.Point(19, 14);
+            this.lblTiempoFactura.Name = "lblTiempoFactura";
+            this.lblTiempoFactura.Size = new System.Drawing.Size(40, 24);
+            this.lblTiempoFactura.TabIndex = 0;
+            this.lblTiempoFactura.Text = "000";
+            // 
+            // timerFactura
+            // 
+            this.timerFactura.Interval = 1000;
+            this.timerFactura.Tick += new System.EventHandler(this.timerFactura_Tick);
+            // 
+            // timerPicture
+            // 
+            this.timerPicture.Tick += new System.EventHandler(this.timerPicture_Tick);
             // 
             // frmFacturacion
             // 

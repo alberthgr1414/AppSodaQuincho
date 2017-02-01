@@ -42,11 +42,11 @@ namespace BLL
             }
         }
 
-        public static DataTable ListarEncFactura()
+        public static DataTable ListarEncFactura(int ID_EstadoEncFactura)
         {
             try
             {
-                return EncFacturaDAL.ListarEncFactura();
+                return EncFacturaDAL.ListarEncFactura(ID_EstadoEncFactura);
             }
             catch (Exception ex)
             {

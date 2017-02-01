@@ -28,22 +28,28 @@ namespace AppSodaQuincho
         public frmFacturacion()
         {
             InitializeComponent();
-            //Determina los scrolls de los componentes
-            Scrolls();
             //Inicializa el Timer de la Hora
             timerHora.Enabled = true;
             timerHora.Start();
 
         }
-
-        public void Scrolls()
+        public void ScrollPanelPlato()
         {
             //--------Scroll Bar a el Panel---------------
             PanelPlato.AutoScroll = false;
-            PanelPlato.HorizontalScroll.Enabled = false;
-            PanelPlato.HorizontalScroll.Visible = false;
             PanelPlato.VerticalScroll.Visible = true;
             PanelPlato.VerticalScroll.Enabled = true;
+            PanelPlato.HorizontalScroll.Enabled = false;
+            PanelPlato.HorizontalScroll.Visible = false;
+            //--------------------------------------------
+        }
+
+        public void NoScrollPanelPlato()
+        {
+            //--------Scroll Bar a el Panel---------------
+            PanelPlato.AutoScroll = true;
+            PanelPlato.VerticalScroll.Visible = false;
+            PanelPlato.VerticalScroll.Enabled = false;
             //--------------------------------------------
         }
 
@@ -52,6 +58,7 @@ namespace AppSodaQuincho
             // Variables de Ancho y Alto de los PictureBox
             // Contador de Rows
             PanelPlato.Controls.Clear();
+            ScrollPanelPlato();
             int AnchoPictureBox = 5;
             int AltoPictureBox = 5;
             int AnchoLabel = 5;
@@ -133,10 +140,10 @@ namespace AppSodaQuincho
         {
             try
             {
-                DataTable factura = EncFacturaBLL.ListarEncFactura();
+                DataTable factura = EncFacturaBLL.ListarEncFactura(1);
                 if (factura.Rows.Count == 0)
                 {
-
+                    
                 }
                 else
                 {
@@ -153,7 +160,6 @@ namespace AppSodaQuincho
                        
                     //}
                     TotalFactura();
-
                 }
             }
             catch (Exception)
@@ -212,7 +218,7 @@ namespace AppSodaQuincho
                 {
                     if (CajaBLL.VereificarCajaAbierta() == true)
                     {
-                        DataTable factura = EncFacturaBLL.ListarEncFactura();
+                        DataTable factura = EncFacturaBLL.ListarEncFactura(1);
                         if (factura.Rows.Count == 0)
                         {
                             int cantidad = int.Parse(lblCantidad.Text);
@@ -317,7 +323,7 @@ namespace AppSodaQuincho
             StyleDataGrid();
             RefrescarDataGrid();
             dgvPlatos.ClearSelection();
-            
+            ScrollPanelPlato();
             //dgvPlatos.CurrentCell = dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Cells[0];
             //dgvPlatos.Refresh();
             //int indice = dgvPlatos.Rows.Count - 1;
@@ -649,7 +655,7 @@ namespace AppSodaQuincho
 
         private void btnLlevar_Click(object sender, EventArgs e)
         {
-
+            NoScrollPanelPlato();
             //CambiarColorEstadoVerde();
             PanelPlato.Controls.Clear();
             var fplBilletes = new FlowLayoutPanel();
@@ -865,7 +871,7 @@ namespace AppSodaQuincho
         {
             if (dgvPlatos.CurrentRow.Index >= 0)
             {
-                DataTable factura = EncFacturaBLL.ListarEncFactura();
+                DataTable factura = EncFacturaBLL.ListarEncFactura(1);
                 if (factura.Rows.Count == 0)
                 {
 
@@ -961,6 +967,26 @@ namespace AppSodaQuincho
         }
 
         private void timerPicture_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnComerAqui_Click(object sender, EventArgs e)
+        {
+            NoScrollPanelPlato();
+        }
+
+        private void btnMesa_Click(object sender, EventArgs e)
+        {
+            NoScrollPanelPlato();
+        }
+
+        private void btnExpress_Click(object sender, EventArgs e)
+        {
+            NoScrollPanelPlato();
+        }
+
+        private void btnCombos_Click(object sender, EventArgs e)
         {
 
         }
