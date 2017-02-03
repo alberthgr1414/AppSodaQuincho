@@ -17,11 +17,11 @@ namespace AppSodaQuincho
     {
         public frmSodaQuincho()
         {
-            Thread t = new Thread(new ThreadStart(StartForm));
-            t.Start();
-            Thread.Sleep(10000);
+            //Thread t = new Thread(new ThreadStart(StartForm));
+            //t.Start();
+            //Thread.Sleep(10000);
             InitializeComponent();
-            t.Abort();
+            //t.Abort();
         }
 
         public void StartForm()

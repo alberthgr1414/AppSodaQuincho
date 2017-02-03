@@ -648,7 +648,7 @@ namespace AppSodaQuincho
         }
         public void CambiarColorEstadoVerde()
         {
-            PanelEstadoFactura.BackColor = System.Drawing.Color.Green;
+            lblEstadoFactura.BackColor = System.Drawing.Color.Green;
             lblEstadoFactura.BackColor = System.Drawing.Color.Green;
             lblEstadoFactura.Text = "Facturado";
         }
@@ -922,7 +922,7 @@ namespace AppSodaQuincho
             lblTiempoFactura.Text = Tiempo.ToString();
             if (Tiempo==60)
             {
-                PanelTimerFactura.BackColor = System.Drawing.Color.Red;
+                lblTiempoFactura.ForeColor = System.Drawing.Color.Red;
             }
             if (Tiempo == 999)
             {
@@ -934,7 +934,7 @@ namespace AppSodaQuincho
         public void PararTimerFactura()
         {
             lblTiempoFactura.Text = "0";
-            PanelTimerFactura.BackColor = System.Drawing.Color.Green;
+            lblTiempoFactura.ForeColor = System.Drawing.Color.Green;
             timerFactura.Enabled = false;
             timerFactura.Stop();
             Tiempo=0;
