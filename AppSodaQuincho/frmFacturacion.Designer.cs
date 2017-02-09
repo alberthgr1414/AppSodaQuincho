@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturacion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelPlato = new System.Windows.Forms.Panel();
             this.btnCombos = new System.Windows.Forms.Button();
             this.btnPedidoEspecial = new System.Windows.Forms.Button();
@@ -84,10 +84,6 @@
             this.detFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.detFacturaTableAdapter = new AppSodaQuincho.DBSodaQuinchoDataSetTableAdapters.DetFacturaTableAdapter();
             this.dgvPlatos = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timerFactura = new System.Windows.Forms.Timer(this.components);
             this.timerPicture = new System.Windows.Forms.Timer(this.components);
             this.lblEstadoFactura = new System.Windows.Forms.Label();
@@ -100,6 +96,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelCantidad.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -109,17 +110,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).BeginInit();
             this.panelHora.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelPlato
             // 
             this.PanelPlato.AutoScroll = true;
-            this.PanelPlato.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.PanelPlato.Location = new System.Drawing.Point(-1, 3);
+            this.PanelPlato.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PanelPlato.Location = new System.Drawing.Point(1, 3);
             this.PanelPlato.Margin = new System.Windows.Forms.Padding(1);
             this.PanelPlato.Name = "PanelPlato";
-            this.PanelPlato.Size = new System.Drawing.Size(503, 610);
+            this.PanelPlato.Size = new System.Drawing.Size(500, 612);
             this.PanelPlato.TabIndex = 2;
+            this.PanelPlato.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelPlato_Paint);
             // 
             // btnCombos
             // 
@@ -727,23 +730,23 @@
             this.Precio});
             this.dgvPlatos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvPlatos.GridColor = System.Drawing.Color.DarkGray;
-            this.dgvPlatos.Location = new System.Drawing.Point(4, 52);
+            this.dgvPlatos.Location = new System.Drawing.Point(5, 52);
             this.dgvPlatos.MultiSelect = false;
             this.dgvPlatos.Name = "dgvPlatos";
             this.dgvPlatos.ReadOnly = true;
             this.dgvPlatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPlatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPlatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPlatos.RowHeadersVisible = false;
             this.dgvPlatos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dgvPlatos.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvPlatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPlatos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dgvPlatos.RowTemplate.Height = 30;
             this.dgvPlatos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -754,38 +757,6 @@
             this.dgvPlatos.ShowRowErrors = false;
             this.dgvPlatos.Size = new System.Drawing.Size(272, 445);
             this.dgvPlatos.TabIndex = 28;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "ID_DetFactura";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "#";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 30;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre_Plato";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 140;
-            // 
-            // Precio
-            // 
-            this.Precio.DataPropertyName = "Total";
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            this.Precio.Width = 105;
             // 
             // timerFactura
             // 
@@ -801,7 +772,7 @@
             this.lblEstadoFactura.AutoSize = true;
             this.lblEstadoFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.lblEstadoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadoFactura.Location = new System.Drawing.Point(92, 639);
+            this.lblEstadoFactura.Location = new System.Drawing.Point(83, 5);
             this.lblEstadoFactura.Name = "lblEstadoFactura";
             this.lblEstadoFactura.Size = new System.Drawing.Size(125, 24);
             this.lblEstadoFactura.TabIndex = 0;
@@ -810,7 +781,7 @@
             // panelHora
             // 
             this.panelHora.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panelHora.Controls.Add(this.lblEstadoFactura);
+            this.panelHora.Controls.Add(this.panel2);
             this.panelHora.Controls.Add(this.lblTiempoFactura);
             this.panelHora.Controls.Add(this.txtTotalFactura);
             this.panelHora.Controls.Add(this.label2);
@@ -833,11 +804,11 @@
             this.lblTiempoFactura.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTiempoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempoFactura.ForeColor = System.Drawing.Color.Black;
-            this.lblTiempoFactura.Location = new System.Drawing.Point(240, 38);
+            this.lblTiempoFactura.Location = new System.Drawing.Point(242, 33);
             this.lblTiempoFactura.Name = "lblTiempoFactura";
             this.lblTiempoFactura.Size = new System.Drawing.Size(34, 19);
             this.lblTiempoFactura.TabIndex = 0;
-            this.lblTiempoFactura.Text = "000";
+            this.lblTiempoFactura.Text = "      ";
             // 
             // txtTotalFactura
             // 
@@ -908,6 +879,47 @@
             this.panel1.Size = new System.Drawing.Size(502, 618);
             this.panel1.TabIndex = 28;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel2.Controls.Add(this.lblEstadoFactura);
+            this.panel2.Location = new System.Drawing.Point(0, 634);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(280, 33);
+            this.panel2.TabIndex = 35;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ID_DetFactura";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "#";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 30;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre_Plato";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 165;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "Total";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 80;
+            // 
             // frmFacturacion
             // 
             this.AllowDrop = true;
@@ -941,6 +953,8 @@
             this.panelHora.ResumeLayout(false);
             this.panelHora.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1001,10 +1015,6 @@
         private System.Windows.Forms.DataGridView dgvPlatos;
         private System.Windows.Forms.Timer timerFactura;
         private System.Windows.Forms.Timer timerPicture;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.Label lblEstadoFactura;
         private System.Windows.Forms.Panel panelHora;
         private System.Windows.Forms.Label lblTiempoFactura;
@@ -1015,6 +1025,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
     }
 }
 

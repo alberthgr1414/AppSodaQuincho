@@ -54,7 +54,7 @@
             // 
             // fusionTheme1
             // 
-            this.fusionTheme1.BackColor = System.Drawing.Color.White;
+            this.fusionTheme1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.fusionTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.fusionTheme1.Customization = "Mi8v/zc0NP8yLy////////////8AAAD/Pzw8/z88PP8AAAD/////AD88PP8=";
             this.fusionTheme1.Dock = System.Windows.Forms.DockStyle.Fill;

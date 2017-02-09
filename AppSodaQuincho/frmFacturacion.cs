@@ -32,11 +32,11 @@ namespace AppSodaQuincho
             timerHora.Enabled = true;
             timerHora.Start();
 
-        }
+        }                                                                                              
         public void ScrollPanelPlato()
         {
             //--------Scroll Bar a el Panel---------------
-            PanelPlato.AutoScroll = false;
+            //PanelPlato.AutoScroll = false;
             PanelPlato.VerticalScroll.Visible = true;
             PanelPlato.VerticalScroll.Enabled = true;
             PanelPlato.HorizontalScroll.Enabled = false;
@@ -62,7 +62,7 @@ namespace AppSodaQuincho
             int AnchoPictureBox = 5;
             int AltoPictureBox = 5;
             int AnchoLabel = 5;
-            int AltoLabel = 99;
+            int AltoLabel = 95;
             int cont = 0;
 
             DataTable ds = BLL.PlatoBLL.ListarPlatos(TipoPlato);
@@ -75,21 +75,31 @@ namespace AppSodaQuincho
                 if (cont < 6)
                 {
                     //-----------Creacion de el pictureBox---------
-                    var pictbox = new PictureBox();
+                    //var pictbox = new PictureBox();
+                    //pictbox.Location = new System.Drawing.Point(AnchoPictureBox, AltoPictureBox);
+                    //pictbox.Size = new System.Drawing.Size(90, 90);
+                    //pictbox.BackColor = System.Drawing.Color.White;
+                    //pictbox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    //pictbox.Visible = true;
+                    //DataRow row = ds.Rows[i];
+                    //Byte[] FOTO = (Byte[])row["foto"];
+                    //pictbox.Image = byteArrayToImage(FOTO);
+                    var pictbox = new Button();
                     pictbox.Location = new System.Drawing.Point(AnchoPictureBox, AltoPictureBox);
                     pictbox.Size = new System.Drawing.Size(90, 90);
                     pictbox.BackColor = System.Drawing.Color.White;
-                    pictbox.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictbox.Visible = true;
                     DataRow row = ds.Rows[i];
                     Byte[] FOTO = (Byte[])row["foto"];
-                    pictbox.Image = byteArrayToImage(FOTO);
+                    pictbox.BackgroundImage = byteArrayToImage(FOTO);
+                    pictbox.BackgroundImageLayout = ImageLayout.Stretch;
+
                     //--------------------------------------------
 
                     //Creacion de Labels 
                     var label = new Label();
                     label.Location = new System.Drawing.Point(AnchoLabel, AltoLabel);
-                    label.Size = new System.Drawing.Size(90, 20);
+                    label.Size = new System.Drawing.Size(90, 27);
                     string Nombre = row["Nombre_Plato"].ToString();
                     label.Text = Nombre;
                     label.Visible = true;
@@ -113,9 +123,9 @@ namespace AppSodaQuincho
                     {
                         //Para el salto de linea 
                         AnchoPictureBox = 5;
-                        AltoPictureBox += 123;
+                        AltoPictureBox += 122;
                         AnchoLabel = 5;
-                        AltoLabel += 123;
+                        AltoLabel += 122;
                         cont = 0;
                         i -= 1;
                     }
@@ -191,7 +201,7 @@ namespace AppSodaQuincho
 
         private void ptbProducto_Click(object sender, EventArgs e)
         {
-            PictureBox cl = sender as PictureBox;
+            Button cl = sender as Button;
             if (PrecioProducto == true)
             {   
                 DataTable plato = PlatoBLL.ListarPlatoScalar(int.Parse(cl.Tag.ToString()));
@@ -204,14 +214,6 @@ namespace AppSodaQuincho
             else
             {
             IniciarTimerFactura();
-            cl.BorderStyle = BorderStyle.Fixed3D;
-            for (int i = 0; i < 1000000; i++)
-            {
-                if (i == 999999)
-                {
-                    cl.BorderStyle = BorderStyle.None;
-                }
-            }
             try
             {
                 if (TurnoBLL.VereificarTurnoAbierto() == true)
@@ -230,6 +232,7 @@ namespace AppSodaQuincho
                             DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
                             RefrescarDataGrid();
                             TotalFactura();
+                            dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
                         }
                         else
                         {
@@ -239,7 +242,8 @@ namespace AppSodaQuincho
                             DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
                             RefrescarDataGrid();
                             TotalFactura();
-                        }
+                            dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                            }
                     }
                     else
                     {
@@ -322,7 +326,6 @@ namespace AppSodaQuincho
             llenarMenu(1);
             StyleDataGrid();
             RefrescarDataGrid();
-            dgvPlatos.ClearSelection();
             ScrollPanelPlato();
             //dgvPlatos.CurrentCell = dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Cells[0];
             //dgvPlatos.Refresh();
@@ -885,6 +888,7 @@ namespace AppSodaQuincho
                         DetFacturaBLL.EliminarDetFactura(Numfactura, NumDet);
                         System.Windows.MessageBox.Show("Producto Eliminado");
                         RefrescarDataGrid();
+                        dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
                     }
                     catch (Exception)
                     {
@@ -987,6 +991,11 @@ namespace AppSodaQuincho
         }
 
         private void btnCombos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PanelPlato_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -30,17 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoPlato));
             this.PanelPlato = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.ptbFotografia = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.cboTipoPlato = new System.Windows.Forms.ComboBox();
+            this.ptbFotografia = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombrePlato = new System.Windows.Forms.TextBox();
             this.dgvPlato = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombrePlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioPlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoPlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -69,6 +75,7 @@
             this.button28 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button32 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
@@ -80,24 +87,17 @@
             this.button39 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
             this.button41 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbInsertar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbModificar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.button4 = new System.Windows.Forms.Button();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombrePlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioPlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
             this.PanelPlato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotografia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).BeginInit();
@@ -128,6 +128,16 @@
             this.PanelPlato.TabStop = false;
             this.PanelPlato.Text = "Mantenimiento Plato";
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button4.Location = new System.Drawing.Point(178, 166);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(103, 64);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Limpiar";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -146,16 +156,6 @@
             this.txtPrecio.Size = new System.Drawing.Size(188, 30);
             this.txtPrecio.TabIndex = 12;
             this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
-            // 
-            // ptbFotografia
-            // 
-            this.ptbFotografia.BackColor = System.Drawing.Color.White;
-            this.ptbFotografia.Location = new System.Drawing.Point(346, 26);
-            this.ptbFotografia.Name = "ptbFotografia";
-            this.ptbFotografia.Size = new System.Drawing.Size(100, 117);
-            this.ptbFotografia.TabIndex = 11;
-            this.ptbFotografia.TabStop = false;
-            this.ptbFotografia.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -196,6 +196,16 @@
             this.cboTipoPlato.Name = "cboTipoPlato";
             this.cboTipoPlato.Size = new System.Drawing.Size(188, 33);
             this.cboTipoPlato.TabIndex = 3;
+            // 
+            // ptbFotografia
+            // 
+            this.ptbFotografia.BackColor = System.Drawing.Color.White;
+            this.ptbFotografia.Location = new System.Drawing.Point(346, 26);
+            this.ptbFotografia.Name = "ptbFotografia";
+            this.ptbFotografia.Size = new System.Drawing.Size(100, 117);
+            this.ptbFotografia.TabIndex = 11;
+            this.ptbFotografia.TabStop = false;
+            this.ptbFotografia.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
@@ -249,6 +259,48 @@
             this.dgvPlato.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlato.Size = new System.Drawing.Size(534, 604);
             this.dgvPlato.TabIndex = 1;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "ID_Plato";
+            this.Codigo.FillWeight = 101.5228F;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Codigo.Visible = false;
+            // 
+            // NombrePlato
+            // 
+            this.NombrePlato.DataPropertyName = "Nombre_Plato";
+            this.NombrePlato.FillWeight = 99.61929F;
+            this.NombrePlato.HeaderText = "Nombre Plato";
+            this.NombrePlato.Name = "NombrePlato";
+            this.NombrePlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // PrecioPlato
+            // 
+            this.PrecioPlato.DataPropertyName = "Precio_Plato";
+            this.PrecioPlato.FillWeight = 99.61929F;
+            this.PrecioPlato.HeaderText = "Precio Plato";
+            this.PrecioPlato.Name = "PrecioPlato";
+            this.PrecioPlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TipoPlato
+            // 
+            this.TipoPlato.DataPropertyName = "ID_TipoPlato";
+            this.TipoPlato.FillWeight = 99.61929F;
+            this.TipoPlato.HeaderText = "Tipo Plato";
+            this.TipoPlato.Name = "TipoPlato";
+            this.TipoPlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Imagen
+            // 
+            this.Imagen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Imagen.DataPropertyName = "foto";
+            this.Imagen.FillWeight = 100.1F;
+            this.Imagen.HeaderText = "Imagen";
+            this.Imagen.Name = "Imagen";
+            this.Imagen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // flowLayoutPanel1
             // 
@@ -583,6 +635,17 @@
             this.button30.Text = "Z";
             this.button30.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(399, 171);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(60, 50);
+            this.button1.TabIndex = 27;
+            this.button1.Text = ".";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -703,6 +766,26 @@
             this.button41.Text = "0";
             this.button41.UseVisualStyleBackColor = false;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button2.Location = new System.Drawing.Point(201, 59);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 50);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "<---";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button3.Location = new System.Drawing.Point(333, 59);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(126, 50);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Aceptar";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -735,6 +818,11 @@
             this.tsbInsertar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbInsertar.Click += new System.EventHandler(this.tsbInsertar_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 73);
+            // 
             // tsbModificar
             // 
             this.tsbModificar.AutoSize = false;
@@ -746,6 +834,11 @@
             this.tsbModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbModificar.Click += new System.EventHandler(this.tsbModificar_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 73);
             // 
             // tsbEliminar
             // 
@@ -776,104 +869,11 @@
             this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(399, 171);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 50);
-            this.button1.TabIndex = 27;
-            this.button1.Text = ".";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button2.Location = new System.Drawing.Point(201, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 50);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "<---";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button3.Location = new System.Drawing.Point(333, 59);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 50);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Aceptar";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 73);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 73);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 73);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button4.Location = new System.Drawing.Point(178, 166);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(103, 64);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Limpiar";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "ID_Plato";
-            this.Codigo.FillWeight = 101.5228F;
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Codigo.Visible = false;
-            // 
-            // NombrePlato
-            // 
-            this.NombrePlato.DataPropertyName = "Nombre_Plato";
-            this.NombrePlato.FillWeight = 99.61929F;
-            this.NombrePlato.HeaderText = "Nombre Plato";
-            this.NombrePlato.Name = "NombrePlato";
-            this.NombrePlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // PrecioPlato
-            // 
-            this.PrecioPlato.DataPropertyName = "Precio_Plato";
-            this.PrecioPlato.FillWeight = 99.61929F;
-            this.PrecioPlato.HeaderText = "Precio Plato";
-            this.PrecioPlato.Name = "PrecioPlato";
-            this.PrecioPlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TipoPlato
-            // 
-            this.TipoPlato.DataPropertyName = "ID_TipoPlato";
-            this.TipoPlato.FillWeight = 99.61929F;
-            this.TipoPlato.HeaderText = "Tipo Plato";
-            this.TipoPlato.Name = "TipoPlato";
-            this.TipoPlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Imagen
-            // 
-            this.Imagen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Imagen.DataPropertyName = "foto";
-            this.Imagen.FillWeight = 100.1F;
-            this.Imagen.HeaderText = "Imagen";
-            this.Imagen.Name = "Imagen";
-            this.Imagen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // frmMantenimientoPlato
             // 
