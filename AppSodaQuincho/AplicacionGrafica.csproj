@@ -88,6 +88,8 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -140,6 +142,12 @@
     <Compile Include="frmMantenimientoUsuario.Designer.cs">
       <DependentUpon>frmMantenimientoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesa.Designer.cs">
+      <DependentUpon>frmMesa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPruebas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +179,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Service References\CambioDolar\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="StudioTheme.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -189,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesa.resx">
+      <DependentUpon>frmMesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPruebas.resx">
       <DependentUpon>frmPruebas.cs</DependentUpon>
@@ -216,10 +232,12 @@
       <DependentUpon>DBSodaQuinchoDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Service References\CambioDolar\wsIndicadoresEconomicos.wsdl" />
     <None Include="Service References\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -294,6 +312,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Billete1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CambioDolar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CambioDolar\wsIndicadoresEconomicos.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CambioDolar\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CambioDolar\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CambioDolar\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

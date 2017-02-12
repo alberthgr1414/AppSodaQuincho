@@ -153,6 +153,17 @@ namespace AppSodaQuincho
         {
             SetColores();
             tsbOrdenMesa.BackColor = System.Drawing.Color.Transparent;
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+
+            frmMesa newMDIChild = new frmMesa();
+            // Set the Parent Form of the Child window.
+            newMDIChild.MdiParent = this;
+            // Display the new form.
+            newMDIChild.Show();
+
         }
 
 

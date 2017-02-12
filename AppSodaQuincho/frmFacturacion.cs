@@ -999,6 +999,166 @@ namespace AppSodaQuincho
         {
 
         }
+
+        private void btnPedidoEspecial_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProductosTemporada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripSeparator1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbFecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripSeparator4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbHora_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripSeparator2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripSeparator3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tspBarraCarga_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void detFacturaBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPlatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblEstadoFactura_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblTiempoFactura_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTotalFactura_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void Efectivo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
  
