@@ -106,5 +106,21 @@ namespace DAL
                 throw ex;
             }
         }
+        public static string MacAdress()
+        {
+            string Mac = "";
+            string sql = "select net_address from sysprocesses where spid = @@SPID";
+
+            try
+            {
+
+                Mac = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSQLScalar(sql);
+                return Mac;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
