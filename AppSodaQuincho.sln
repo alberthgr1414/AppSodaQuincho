@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidad", "Entidades\Entida
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenciaSqlServer", "PersistenciaSqlServer\PersistenciaSqlServer.csproj", "{4B58AE2B-0F11-4D0A-BE26-F9B09C810E9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruba", "Pruba\Pruba.csproj", "{DD920F3F-AD66-43EE-B199-AA87BE67D82E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -72,6 +74,16 @@ Global
 		{4B58AE2B-0F11-4D0A-BE26-F9B09C810E9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4B58AE2B-0F11-4D0A-BE26-F9B09C810E9A}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{4B58AE2B-0F11-4D0A-BE26-F9B09C810E9A}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{DD920F3F-AD66-43EE-B199-AA87BE67D82E}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
