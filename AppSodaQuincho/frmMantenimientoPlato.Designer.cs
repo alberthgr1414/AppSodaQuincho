@@ -98,6 +98,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.PanelPlato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotografia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).BeginInit();
@@ -257,7 +258,7 @@
             this.dgvPlato.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvPlato.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPlato.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlato.Size = new System.Drawing.Size(534, 604);
+            this.dgvPlato.Size = new System.Drawing.Size(534, 542);
             this.dgvPlato.TabIndex = 1;
             // 
             // Codigo
@@ -875,11 +876,19 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 73);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(486, 648);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 14;
+            // 
             // frmMantenimientoPlato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 692);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -977,5 +986,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioPlato;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoPlato;
         private System.Windows.Forms.DataGridViewImageColumn Imagen;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

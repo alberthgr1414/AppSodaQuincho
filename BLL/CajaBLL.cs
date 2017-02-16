@@ -64,5 +64,17 @@ namespace BLL
                 throw ex;
             }
         }
+
+        public static string MacAdress()
+        {
+            try
+            {
+                return CajaDAL.MacAdress();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

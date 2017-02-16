@@ -79,6 +79,7 @@ namespace AppSodaQuincho
             LlenarGrid();
             dgvPlato.AutoGenerateColumns = false;
             DesabilitarDatos();
+            textBox1.Text = CajaBLL.MacAdress();
         }
 
 
