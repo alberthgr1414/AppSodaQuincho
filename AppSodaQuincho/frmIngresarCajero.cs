@@ -54,8 +54,9 @@ namespace AppSodaQuincho
                 else
                 {
                     int IdEmpleado = int.Parse(txtCodigoCajero.Text);
-                    int monto = int.Parse(txtFondo.Text);
-                    CajaBLL.AbrirCaja(IdEmpleado, monto);
+                    double monto = int.Parse(txtFondo.Text);
+                    string Pc = CajaBLL.MacAdrees();
+                    CajaBLL.AbrirCaja(IdEmpleado, monto,Pc);
                     System.Windows.MessageBox.Show("Caja Abierto con Exito");
                     this.Close();
                 }

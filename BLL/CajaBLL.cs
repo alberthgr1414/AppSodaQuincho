@@ -36,7 +36,7 @@ namespace BLL
             }
         }
 
-        public static void AbrirCaja(int codigo, int monto)
+        public static void AbrirCaja(int codigo, double monto,string pc)
         {
             try
             {
@@ -44,6 +44,7 @@ namespace BLL
                 {
                     ID_Usuario= codigo,
                     Fondo = monto,
+                    ID_Caja = pc
                 };
                 CajaDAL.AbrirCaja(oCaja);
             }
@@ -58,6 +59,18 @@ namespace BLL
             try
             {
                 return CajaDAL.Caja();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static string MacAdrees()
+        {
+            try
+            {
+                return CajaDAL.MacAdress();
             }
             catch (Exception ex)
             {

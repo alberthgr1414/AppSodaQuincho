@@ -78,6 +78,9 @@ namespace DAL
 
             oCommand.Parameters.AddWithValue("@Fondo", caja.Fondo);
             oCommand.Parameters[1].Direction = ParameterDirection.Input;
+
+            oCommand.Parameters.AddWithValue("@NumCaja", caja.ID_Caja);
+            oCommand.Parameters[2].Direction = ParameterDirection.Input;
             try
             {
                 registrosActualizados = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
