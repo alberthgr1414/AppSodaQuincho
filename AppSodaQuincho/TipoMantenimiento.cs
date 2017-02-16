@@ -4,4 +4,5 @@
     Modificar = 2,
     Eliminar = 3,
     Consultar = 4
+
 }
