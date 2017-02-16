@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidad", "Entidades\Entida
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenciaSqlServer", "PersistenciaSqlServer\PersistenciaSqlServer.csproj", "{4B58AE2B-0F11-4D0A-BE26-F9B09C810E9A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base de Datos", "Base de Datos", "{6DA7F169-4458-48B4-8D4A-32C393617400}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Base de Datos\Codigo Base Datos\Version 1.0\DBSodaQuincho.sql = ..\..\..\Base de Datos\Codigo Base Datos\Version 1.0\DBSodaQuincho.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU

@@ -74,6 +74,7 @@ namespace AppSodaQuincho
 
         private void MantenimientoPlato_Load(object sender, EventArgs e)
         {
+            LimpiarDatos();
             PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
             llenarComboTipoPlato();
             LlenarGrid();
@@ -84,7 +85,7 @@ namespace AppSodaQuincho
 
         private void LlenarGrid()
         {
-            int valor=1;
+            int valor = 1;
             try
             {
                 dgvPlato.DataSource = PlatoBLL.ListarPlatos(valor);
@@ -146,6 +147,8 @@ namespace AppSodaQuincho
                 try
                 {
                     Modificar();
+                    DesabilitarDatos();
+                    LimpiarDatos();
                 }
                 catch (Exception ex)
                 {
@@ -158,6 +161,8 @@ namespace AppSodaQuincho
                 try
                 {
                     Insertar();
+                    DesabilitarDatos();
+                    LimpiarDatos();
                 }
                 catch (Exception ex)
                 {
@@ -228,11 +233,12 @@ namespace AppSodaQuincho
             btnCancelar.Enabled = false;
         }
 
-        public void LimpairDatos()
+        public void LimpiarDatos()
         {
             txtNombrePlato.Text = "";
             txtPrecio.Text = "";
             ptbFotografia.Image = null;
+            cboTipoPlato.SelectedIndex = -1;
         }
 
         public void DesabilitarDatos()
@@ -268,7 +274,7 @@ namespace AppSodaQuincho
 
         private void tsbInsertar_Click(object sender, EventArgs e)
         {
-            LimpairDatos();
+            LimpiarDatos();
             HabilitarInsertar();
             tipo = TipoMantenimiento.Insertar;
 
@@ -277,7 +283,7 @@ namespace AppSodaQuincho
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             DesabilitarDatos();
-            LimpairDatos();
+            LimpiarDatos();
         }
 
         private void tsbModificar_Click(object sender, EventArgs e)
@@ -285,7 +291,7 @@ namespace AppSodaQuincho
 
             if (dgvPlato.SelectedRows.Count > 0)
             {
-                LimpairDatos();
+                LimpiarDatos();
                 HabilitarModificar();
                 Plato oUsuario = this.dgvPlato.SelectedRows[0].DataBoundItem as Plato;
                 IdPlato = int.Parse(this.dgvPlato[0, dgvPlato.CurrentRow.Index].Value.ToString());
@@ -319,6 +325,16 @@ namespace AppSodaQuincho
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarDatos();
         }
     }
 
