@@ -19,7 +19,7 @@ namespace BLL
             {
                 ID_Caja = ID_Caja,
                 ID_Turno = ID_Turno,
-                Estado =1
+                ID_EstadoEncFactura =1
             };
             try
             {
@@ -30,11 +30,30 @@ namespace BLL
                 throw ex;
             }
         }
-        public static string EncFactura()
+
+        public static void CambiarEstadoEncFactura(int ID_EncFactura, int ID_EStadoEncFactura)
+        {
+            //Construir el cliente
+
+            EncFactura oEncFactura = new EncFactura()
+            {
+                ID_EncFactura = ID_EncFactura,
+                ID_EstadoEncFactura = ID_EStadoEncFactura
+            };
+            try
+            {
+                 EncFacturaDAL.CambiarEstadoEncFactura(oEncFactura);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static string EncFactura(int estado)
         {
             try
             {
-                return EncFacturaDAL.EncFactura();
+                return EncFacturaDAL.EncFactura(estado);
             }
             catch (Exception ex)
             {

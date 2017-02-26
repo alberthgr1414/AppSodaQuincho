@@ -150,14 +150,23 @@ namespace AppSodaQuincho
         {
             try
             {
-                DataTable factura = EncFacturaBLL.ListarEncFactura(1);
+                DataTable factura = EncFacturaBLL.ListarEncFactura(6);
                 if (factura.Rows.Count == 0)
                 {
-                    
-                }
+                    DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                    if (factura2.Rows.Count == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                        dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
+                    }
+                    }
                 else
                 {
-                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
+                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
                     dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
                     //DataTable datos = DetFacturaBLL.ListarDetFactura(Numfactura);
                     //for (int i = 0; i < datos.Rows.Count; i++)
@@ -180,16 +189,49 @@ namespace AppSodaQuincho
 
         public void TotalFactura()
         {
-            int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
-            string Suma = DetFacturaBLL.SumDetFactura(Numfactura);
-            if (Suma == "")
+            try
             {
+                DataTable factura = EncFacturaBLL.ListarEncFactura(6);
+                if (factura.Rows.Count == 0)
+                {
+                    DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                    if (factura.Rows.Count == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                        string Suma = DetFacturaBLL.SumDetFactura(Numfactura);
+                        if (Suma == "")
+                        {
+                        }
+                        else
+                        {
+                            double total = double.Parse(Suma);
+                            txtTotalFactura.Text = total.ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                    string Suma = DetFacturaBLL.SumDetFactura(Numfactura);
+                    if (Suma == "")
+                    {
+                    }
+                    else
+                    {
+                        double total = double.Parse(Suma);
+                        txtTotalFactura.Text = total.ToString();
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                double total = double.Parse(Suma);
-                txtTotalFactura.Text = total.ToString();
+                throw;
             }
+
 
         }
 
@@ -220,30 +262,46 @@ namespace AppSodaQuincho
                 {
                     if (CajaBLL.VereificarCajaAbierta() == true)
                     {
-                        DataTable factura = EncFacturaBLL.ListarEncFactura(1);
-                        if (factura.Rows.Count == 0)
-                        {
-                            int cantidad = int.Parse(lblCantidad.Text);
-                            int Codigo = int.Parse(cl.Tag.ToString());
-                            int caja = int.Parse(CajaBLL.Caja());
-                            int turno = int.Parse(TurnoBLL.Turno());
-                            EncFacturaBLL.NuevoEncFactura(turno, caja);
-                            int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
-                            DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
-                            RefrescarDataGrid();
-                            TotalFactura();
-                            dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
-                        }
-                        else
-                        {
-                            int cantidad = int.Parse(lblCantidad.Text);
-                            int Codigo = int.Parse(cl.Tag.ToString());
-                            int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
-                            DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
-                            RefrescarDataGrid();
-                            TotalFactura();
-                            dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+
+                        DataTable factura2 = EncFacturaBLL.ListarEncFactura(6);
+                            if (factura2.Rows.Count == 0)
+                            {
+                                DataTable factura = EncFacturaBLL.ListarEncFactura(1);
+                                if (factura.Rows.Count == 0)
+                                {
+                                    int cantidad = int.Parse(lblCantidad.Text);
+                                    int Codigo = int.Parse(cl.Tag.ToString());
+                                    int caja = int.Parse(CajaBLL.Caja());
+                                    int turno = int.Parse(TurnoBLL.Turno());
+                                    EncFacturaBLL.NuevoEncFactura(turno, caja);
+                                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                                    DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
+                                    RefrescarDataGrid();
+                                    TotalFactura();
+                                    dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                                }
+                                else
+                                {
+                                    int cantidad = int.Parse(lblCantidad.Text);
+                                    int Codigo = int.Parse(cl.Tag.ToString());
+                                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                                    DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
+                                    RefrescarDataGrid();
+                                    //TotalFactura();
+                                    dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                                }
                             }
+                            else
+                            {
+                                int cantidad = int.Parse(lblCantidad.Text);
+                                int Codigo = int.Parse(cl.Tag.ToString());
+                                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                                DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
+                                RefrescarDataGrid();
+                                TotalFactura();
+                                dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                            }
+
                     }
                     else
                     {
@@ -567,7 +625,7 @@ namespace AppSodaQuincho
                 if (CajaBLL.VereificarCajaAbierta() == true)
                 {
 
-                    System.Windows.MessageBox.Show("Ya ahi cajero Ingresado Caja Numero= ");
+                    System.Windows.MessageBox.Show("Ya ahi cajero Ingresado");
                 }
                 else
                 {
@@ -783,7 +841,7 @@ namespace AppSodaQuincho
             //Asignar el valor a el label total de Pago
             var lblTotalPago = new Label();
             lblTotalPago.Font = new Font("Arial", 16, System.Drawing.FontStyle.Bold);
-            int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
+            int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
             double total = double.Parse(DetFacturaBLL.SumDetFactura(Numfactura));
             lblTotalPago.Text = "₡ "+ total.ToString();
             lblTotalPago.Location = new System.Drawing.Point(50, 50);
@@ -886,16 +944,13 @@ namespace AppSodaQuincho
         {
             if (dgvPlatos.CurrentRow.Index >= 0)
             {
-                DataTable factura = EncFacturaBLL.ListarEncFactura(1);
+                DataTable factura = EncFacturaBLL.ListarEncFactura(6);
                 if (factura.Rows.Count == 0)
-                {
-
-                }
-                else
                 {
                     try
                     {
-                        int Numfactura = int.Parse(EncFacturaBLL.EncFactura());
+                        DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                        int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
                         int NumDet = int.Parse(dgvPlatos[0, dgvPlatos.CurrentRow.Index].Value.ToString());
                         DetFacturaBLL.EliminarDetFactura(Numfactura, NumDet);
                         System.Windows.MessageBox.Show("Producto Eliminado");
@@ -907,6 +962,10 @@ namespace AppSodaQuincho
 
                         throw;
                     }
+                }
+                else
+                {
+
 
                 }
             }
@@ -992,10 +1051,50 @@ namespace AppSodaQuincho
             NoScrollPanelPlato();
         }
 
+        
+
         private void btnMesa_Click(object sender, EventArgs e)
         {
+            PanelPlato.Controls.Clear();
             NoScrollPanelPlato();
+            var btnEstacionarMesa = new Button();
+            btnEstacionarMesa.Size = new System.Drawing.Size(200, 200);
+            btnEstacionarMesa.BackColor = System.Drawing.Color.White;
+            btnEstacionarMesa.Visible = true;
+            btnEstacionarMesa.Text = "Estacionar Mesa";
+            btnEstacionarMesa.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
+            PanelPlato.Controls.Add(btnEstacionarMesa);
+            btnEstacionarMesa.Click += new System.EventHandler(this.btnEstacionarMesa_Click);
+
         }
+
+        //Cambia el estado de la mesa 
+        private void btnEstacionarMesa_Click(object sender, EventArgs e)
+        {
+            DataTable factura = EncFacturaBLL.ListarEncFactura(6);
+            if (factura.Rows.Count == 0)
+            {
+                DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                if (factura2.Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                    EncFacturaBLL.CambiarEstadoEncFactura(Numfactura,4);
+                }
+                }
+            else
+            {
+                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 4);
+
+            }
+        }
+
+
+
 
         private void btnExpress_Click(object sender, EventArgs e)
         {

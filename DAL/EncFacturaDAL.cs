@@ -26,7 +26,7 @@ namespace DAL
             oCommand.Parameters.AddWithValue("@ID_Caja", pEncFactura.ID_Caja);
             oCommand.Parameters[1].Direction = ParameterDirection.Input;
 
-            oCommand.Parameters.AddWithValue("@Estado", pEncFactura.Estado);
+            oCommand.Parameters.AddWithValue("@Estado", pEncFactura.ID_EstadoEncFactura);
             oCommand.Parameters[1].Direction = ParameterDirection.Input;
 
             try
@@ -40,13 +40,17 @@ namespace DAL
             }
         }
 
-        public static string EncFactura()
+        public static string EncFactura(int estado)
         {
             //Declaración de objeto SqlCommand
             SqlCommand oCommand = new SqlCommand();
             string registro;
             oCommand.CommandText = "SpEncFactura";
             oCommand.CommandType = CommandType.StoredProcedure;
+
+            oCommand.Parameters.AddWithValue("@ID_EstadoEncFactura", estado);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+
             try
             {
                 registro = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSQLScalar(oCommand);
@@ -57,6 +61,32 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public static void CambiarEstadoEncFactura(EncFactura pEncFactura)
+        {
+            //Declaración de objeto SqlCommand
+            SqlCommand oCommand = new SqlCommand();
+            string registro;
+            oCommand.CommandText = "SpCambiarEstadoEncFactura";
+            oCommand.CommandType = CommandType.StoredProcedure;
+
+            //Crear los Parámetros del procedimiento y sus valores
+            oCommand.Parameters.AddWithValue("@ID_EncFactura", pEncFactura.ID_EncFactura);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+
+            oCommand.Parameters.AddWithValue("@ID_EstadoEncFactura", pEncFactura.ID_EstadoEncFactura);
+            oCommand.Parameters[1].Direction = ParameterDirection.Input;
+
+            try
+            {
+                PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static DataTable ListarEncFactura(int ID_EstadoEncFactura)
         {
             //Declaración de objeto SqlCommand

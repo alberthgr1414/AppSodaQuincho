@@ -38,7 +38,7 @@
             this.metroProgressBar1.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.metroProgressBar1.FontSize = MetroFramework.MetroProgressBarSize.Tall;
             this.metroProgressBar1.FontWeight = MetroFramework.MetroProgressBarWeight.Bold;
-            this.metroProgressBar1.Location = new System.Drawing.Point(24, 323);
+            this.metroProgressBar1.Location = new System.Drawing.Point(24, 305);
             this.metroProgressBar1.MarqueeAnimationSpeed = 50;
             this.metroProgressBar1.Name = "metroProgressBar1";
             this.metroProgressBar1.ProgressBarStyle = System.Windows.Forms.ProgressBarStyle.Marquee;
@@ -67,7 +67,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSplashScreen";
-            this.Style = MetroFramework.MetroColorStyle.Lime;
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.frmSplashScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

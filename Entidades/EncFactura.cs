@@ -12,6 +12,6 @@ namespace Entidades
         public int ID_Caja { set; get; }
         public DateTime Fecha { set; get; }
         public double Total { set; get; }
-        public int Estado { set; get; }
+        public int ID_EstadoEncFactura { set; get; }
     }
 }
