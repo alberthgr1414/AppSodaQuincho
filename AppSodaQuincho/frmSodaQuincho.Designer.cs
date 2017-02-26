@@ -51,8 +51,8 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbVentaRapida,
-            this.toolStripButton1,
             this.tsbOrdenMesa,
+            this.toolStripButton1,
             this.tsbExpress,
             this.tsbAbrirTurno,
             this.tsbCerrarTurno,
