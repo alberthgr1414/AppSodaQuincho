@@ -7,6 +7,7 @@ namespace Entidades
 {
     public class Caja
     {
+        //Parametros
         public int ID_Turno { set; get; }
         public string ID_Caja { set; get; }
         public int ID_Usuario { set; get; }

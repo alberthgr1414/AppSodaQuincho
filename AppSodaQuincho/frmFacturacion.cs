@@ -732,6 +732,7 @@ namespace AppSodaQuincho
             PanelPlato.Controls.Add(flpTecladoPago);
             arrayTeclado.Clear();
             llenarTeclado();
+
             //Panel Botones de Pago
             var flpBotonesPago = new FlowLayoutPanel();
             flpBotonesPago.Location = new System.Drawing.Point(310, 305);
@@ -740,28 +741,39 @@ namespace AppSodaQuincho
             PanelPlato.Controls.Add(flpBotonesPago);
             arrayTeclado.Clear();
             llenarTeclado();
+
             //Panel Monto Pago
             var PanelMontoPago = new Panel();
             PanelMontoPago.Location = new System.Drawing.Point(3, 205);
             PanelMontoPago.Size = new System.Drawing.Size(305, 97);
             PanelMontoPago.BackColor = System.Drawing.Color.Gray;
             PanelPlato.Controls.Add(PanelMontoPago);
+
+            //Monto a Pagar
+            var MontoPago = new TextBox();
+            PanelMontoPago.Location = new System.Drawing.Point(20, 40);
+            MontoPago.Size = new System.Drawing.Size(250, 80);
+            PanelMontoPago.Controls.Add(MontoPago);
+
             // Titulo Panel Monto Pago
             var PanelMontoPagoTitulo = new FlowLayoutPanel();
             PanelMontoPagoTitulo.Size = new System.Drawing.Size(305, 30);
             PanelMontoPagoTitulo.BackColor = System.Drawing.Color.Blue;
             PanelMontoPago.Controls.Add(PanelMontoPagoTitulo);
-            // Total de Pagp
+
+            // Total de Pagar
             var PanelTotalPago = new Panel();
             PanelTotalPago.Location = new System.Drawing.Point(310, 205);
             PanelTotalPago.Size = new System.Drawing.Size(188, 97);
             PanelTotalPago.BackColor = System.Drawing.Color.Gray;
             PanelPlato.Controls.Add(PanelTotalPago);
+
             //Titulo Total de Pago
             var PanelTotalPagoTitulo = new Panel();
             PanelTotalPagoTitulo.Size = new System.Drawing.Size(188, 30);
             PanelTotalPagoTitulo.BackColor = System.Drawing.Color.Blue;
             PanelTotalPago.Controls.Add(PanelTotalPagoTitulo);
+
             //Label Titulo Total de Pago
             var lblTituloTotalPago = new Label();
             lblTituloTotalPago.Text = "Monto Total";

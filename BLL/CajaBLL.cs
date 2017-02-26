@@ -36,15 +36,14 @@ namespace BLL
             }
         }
 
-        public static void AbrirCaja(int codigo, double monto,string pc)
+        public static void AbrirCaja(int codigo, double monto)
         {
             try
             {
                 Caja oCaja = new Caja()
                 {
                     ID_Usuario= codigo,
-                    Fondo = monto,
-                    ID_Caja = pc
+                    Fondo = monto
                 };
                 CajaDAL.AbrirCaja(oCaja);
             }
