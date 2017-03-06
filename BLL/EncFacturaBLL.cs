@@ -72,5 +72,17 @@ namespace BLL
                 throw ex;
             }
         }
+
+        public static DataTable ListarEncFacturaPorEstado(int ID_EstadoEncFactura)
+        {
+            try
+            {
+                return EncFacturaDAL.ListarEncFacturaPorEstado(ID_EstadoEncFactura);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

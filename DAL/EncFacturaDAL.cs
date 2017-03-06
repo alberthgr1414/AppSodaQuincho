@@ -109,6 +109,28 @@ namespace DAL
                 throw ex;
             }
         }
-        
+
+        public static DataTable ListarEncFacturaPorEstado(int ID_EstadoEncFactura)
+        {
+            //Declaración de objeto SqlCommand
+            SqlCommand oCommand = new SqlCommand();
+            DataTable registro;
+            oCommand.CommandText = "SpEncFacturaListarPorEstado";
+            oCommand.CommandType = CommandType.StoredProcedure;
+
+            //Crear los Parámetros del procedimiento y sus valores
+            oCommand.Parameters.AddWithValue("@ID_EstadoEncFactura", ID_EstadoEncFactura);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+
+            try
+            {
+                registro = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarConsultaDataTable(oCommand);
+                return registro;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
