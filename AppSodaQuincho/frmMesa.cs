@@ -35,7 +35,6 @@ namespace AppSodaQuincho
             DataTable mesas = EncFacturaBLL.ListarEncFacturaPorEstado(4); 
             for (int i = 0; i < mesas.Rows.Count; i++)
             {
-                int alto = 0;
                 int EncFactura = int.Parse(mesas.Rows[i][0].ToString());
 
                 var panelMesa = new Panel();
@@ -70,12 +69,6 @@ namespace AppSodaQuincho
                 var NFactura = new Label();
                 NFactura.Text = EncFactura.ToString();
                 panelNumOrden.Controls.Add(NFactura);
-
-                //var panelDetalles = new Panel();
-                //panelDetalles.Size = new System.Drawing.Size(180, 250); 
-                //panelDetalles.BackColor = System.Drawing.Color.White;
-                //panelDetalles.Visible = true;
-                //panelMesa.Controls.Add(panelDetalles);
 
                 var listox = new ListBox();
                 listox.Size = new System.Drawing.Size(182, 190);
