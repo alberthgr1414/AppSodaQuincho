@@ -156,7 +156,7 @@ namespace AppSodaQuincho
                     DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
                     if (factura2.Rows.Count == 0)
                     {
-
+                        this.Refresh();
                     }
                     else
                     {
@@ -255,18 +255,25 @@ namespace AppSodaQuincho
             }
             else
             {
+            //Inicia el tiempo de Facturacion
             IniciarTimerFactura();
             try
             {
+                //Verifica si el turno esta abirto
                 if (TurnoBLL.VereificarTurnoAbierto() == true)
                 {
+                    //Verifica si ahi cajero Ingresado
                     if (CajaBLL.VereificarCajaAbierta() == true)
                     {
-
+                        //Verifica si ahi facturas en Edicion 
                         DataTable factura2 = EncFacturaBLL.ListarEncFactura(6);
+                            //Si no ahi facturas en edicion Procede a ver 
+                            //si ahi facturas en facturacion
                             if (factura2.Rows.Count == 0)
                             {
+                                //Trae la factura en edicion
                                 DataTable factura = EncFacturaBLL.ListarEncFactura(1);
+                                //Si no ahi facturas procede a crear una nueva
                                 if (factura.Rows.Count == 0)
                                 {
                                     int cantidad = int.Parse(lblCantidad.Text);
@@ -279,6 +286,7 @@ namespace AppSodaQuincho
                                     RefrescarDataGrid();
                                     TotalFactura();
                                     dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                                    BannerFactura(1);
                                 }
                                 else
                                 {
@@ -289,6 +297,7 @@ namespace AppSodaQuincho
                                     RefrescarDataGrid();
                                     //TotalFactura();
                                     dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                      
                                 }
                             }
                             else
@@ -709,9 +718,9 @@ namespace AppSodaQuincho
         }
         public void CambiarColorEstadoVerde()
         {
-            lblEstadoFactura.BackColor = System.Drawing.Color.Green;
-            lblEstadoFactura.BackColor = System.Drawing.Color.Green;
-            lblEstadoFactura.Text = "Facturado";
+            lblBannerFactura.BackColor = System.Drawing.Color.Green;
+            lblBannerFactura.BackColor = System.Drawing.Color.Green;
+            lblBannerFactura.Text = "Facturado";
         }
 
         private void btnLlevar_Click(object sender, EventArgs e)
@@ -942,6 +951,8 @@ namespace AppSodaQuincho
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
             if (dgvPlatos.CurrentRow.Index >= 0)
             {
                 DataTable factura = EncFacturaBLL.ListarEncFactura(6);
@@ -971,7 +982,13 @@ namespace AppSodaQuincho
             }
             else
             {
-                System.Windows.MessageBox.Show("Debe Slecionar un Producto");
+                System.Windows.MessageBox.Show("Debe Selecionar un Producto");
+            }
+
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("Debes Agregar otro Producto");
             }
         }
 
@@ -1031,21 +1048,6 @@ namespace AppSodaQuincho
             }
         }
 
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
-
-        private void panelCantidad_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void timerPicture_Tick(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnComerAqui_Click(object sender, EventArgs e)
         {
             NoScrollPanelPlato();
@@ -1083,192 +1085,102 @@ namespace AppSodaQuincho
                 {
                     int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
                     EncFacturaBLL.CambiarEstadoEncFactura(Numfactura,4);
+                    btnMenuRegular.PerformClick();
+                    RefrescarDataGrid();
+                    dgvPlatos.Refresh();
+                    BannerFactura(4);
                 }
                 }
             else
             {
                 int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
                 EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 4);
-
+                btnMenuRegular.PerformClick();
+                RefrescarDataGrid();
+                dgvPlatos.Refresh();
+                BannerFactura(4);
             }
         }
-
-
-
 
         private void btnExpress_Click(object sender, EventArgs e)
         {
             NoScrollPanelPlato();
         }
 
-        private void btnCombos_Click(object sender, EventArgs e)
+        private void BannerFactura(int valor)
         {
-
-        }
-
-        private void PanelPlato_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnPedidoEspecial_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnProductosTemporada_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSeparator1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsbFecha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSeparator4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsbHora_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSeparator2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSeparator3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tspBarraCarga_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void detFacturaBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvPlatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void lblEstadoFactura_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblTiempoFactura_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTotalFactura_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void Efectivo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-
+            switch (valor)
+            {
+                case 1:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.Text = "En Facturacion"; 
+                    break;
+                case 2:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.Text = "Comer Aca Facturado"; 
+                    break;
+                case 3:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.Text = "Llevar Facturado";
+                    break;
+                case 4:
+                    ;
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.Text = "En Mesa";
+                    break;
+                case 5:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.Text = "Mesa Facturado";
+                    break;
+                case 6:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Yellow;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Yellow;
+                    lblBannerFactura.Text = "En Edicion Mesa";
+                    break;
+                case 7:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.Text = "En Express";
+                    break;
+                case 8:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Green;
+                    lblBannerFactura.Text = "Express Facturado";
+                    break;
+                case 9:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.DarkViolet;
+                    lblBannerFactura.BackColor = System.Drawing.Color.DarkViolet;
+                    lblBannerFactura.Text = "Comida de Empleado";
+                    break;
+                case 10:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Fuchsia;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Fuchsia;
+                    lblBannerFactura.Text = "Promo Todo";
+                    break;
+
+                default:
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Silver;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Silver;
+                    lblBannerFactura.Text = "Nueva Factura";
+                    break;
+            }
+            if (valor == 1)
+            {
+               
+            }
+            if (valor == 2)
+            {
+
+            }
+            if (valor == 3)
+            {
+
+            }
         }
     }
 }

@@ -32,6 +32,8 @@ namespace AppSodaQuincho
 
         public void cargarOrdenes()
         {
+            try
+            {
             DataTable mesas = EncFacturaBLL.ListarEncFacturaPorEstado(4); 
             for (int i = 0; i < mesas.Rows.Count; i++)
             {
@@ -102,6 +104,12 @@ namespace AppSodaQuincho
                     listox.Items.Add(Detelles.Text);
                 }
                 
+            }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
 
