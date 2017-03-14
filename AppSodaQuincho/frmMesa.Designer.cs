@@ -58,11 +58,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(3, 4);
+            this.label1.Location = new System.Drawing.Point(5, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(392, 26);
+            this.label1.Size = new System.Drawing.Size(196, 26);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Facturas pendientes de pago en Mesas";
+            this.label1.Text = "Facturas en Mesas";
             // 
             // tspBarraCarga
             // 
@@ -140,13 +140,13 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(431, 30);
+            this.panel1.Size = new System.Drawing.Size(235, 30);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(401, 4);
+            this.button1.Location = new System.Drawing.Point(205, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(26, 23);
             this.button1.TabIndex = 2;
