@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoPlato));
             this.PanelPlato = new System.Windows.Forms.GroupBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -99,6 +99,7 @@
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ofdImagen = new System.Windows.Forms.OpenFileDialog();
             this.PanelPlato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotografia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).BeginInit();
@@ -301,13 +302,13 @@
             // Column1
             // 
             this.Column1.DataPropertyName = "foto";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column1.HeaderText = "Foto";
             this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Column1.Name = "Column1";
@@ -895,6 +896,11 @@
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
+            // ofdImagen
+            // 
+            this.ofdImagen.FileName = "openFileDialog1";
+            this.ofdImagen.RestoreDirectory = true;
+            // 
             // frmMantenimientoPlato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -997,5 +1003,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioPlato;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoPlato;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
+        private System.Windows.Forms.OpenFileDialog ofdImagen;
     }
 }

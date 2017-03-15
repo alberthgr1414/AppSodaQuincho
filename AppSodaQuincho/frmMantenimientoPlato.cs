@@ -28,23 +28,25 @@ namespace AppSodaQuincho
         {
             try
             {
-                OpenFileDialog oOpenFile = new OpenFileDialog();
-                oOpenFile.Title = "Seleccione la imagen";
+                //OpenFileDialog oOpenFile = new OpenFileDialog();
+                ofdImagen.Title = "Seleccione la imagen";
                 //oOpenFile.SupportMultiDottedExtensions = true;
-                oOpenFile.DefaultExt = "*.png";  //Indica extensión inicial de las imágenes a mostrar
-                oOpenFile.Filter = "Archivos de Imagenes All files (*.*)|*.*";
-                oOpenFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);//Define el directorio default a abrir
-                oOpenFile.FileName = "";
+                ofdImagen.DefaultExt = "*.png";  //Indica extensión inicial de las imágenes a mostrar
+                ofdImagen.Filter = "Archivos de Imagenes All files (*.*)|*.*";
+                ofdImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);//Define el directorio default a abrir
+                ofdImagen.FileName = "";
+                ofdImagen.InitialDirectory = "C:\\";
 
-                if (oOpenFile.ShowDialog(this) == DialogResult.OK)
+
+                if (ofdImagen.ShowDialog(this) == DialogResult.OK)
                 {
                     try
                     {
-                        ptbFotografia.ImageLocation = oOpenFile.FileName;  //Asigna la fotografía al pictureBox
+                        ptbFotografia.ImageLocation = ofdImagen.FileName;  //Asigna la fotografía al pictureBox
                         ptbFotografia.SizeMode = PictureBoxSizeMode.StretchImage;
 
                         //Convierte la imagen a una cadena de bytes
-                        byte[] cadenaBytes = File.ReadAllBytes(oOpenFile.FileName);
+                        byte[] cadenaBytes = File.ReadAllBytes(ofdImagen.FileName);
 
                         ptbFotografia.Tag = (byte[])cadenaBytes; //Pasa la fotografía en cadena de bytes al tag del picture box para luego enviarla a la bd
 

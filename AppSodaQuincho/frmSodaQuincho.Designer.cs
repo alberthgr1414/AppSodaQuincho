@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSodaQuincho));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbVentaRapida = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbOrdenMesa = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbExpress = new System.Windows.Forms.ToolStripButton();
             this.tsbAbrirTurno = new System.Windows.Forms.ToolStripButton();
             this.tsbCerrarTurno = new System.Windows.Forms.ToolStripButton();
@@ -83,18 +83,6 @@
             this.tsbVentaRapida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbVentaRapida.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.BackColor = System.Drawing.Color.Gray;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(120, 70);
-            this.toolStripButton1.Text = "Ordenes ";
-            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
             // tsbOrdenMesa
             // 
             this.tsbOrdenMesa.AutoSize = false;
@@ -108,6 +96,19 @@
             this.tsbOrdenMesa.Text = "Orden Mesa";
             this.tsbOrdenMesa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbOrdenMesa.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.BackColor = System.Drawing.Color.Gray;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(120, 70);
+            this.toolStripButton1.Text = "Ordenes ";
+            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_2);
             // 
             // tsbExpress
             // 

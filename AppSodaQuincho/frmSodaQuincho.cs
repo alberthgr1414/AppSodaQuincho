@@ -199,8 +199,9 @@ namespace AppSodaQuincho
             tsbMantenimientos.BackColor = System.Drawing.Color.Transparent;
         }
 
+        private void toolStripButton1_Click_2(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

@@ -28,72 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
-            this.fusionTheme1 = new CS_ClassLibraryTester.FusionTheme();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // metroContextMenu1
+            // button1
             // 
-            this.metroContextMenu1.Name = "metroContextMenu1";
-            this.metroContextMenu1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = null;
-            // 
-            // metroToolTip1
-            // 
-            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroToolTip1.StyleManager = null;
-            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // fusionTheme1
-            // 
-            this.fusionTheme1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.fusionTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.fusionTheme1.Customization = "Mi8v/zc0NP8yLy////////////8AAAD/Pzw8/z88PP8AAAD/////AD88PP8=";
-            this.fusionTheme1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fusionTheme1.Font = new System.Drawing.Font("Verdana", 8F);
-            this.fusionTheme1.Image = null;
-            this.fusionTheme1.Location = new System.Drawing.Point(0, 0);
-            this.fusionTheme1.Movable = true;
-            this.fusionTheme1.Name = "fusionTheme1";
-            this.fusionTheme1.NoRounding = false;
-            this.fusionTheme1.Sizable = true;
-            this.fusionTheme1.Size = new System.Drawing.Size(497, 417);
-            this.fusionTheme1.SmartBounds = true;
-            this.fusionTheme1.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultLocation;
-            this.fusionTheme1.TabIndex = 1;
-            this.fusionTheme1.Text = "fusionTheme1";
-            this.fusionTheme1.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.fusionTheme1.Transparent = false;
+            this.button1.Image = global::AppSodaQuincho.Properties.Resources.MesaLibre;
+            this.button1.Location = new System.Drawing.Point(30, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 27);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmPruebas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 417);
-            this.Controls.Add(this.fusionTheme1);
+            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPruebas";
             this.Text = "frmPruebas";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.frmPruebas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
-        private MetroFramework.Components.MetroStyleExtender metroStyleExtender1;
-        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
-        private MetroFramework.Components.MetroToolTip metroToolTip1;
-        private CS_ClassLibraryTester.FusionTheme fusionTheme1;
+
+        private System.Windows.Forms.Button button1;
     }
 }

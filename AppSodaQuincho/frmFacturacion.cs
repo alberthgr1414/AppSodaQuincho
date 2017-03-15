@@ -157,17 +157,20 @@ namespace AppSodaQuincho
                     if (factura2.Rows.Count == 0)
                     {
                         this.Refresh();
+                        BannerFactura(12);
                     }
                     else
                     {
                         int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
                         dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
+                        BannerFactura(1);
                     }
                     }
                 else
                 {
                     int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
                     dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
+                    BannerFactura(6);
                     //DataTable datos = DetFacturaBLL.ListarDetFactura(Numfactura);
                     //for (int i = 0; i < datos.Rows.Count; i++)
                     //{
@@ -176,7 +179,7 @@ namespace AppSodaQuincho
                     //    {
                     //        dgvPlatos[i, f].Value = "Albertn";
                     //    }
-                       
+
                     //}
                     TotalFactura();
                 }
@@ -394,11 +397,6 @@ namespace AppSodaQuincho
             StyleDataGrid();
             RefrescarDataGrid();
             ScrollPanelPlato();
-            //dgvPlatos.CurrentCell = dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Cells[0];
-            //dgvPlatos.Refresh();
-            //int indice = dgvPlatos.Rows.Count - 1;
-            //dgvPlatos.Rows[indice].Selected = false;
-
         }
 
         public void StyleDataGrid()
@@ -1058,15 +1056,44 @@ namespace AppSodaQuincho
         private void btnMesa_Click(object sender, EventArgs e)
         {
             PanelPlato.Controls.Clear();
-            NoScrollPanelPlato();
-            var btnEstacionarMesa = new Button();
-            btnEstacionarMesa.Size = new System.Drawing.Size(200, 200);
-            btnEstacionarMesa.BackColor = System.Drawing.Color.White;
-            btnEstacionarMesa.Visible = true;
-            btnEstacionarMesa.Text = "Estacionar Mesa";
-            btnEstacionarMesa.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
-            PanelPlato.Controls.Add(btnEstacionarMesa);
-            btnEstacionarMesa.Click += new System.EventHandler(this.btnEstacionarMesa_Click);
+
+            var flpMesa = new FlowLayoutPanel();
+            flpMesa.Location = new System.Drawing.Point(5, 5);
+            flpMesa.Size = new System.Drawing.Size(490, 350);
+            flpMesa.BackColor = System.Drawing.Color.Blue;
+            flpMesa.AutoScroll = true;
+            PanelPlato.Controls.Add(flpMesa);
+
+            for (int i = 0; i < 6; i++)
+            {
+                var btnMesa = new Button();
+                btnMesa.Size = new System.Drawing.Size(110, 110);
+                btnMesa.Visible = true;
+                if (i == 2)
+                {
+                    btnMesa.BackgroundImage = global::AppSodaQuincho.Properties.Resources.MesaOcupada;
+                }
+                else
+                {
+                    btnMesa.BackgroundImage = global::AppSodaQuincho.Properties.Resources.MesaLibre;
+                }
+                btnMesa.Text = i.ToString();
+                btnMesa.BackColor = System.Drawing.Color.White;
+                btnMesa.BackgroundImageLayout = ImageLayout.Stretch;
+                btnMesa.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+
+                flpMesa.Controls.Add(btnMesa);
+            }
+          
+            //NoScrollPanelPlato();
+            //var btnEstacionarMesa = new Button();
+            //btnEstacionarMesa.Size = new System.Drawing.Size(200, 200);
+            //btnEstacionarMesa.BackColor = System.Drawing.Color.White;
+            //btnEstacionarMesa.Visible = true;
+            //btnEstacionarMesa.Text = "Estacionar Mesa";
+            //btnEstacionarMesa.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
+            //PanelPlato.Controls.Add(btnEstacionarMesa);
+            //btnEstacionarMesa.Click += new System.EventHandler(this.btnEstacionarMesa_Click);
 
         }
 
@@ -1105,6 +1132,7 @@ namespace AppSodaQuincho
         private void btnExpress_Click(object sender, EventArgs e)
         {
             NoScrollPanelPlato();
+
         }
 
         private void BannerFactura(int valor)

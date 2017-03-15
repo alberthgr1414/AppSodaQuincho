@@ -38,6 +38,7 @@ namespace AppSodaQuincho
                 for (int i = 0; i < mesas.Rows.Count; i++)
                 {
                     int EncFactura = int.Parse(mesas.Rows[i][0].ToString());
+                    string Cliente = mesas.Rows[i][6].ToString();
 
                     var panelMesa = new Panel();
                     panelMesa.Size = new System.Drawing.Size(192, 306);
@@ -71,6 +72,11 @@ namespace AppSodaQuincho
                     var NFactura = new Label();
                     NFactura.Text = EncFactura.ToString();
                     panelNumOrden.Controls.Add(NFactura);
+
+                    var NCliente = new Label();
+                    NCliente.Location = new System.Drawing.Point(0, 25);
+                    NCliente.Text = Cliente.ToString();
+                    panelNumOrden.Controls.Add(NCliente);
 
                     var listox = new ListBox();
                     listox.Size = new System.Drawing.Size(182, 190);
@@ -108,9 +114,17 @@ namespace AppSodaQuincho
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception er)
             {
-                throw ex;
+
+                StringBuilder msg = new StringBuilder();
+                msg.AppendFormat("Message        {0}\n", er.Message);
+                msg.AppendFormat("Source         {0}\n", er.Source);
+                msg.AppendFormat("InnerException {0}\n", er.InnerException);
+                msg.AppendFormat("StackTrace     {0}\n", er.StackTrace);
+                msg.AppendFormat("TargetSite     {0}\n", er.TargetSite);
+
+                MessageBox.Show(msg.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 

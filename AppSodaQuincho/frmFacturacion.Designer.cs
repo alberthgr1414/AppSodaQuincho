@@ -92,8 +92,9 @@
             this.timerPicture = new System.Windows.Forms.Timer(this.components);
             this.lblBannerFactura = new System.Windows.Forms.Label();
             this.panelHora = new System.Windows.Forms.Panel();
-            this.PanelBannerFactura = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lblTiempoFactura = new System.Windows.Forms.Label();
+            this.PanelBannerFactura = new System.Windows.Forms.Panel();
             this.txtTotalFactura = new System.Windows.Forms.MaskedTextBox();
             this.Efectivo = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -101,7 +102,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panelCantidad.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -110,9 +110,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.detFacturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).BeginInit();
             this.panelHora.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.PanelBannerFactura.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelPlato
@@ -824,14 +824,14 @@
             this.panelHora.TabIndex = 19;
             this.panelHora.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHora_Paint);
             // 
-            // PanelBannerFactura
+            // panel3
             // 
-            this.PanelBannerFactura.BackColor = System.Drawing.Color.Silver;
-            this.PanelBannerFactura.Controls.Add(this.lblBannerFactura);
-            this.PanelBannerFactura.Location = new System.Drawing.Point(5, 496);
-            this.PanelBannerFactura.Name = "PanelBannerFactura";
-            this.PanelBannerFactura.Size = new System.Drawing.Size(272, 33);
-            this.PanelBannerFactura.TabIndex = 35;
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.lblTiempoFactura);
+            this.panel3.Location = new System.Drawing.Point(236, 27);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(41, 26);
+            this.panel3.TabIndex = 36;
             // 
             // lblTiempoFactura
             // 
@@ -845,6 +845,15 @@
             this.lblTiempoFactura.Size = new System.Drawing.Size(34, 19);
             this.lblTiempoFactura.TabIndex = 0;
             this.lblTiempoFactura.Text = "      ";
+            // 
+            // PanelBannerFactura
+            // 
+            this.PanelBannerFactura.BackColor = System.Drawing.Color.Silver;
+            this.PanelBannerFactura.Controls.Add(this.lblBannerFactura);
+            this.PanelBannerFactura.Location = new System.Drawing.Point(5, 496);
+            this.PanelBannerFactura.Name = "PanelBannerFactura";
+            this.PanelBannerFactura.Size = new System.Drawing.Size(272, 33);
+            this.PanelBannerFactura.TabIndex = 35;
             // 
             // txtTotalFactura
             // 
@@ -915,15 +924,6 @@
             this.panel1.Size = new System.Drawing.Size(502, 618);
             this.panel1.TabIndex = 28;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.lblTiempoFactura);
-            this.panel3.Location = new System.Drawing.Point(236, 27);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(41, 26);
-            this.panel3.TabIndex = 36;
-            // 
             // frmFacturacion
             // 
             this.AllowDrop = true;
@@ -956,11 +956,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).EndInit();
             this.panelHora.ResumeLayout(false);
             this.panelHora.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.PanelBannerFactura.ResumeLayout(false);
             this.PanelBannerFactura.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
