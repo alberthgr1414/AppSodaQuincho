@@ -1060,11 +1060,11 @@ namespace AppSodaQuincho
             var flpMesa = new FlowLayoutPanel();
             flpMesa.Location = new System.Drawing.Point(5, 5);
             flpMesa.Size = new System.Drawing.Size(490, 350);
-            flpMesa.BackColor = System.Drawing.Color.Blue;
+            flpMesa.BackColor = System.Drawing.Color.Gray;
             flpMesa.AutoScroll = true;
             PanelPlato.Controls.Add(flpMesa);
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 20; i++)
             {
                 var btnMesa = new Button();
                 btnMesa.Size = new System.Drawing.Size(110, 110);
@@ -1078,6 +1078,7 @@ namespace AppSodaQuincho
                     btnMesa.BackgroundImage = global::AppSodaQuincho.Properties.Resources.MesaLibre;
                 }
                 btnMesa.Text = i.ToString();
+                btnMesa.Font = new Font(btnMesa.Font.FontFamily, 18);
                 btnMesa.BackColor = System.Drawing.Color.White;
                 btnMesa.BackgroundImageLayout = ImageLayout.Stretch;
                 btnMesa.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1085,15 +1086,16 @@ namespace AppSodaQuincho
                 flpMesa.Controls.Add(btnMesa);
             }
           
-            //NoScrollPanelPlato();
-            //var btnEstacionarMesa = new Button();
-            //btnEstacionarMesa.Size = new System.Drawing.Size(200, 200);
-            //btnEstacionarMesa.BackColor = System.Drawing.Color.White;
-            //btnEstacionarMesa.Visible = true;
-            //btnEstacionarMesa.Text = "Estacionar Mesa";
-            //btnEstacionarMesa.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
-            //PanelPlato.Controls.Add(btnEstacionarMesa);
-            //btnEstacionarMesa.Click += new System.EventHandler(this.btnEstacionarMesa_Click);
+            NoScrollPanelPlato();
+            var btnEstacionarMesa = new Button();
+            btnEstacionarMesa.Size = new System.Drawing.Size(200, 200);
+            btnEstacionarMesa.Location = new System.Drawing.Point(1,1);
+            btnEstacionarMesa.BackColor = System.Drawing.Color.White;
+            btnEstacionarMesa.Visible = true;
+            btnEstacionarMesa.Text = "Estacionar Mesa";
+            btnEstacionarMesa.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
+            PanelPlato.Controls.Add(btnEstacionarMesa);
+            btnEstacionarMesa.Click += new System.EventHandler(this.btnEstacionarMesa_Click);
 
         }
 
@@ -1129,9 +1131,49 @@ namespace AppSodaQuincho
             }
         }
 
+        private void btnEstacionarMesaExpress_Click(object sender, EventArgs e)
+        {
+            DataTable factura = EncFacturaBLL.ListarEncFactura(6);
+            if (factura.Rows.Count == 0)
+            {
+                DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                if (factura2.Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                    EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 7);
+                    btnMenuRegular.PerformClick();
+                    RefrescarDataGrid();
+                    dgvPlatos.Refresh();
+                    BannerFactura(4);
+                }
+            }
+            else
+            {
+                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 4);
+                btnMenuRegular.PerformClick();
+                RefrescarDataGrid();
+                dgvPlatos.Refresh();
+                BannerFactura(4);
+            }
+        }
+
         private void btnExpress_Click(object sender, EventArgs e)
         {
             NoScrollPanelPlato();
+            var btnEstacionarMesa = new Button();
+            btnEstacionarMesa.Size = new System.Drawing.Size(200, 200);
+            btnEstacionarMesa.Location = new System.Drawing.Point(1, 1);
+            btnEstacionarMesa.BackColor = System.Drawing.Color.White;
+            btnEstacionarMesa.Visible = true;
+            btnEstacionarMesa.Text = "Estacionar Mesa";
+            btnEstacionarMesa.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
+            PanelPlato.Controls.Add(btnEstacionarMesa);
+            btnEstacionarMesa.Click += new System.EventHandler(this.btnEstacionarMesa_Click);
 
         }
 

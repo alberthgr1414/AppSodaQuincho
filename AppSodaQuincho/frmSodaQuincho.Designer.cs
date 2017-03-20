@@ -47,7 +47,7 @@
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.BackColor = System.Drawing.Color.DimGray;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbVentaRapida,
@@ -70,8 +70,9 @@
             // tsbVentaRapida
             // 
             this.tsbVentaRapida.AutoSize = false;
-            this.tsbVentaRapida.BackColor = System.Drawing.Color.Gray;
+            this.tsbVentaRapida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tsbVentaRapida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tsbVentaRapida.ForeColor = System.Drawing.Color.White;
             this.tsbVentaRapida.Image = ((System.Drawing.Image)(resources.GetObject("tsbVentaRapida.Image")));
             this.tsbVentaRapida.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbVentaRapida.Margin = new System.Windows.Forms.Padding(1);
@@ -86,7 +87,8 @@
             // tsbOrdenMesa
             // 
             this.tsbOrdenMesa.AutoSize = false;
-            this.tsbOrdenMesa.BackColor = System.Drawing.Color.Gray;
+            this.tsbOrdenMesa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbOrdenMesa.ForeColor = System.Drawing.Color.White;
             this.tsbOrdenMesa.Image = ((System.Drawing.Image)(resources.GetObject("tsbOrdenMesa.Image")));
             this.tsbOrdenMesa.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbOrdenMesa.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -100,11 +102,12 @@
             // toolStripButton1
             // 
             this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.BackColor = System.Drawing.Color.Gray;
+            this.toolStripButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.toolStripButton1.ForeColor = System.Drawing.Color.White;
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(120, 70);
+            this.toolStripButton1.Size = new System.Drawing.Size(90, 70);
             this.toolStripButton1.Text = "Ordenes ";
             this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -113,7 +116,8 @@
             // tsbExpress
             // 
             this.tsbExpress.AutoSize = false;
-            this.tsbExpress.BackColor = System.Drawing.Color.Gray;
+            this.tsbExpress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbExpress.ForeColor = System.Drawing.Color.White;
             this.tsbExpress.Image = ((System.Drawing.Image)(resources.GetObject("tsbExpress.Image")));
             this.tsbExpress.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExpress.Margin = new System.Windows.Forms.Padding(1);
@@ -127,7 +131,8 @@
             // tsbAbrirTurno
             // 
             this.tsbAbrirTurno.AutoSize = false;
-            this.tsbAbrirTurno.BackColor = System.Drawing.Color.Gray;
+            this.tsbAbrirTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbAbrirTurno.ForeColor = System.Drawing.Color.White;
             this.tsbAbrirTurno.Image = ((System.Drawing.Image)(resources.GetObject("tsbAbrirTurno.Image")));
             this.tsbAbrirTurno.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAbrirTurno.Margin = new System.Windows.Forms.Padding(1);
@@ -141,7 +146,8 @@
             // tsbCerrarTurno
             // 
             this.tsbCerrarTurno.AutoSize = false;
-            this.tsbCerrarTurno.BackColor = System.Drawing.Color.Gray;
+            this.tsbCerrarTurno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbCerrarTurno.ForeColor = System.Drawing.Color.White;
             this.tsbCerrarTurno.Image = ((System.Drawing.Image)(resources.GetObject("tsbCerrarTurno.Image")));
             this.tsbCerrarTurno.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCerrarTurno.Margin = new System.Windows.Forms.Padding(1);
@@ -156,11 +162,12 @@
             // 
             this.tsbMantenimientos.AutoSize = false;
             this.tsbMantenimientos.AutoToolTip = false;
-            this.tsbMantenimientos.BackColor = System.Drawing.Color.Gray;
+            this.tsbMantenimientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tsbMantenimientos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mantenimientoProductoToolStripMenuItem,
             this.mantenimientoExpressToolStripMenuItem,
             this.mantenimientoUsuariosToolStripMenuItem});
+            this.tsbMantenimientos.ForeColor = System.Drawing.Color.White;
             this.tsbMantenimientos.Image = ((System.Drawing.Image)(resources.GetObject("tsbMantenimientos.Image")));
             this.tsbMantenimientos.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMantenimientos.Margin = new System.Windows.Forms.Padding(1);
@@ -175,7 +182,7 @@
             // 
             this.mantenimientoProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoProductoToolStripMenuItem.Image")));
             this.mantenimientoProductoToolStripMenuItem.Name = "mantenimientoProductoToolStripMenuItem";
-            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.mantenimientoProductoToolStripMenuItem.Text = "Mantenimiento Producto";
             this.mantenimientoProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.mantenimientoProductoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoProductoToolStripMenuItem_Click);
@@ -183,23 +190,24 @@
             // mantenimientoExpressToolStripMenuItem
             // 
             this.mantenimientoExpressToolStripMenuItem.Name = "mantenimientoExpressToolStripMenuItem";
-            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.mantenimientoExpressToolStripMenuItem.Text = "Mantenimiento Express";
             // 
             // mantenimientoUsuariosToolStripMenuItem
             // 
             this.mantenimientoUsuariosToolStripMenuItem.Name = "mantenimientoUsuariosToolStripMenuItem";
-            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.mantenimientoUsuariosToolStripMenuItem.Text = "Mantenimiento Usuarios";
             // 
             // toolStripButton2
             // 
             this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButton2.AutoSize = false;
-            this.toolStripButton2.BackColor = System.Drawing.Color.Gray;
+            this.toolStripButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.toolStripButton2.ForeColor = System.Drawing.Color.White;
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Margin = new System.Windows.Forms.Padding(1);
+            this.toolStripButton2.Margin = new System.Windows.Forms.Padding(260, 1, 1, 1);
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(90, 70);
             this.toolStripButton2.Text = "Salir";
@@ -212,6 +220,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

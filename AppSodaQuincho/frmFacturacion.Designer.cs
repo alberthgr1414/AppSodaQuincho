@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturacion));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.PanelPlato = new System.Windows.Forms.Panel();
             this.btnCombos = new System.Windows.Forms.Button();
             this.btnPedidoEspecial = new System.Windows.Forms.Button();
             this.btnProductosTemporada = new System.Windows.Forms.Button();
@@ -92,8 +91,6 @@
             this.timerPicture = new System.Windows.Forms.Timer(this.components);
             this.lblBannerFactura = new System.Windows.Forms.Label();
             this.panelHora = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblTiempoFactura = new System.Windows.Forms.Label();
             this.PanelBannerFactura = new System.Windows.Forms.Panel();
             this.txtTotalFactura = new System.Windows.Forms.MaskedTextBox();
             this.Efectivo = new System.Windows.Forms.Label();
@@ -101,7 +98,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTiempoFactura = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.PanelPlato = new System.Windows.Forms.Panel();
             this.panelCantidad.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -110,30 +110,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.detFacturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).BeginInit();
             this.panelHora.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.PanelBannerFactura.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // PanelPlato
-            // 
-            this.PanelPlato.AutoScroll = true;
-            this.PanelPlato.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.PanelPlato.Location = new System.Drawing.Point(1, 3);
-            this.PanelPlato.Margin = new System.Windows.Forms.Padding(1);
-            this.PanelPlato.Name = "PanelPlato";
-            this.PanelPlato.Size = new System.Drawing.Size(500, 612);
-            this.PanelPlato.TabIndex = 2;
             // 
             // btnCombos
             // 
             this.btnCombos.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnCombos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCombos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnCombos.Location = new System.Drawing.Point(118, 1);
-            this.btnCombos.Margin = new System.Windows.Forms.Padding(1);
+            this.btnCombos.Location = new System.Drawing.Point(118, 5);
+            this.btnCombos.Margin = new System.Windows.Forms.Padding(1, 5, 1, 1);
             this.btnCombos.Name = "btnCombos";
-            this.btnCombos.Size = new System.Drawing.Size(115, 86);
+            this.btnCombos.Size = new System.Drawing.Size(113, 84);
             this.btnCombos.TabIndex = 8;
             this.btnCombos.Text = "Combos";
             this.btnCombos.UseVisualStyleBackColor = false;
@@ -144,10 +134,10 @@
             this.btnPedidoEspecial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPedidoEspecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnPedidoEspecial.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnPedidoEspecial.Location = new System.Drawing.Point(118, 265);
+            this.btnPedidoEspecial.Location = new System.Drawing.Point(118, 263);
             this.btnPedidoEspecial.Margin = new System.Windows.Forms.Padding(1);
             this.btnPedidoEspecial.Name = "btnPedidoEspecial";
-            this.btnPedidoEspecial.Size = new System.Drawing.Size(115, 86);
+            this.btnPedidoEspecial.Size = new System.Drawing.Size(113, 84);
             this.btnPedidoEspecial.TabIndex = 7;
             this.btnPedidoEspecial.Text = "Pedido Especial";
             this.btnPedidoEspecial.UseVisualStyleBackColor = false;
@@ -158,10 +148,10 @@
             this.btnProductosTemporada.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProductosTemporada.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnProductosTemporada.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnProductosTemporada.Location = new System.Drawing.Point(1, 265);
-            this.btnProductosTemporada.Margin = new System.Windows.Forms.Padding(1);
+            this.btnProductosTemporada.Location = new System.Drawing.Point(3, 263);
+            this.btnProductosTemporada.Margin = new System.Windows.Forms.Padding(3, 1, 1, 1);
             this.btnProductosTemporada.Name = "btnProductosTemporada";
-            this.btnProductosTemporada.Size = new System.Drawing.Size(115, 86);
+            this.btnProductosTemporada.Size = new System.Drawing.Size(113, 84);
             this.btnProductosTemporada.TabIndex = 6;
             this.btnProductosTemporada.Text = "Productos de Temporada";
             this.btnProductosTemporada.UseVisualStyleBackColor = false;
@@ -175,7 +165,7 @@
             this.btnPrecio.Location = new System.Drawing.Point(118, 177);
             this.btnPrecio.Margin = new System.Windows.Forms.Padding(1);
             this.btnPrecio.Name = "btnPrecio";
-            this.btnPrecio.Size = new System.Drawing.Size(115, 86);
+            this.btnPrecio.Size = new System.Drawing.Size(113, 84);
             this.btnPrecio.TabIndex = 5;
             this.btnPrecio.Text = "Precio";
             this.btnPrecio.UseVisualStyleBackColor = false;
@@ -187,10 +177,10 @@
             this.btnBevidas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBevidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnBevidas.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBevidas.Location = new System.Drawing.Point(1, 89);
-            this.btnBevidas.Margin = new System.Windows.Forms.Padding(1);
+            this.btnBevidas.Location = new System.Drawing.Point(3, 91);
+            this.btnBevidas.Margin = new System.Windows.Forms.Padding(3, 1, 1, 1);
             this.btnBevidas.Name = "btnBevidas";
-            this.btnBevidas.Size = new System.Drawing.Size(115, 86);
+            this.btnBevidas.Size = new System.Drawing.Size(113, 84);
             this.btnBevidas.TabIndex = 4;
             this.btnBevidas.Text = "Bebidas";
             this.btnBevidas.UseVisualStyleBackColor = false;
@@ -201,10 +191,10 @@
             this.btnAdicionales.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnAdicionales.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdicionales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btnAdicionales.Location = new System.Drawing.Point(1, 177);
-            this.btnAdicionales.Margin = new System.Windows.Forms.Padding(1);
+            this.btnAdicionales.Location = new System.Drawing.Point(3, 177);
+            this.btnAdicionales.Margin = new System.Windows.Forms.Padding(3, 1, 1, 1);
             this.btnAdicionales.Name = "btnAdicionales";
-            this.btnAdicionales.Size = new System.Drawing.Size(115, 86);
+            this.btnAdicionales.Size = new System.Drawing.Size(113, 84);
             this.btnAdicionales.TabIndex = 3;
             this.btnAdicionales.Text = "Adicionales";
             this.btnAdicionales.UseVisualStyleBackColor = false;
@@ -215,10 +205,10 @@
             this.btnPostres.BackColor = System.Drawing.Color.NavajoWhite;
             this.btnPostres.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPostres.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnPostres.Location = new System.Drawing.Point(118, 89);
+            this.btnPostres.Location = new System.Drawing.Point(118, 91);
             this.btnPostres.Margin = new System.Windows.Forms.Padding(1);
             this.btnPostres.Name = "btnPostres";
-            this.btnPostres.Size = new System.Drawing.Size(115, 86);
+            this.btnPostres.Size = new System.Drawing.Size(113, 84);
             this.btnPostres.TabIndex = 1;
             this.btnPostres.Text = "Postres";
             this.btnPostres.UseVisualStyleBackColor = false;
@@ -230,10 +220,10 @@
             this.btnMenuRegular.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuRegular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnMenuRegular.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnMenuRegular.Location = new System.Drawing.Point(1, 1);
-            this.btnMenuRegular.Margin = new System.Windows.Forms.Padding(1);
+            this.btnMenuRegular.Location = new System.Drawing.Point(3, 5);
+            this.btnMenuRegular.Margin = new System.Windows.Forms.Padding(3, 5, 1, 1);
             this.btnMenuRegular.Name = "btnMenuRegular";
-            this.btnMenuRegular.Size = new System.Drawing.Size(115, 86);
+            this.btnMenuRegular.Size = new System.Drawing.Size(113, 84);
             this.btnMenuRegular.TabIndex = 0;
             this.btnMenuRegular.Text = "Menu Regular";
             this.btnMenuRegular.UseVisualStyleBackColor = false;
@@ -242,7 +232,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.lblCantidad.BackColor = System.Drawing.Color.Silver;
             this.lblCantidad.Font = new System.Drawing.Font("Berlin Sans FB", 20F);
             this.lblCantidad.Location = new System.Drawing.Point(152, 8);
             this.lblCantidad.Name = "lblCantidad";
@@ -254,7 +244,7 @@
             // lblTituloCantidad
             // 
             this.lblTituloCantidad.AutoSize = true;
-            this.lblTituloCantidad.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTituloCantidad.BackColor = System.Drawing.Color.Silver;
             this.lblTituloCantidad.Font = new System.Drawing.Font("Berlin Sans FB", 16F);
             this.lblTituloCantidad.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblTituloCantidad.Location = new System.Drawing.Point(55, 12);
@@ -270,10 +260,10 @@
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEliminar.Location = new System.Drawing.Point(118, 353);
+            this.btnEliminar.Location = new System.Drawing.Point(118, 349);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(1);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(115, 86);
+            this.btnEliminar.Size = new System.Drawing.Size(113, 84);
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -285,10 +275,10 @@
             this.btnFuncionesPOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFuncionesPOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFuncionesPOS.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnFuncionesPOS.Location = new System.Drawing.Point(1, 353);
-            this.btnFuncionesPOS.Margin = new System.Windows.Forms.Padding(1);
+            this.btnFuncionesPOS.Location = new System.Drawing.Point(3, 349);
+            this.btnFuncionesPOS.Margin = new System.Windows.Forms.Padding(3, 1, 1, 1);
             this.btnFuncionesPOS.Name = "btnFuncionesPOS";
-            this.btnFuncionesPOS.Size = new System.Drawing.Size(115, 86);
+            this.btnFuncionesPOS.Size = new System.Drawing.Size(113, 84);
             this.btnFuncionesPOS.TabIndex = 4;
             this.btnFuncionesPOS.Text = "Funciones POS";
             this.btnFuncionesPOS.UseVisualStyleBackColor = false;
@@ -300,10 +290,10 @@
             this.btnMesa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMesa.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnMesa.Location = new System.Drawing.Point(1, 529);
-            this.btnMesa.Margin = new System.Windows.Forms.Padding(1);
+            this.btnMesa.Location = new System.Drawing.Point(3, 521);
+            this.btnMesa.Margin = new System.Windows.Forms.Padding(3, 1, 1, 1);
             this.btnMesa.Name = "btnMesa";
-            this.btnMesa.Size = new System.Drawing.Size(115, 86);
+            this.btnMesa.Size = new System.Drawing.Size(113, 84);
             this.btnMesa.TabIndex = 3;
             this.btnMesa.Text = "Orden Mesa";
             this.btnMesa.UseVisualStyleBackColor = false;
@@ -315,10 +305,10 @@
             this.btnComerAqui.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnComerAqui.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnComerAqui.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnComerAqui.Location = new System.Drawing.Point(118, 441);
+            this.btnComerAqui.Location = new System.Drawing.Point(118, 435);
             this.btnComerAqui.Margin = new System.Windows.Forms.Padding(1);
             this.btnComerAqui.Name = "btnComerAqui";
-            this.btnComerAqui.Size = new System.Drawing.Size(115, 86);
+            this.btnComerAqui.Size = new System.Drawing.Size(113, 84);
             this.btnComerAqui.TabIndex = 2;
             this.btnComerAqui.Text = "Pago para Comer Aqui";
             this.btnComerAqui.UseVisualStyleBackColor = false;
@@ -330,10 +320,10 @@
             this.btnExpress.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExpress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpress.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnExpress.Location = new System.Drawing.Point(118, 529);
+            this.btnExpress.Location = new System.Drawing.Point(118, 521);
             this.btnExpress.Margin = new System.Windows.Forms.Padding(1);
             this.btnExpress.Name = "btnExpress";
-            this.btnExpress.Size = new System.Drawing.Size(115, 86);
+            this.btnExpress.Size = new System.Drawing.Size(113, 84);
             this.btnExpress.TabIndex = 1;
             this.btnExpress.Text = "Express";
             this.btnExpress.UseVisualStyleBackColor = false;
@@ -344,10 +334,10 @@
             this.btnLlevar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLlevar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLlevar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLlevar.Location = new System.Drawing.Point(1, 441);
-            this.btnLlevar.Margin = new System.Windows.Forms.Padding(1);
+            this.btnLlevar.Location = new System.Drawing.Point(3, 435);
+            this.btnLlevar.Margin = new System.Windows.Forms.Padding(3, 1, 1, 1);
             this.btnLlevar.Name = "btnLlevar";
-            this.btnLlevar.Size = new System.Drawing.Size(115, 86);
+            this.btnLlevar.Size = new System.Drawing.Size(113, 84);
             this.btnLlevar.TabIndex = 0;
             this.btnLlevar.Text = "Pago para Llevar";
             this.btnLlevar.UseVisualStyleBackColor = false;
@@ -355,12 +345,12 @@
             // 
             // panelCantidad
             // 
-            this.panelCantidad.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panelCantidad.BackColor = System.Drawing.Color.Silver;
             this.panelCantidad.Controls.Add(this.lblTituloCantidad);
             this.panelCantidad.Controls.Add(this.lblCantidad);
-            this.panelCantidad.Location = new System.Drawing.Point(504, 1);
+            this.panelCantidad.Location = new System.Drawing.Point(505, 1);
             this.panelCantidad.Name = "panelCantidad";
-            this.panelCantidad.Size = new System.Drawing.Size(235, 59);
+            this.panelCantidad.Size = new System.Drawing.Size(235, 50);
             this.panelCantidad.TabIndex = 18;
             this.panelCantidad.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelCantidad_MouseClick);
             // 
@@ -368,7 +358,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Berlin Sans FB", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(103, 12);
+            this.label2.Location = new System.Drawing.Point(86, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 24);
             this.label2.TabIndex = 0;
@@ -376,8 +366,11 @@
             // 
             // BtnNum1
             // 
-            this.BtnNum1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum1.ForeColor = System.Drawing.Color.Black;
             this.BtnNum1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum1.Location = new System.Drawing.Point(2, 1);
             this.BtnNum1.Margin = new System.Windows.Forms.Padding(2, 1, 1, 1);
@@ -391,8 +384,11 @@
             // 
             // BtnNum4
             // 
-            this.BtnNum4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum4.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum4.ForeColor = System.Drawing.Color.Black;
             this.BtnNum4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum4.Location = new System.Drawing.Point(152, 1);
             this.BtnNum4.Margin = new System.Windows.Forms.Padding(1);
@@ -406,8 +402,11 @@
             // 
             // BtnNum5
             // 
-            this.BtnNum5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum5.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum5.ForeColor = System.Drawing.Color.Black;
             this.BtnNum5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum5.Location = new System.Drawing.Point(202, 1);
             this.BtnNum5.Margin = new System.Windows.Forms.Padding(1);
@@ -421,8 +420,11 @@
             // 
             // BtnNum6
             // 
-            this.BtnNum6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum6.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum6.ForeColor = System.Drawing.Color.Black;
             this.BtnNum6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum6.Location = new System.Drawing.Point(252, 1);
             this.BtnNum6.Margin = new System.Windows.Forms.Padding(1);
@@ -436,8 +438,11 @@
             // 
             // BtnNum9
             // 
-            this.BtnNum9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum9.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum9.ForeColor = System.Drawing.Color.Black;
             this.BtnNum9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum9.Location = new System.Drawing.Point(402, 1);
             this.BtnNum9.Margin = new System.Windows.Forms.Padding(1);
@@ -451,8 +456,11 @@
             // 
             // BtnNum0
             // 
-            this.BtnNum0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum0.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum0.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum0.ForeColor = System.Drawing.Color.Black;
             this.BtnNum0.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum0.Location = new System.Drawing.Point(452, 1);
             this.BtnNum0.Margin = new System.Windows.Forms.Padding(1);
@@ -466,8 +474,11 @@
             // 
             // BtnNum7
             // 
-            this.BtnNum7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum7.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum7.ForeColor = System.Drawing.Color.Black;
             this.BtnNum7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum7.Location = new System.Drawing.Point(302, 1);
             this.BtnNum7.Margin = new System.Windows.Forms.Padding(1);
@@ -481,8 +492,11 @@
             // 
             // BtnNum8
             // 
-            this.BtnNum8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum8.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum8.ForeColor = System.Drawing.Color.Black;
             this.BtnNum8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum8.Location = new System.Drawing.Point(352, 1);
             this.BtnNum8.Margin = new System.Windows.Forms.Padding(1);
@@ -496,8 +510,11 @@
             // 
             // BtnNum3
             // 
-            this.BtnNum3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum3.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum3.ForeColor = System.Drawing.Color.Black;
             this.BtnNum3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum3.Location = new System.Drawing.Point(102, 1);
             this.BtnNum3.Margin = new System.Windows.Forms.Padding(1);
@@ -511,8 +528,11 @@
             // 
             // BtnNum2
             // 
-            this.BtnNum2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnNum2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNum2.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BtnNum2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnNum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.BtnNum2.ForeColor = System.Drawing.Color.Black;
             this.BtnNum2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.BtnNum2.Location = new System.Drawing.Point(52, 1);
             this.BtnNum2.Margin = new System.Windows.Forms.Padding(1);
@@ -526,7 +546,7 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Silver;
             this.flowLayoutPanel1.Controls.Add(this.BtnNum1);
             this.flowLayoutPanel1.Controls.Add(this.BtnNum2);
             this.flowLayoutPanel1.Controls.Add(this.BtnNum3);
@@ -550,7 +570,7 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.DimGray;
             this.flowLayoutPanel2.Controls.Add(this.btnMenuRegular);
             this.flowLayoutPanel2.Controls.Add(this.btnCombos);
             this.flowLayoutPanel2.Controls.Add(this.btnBevidas);
@@ -565,9 +585,9 @@
             this.flowLayoutPanel2.Controls.Add(this.btnComerAqui);
             this.flowLayoutPanel2.Controls.Add(this.btnMesa);
             this.flowLayoutPanel2.Controls.Add(this.btnExpress);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(504, 52);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(505, 52);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(235, 616);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(235, 613);
             this.flowLayoutPanel2.TabIndex = 27;
             // 
             // toolStripLabel2
@@ -638,6 +658,7 @@
             // tspBarraCarga
             // 
             this.tspBarraCarga.AutoSize = false;
+            this.tspBarraCarga.BackColor = System.Drawing.Color.Silver;
             this.tspBarraCarga.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tspBarraCarga.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
@@ -729,7 +750,7 @@
             this.Precio});
             this.dgvPlatos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvPlatos.GridColor = System.Drawing.Color.DarkGray;
-            this.dgvPlatos.Location = new System.Drawing.Point(5, 52);
+            this.dgvPlatos.Location = new System.Drawing.Point(4, 3);
             this.dgvPlatos.MultiSelect = false;
             this.dgvPlatos.Name = "dgvPlatos";
             this.dgvPlatos.ReadOnly = true;
@@ -754,7 +775,7 @@
             this.dgvPlatos.ShowCellToolTips = false;
             this.dgvPlatos.ShowEditingIcon = false;
             this.dgvPlatos.ShowRowErrors = false;
-            this.dgvPlatos.Size = new System.Drawing.Size(272, 445);
+            this.dgvPlatos.Size = new System.Drawing.Size(264, 445);
             this.dgvPlatos.TabIndex = 28;
             // 
             // Id
@@ -807,28 +828,95 @@
             // 
             // panelHora
             // 
-            this.panelHora.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panelHora.Controls.Add(this.panel3);
+            this.panelHora.BackColor = System.Drawing.Color.DimGray;
             this.panelHora.Controls.Add(this.PanelBannerFactura);
             this.panelHora.Controls.Add(this.txtTotalFactura);
-            this.panelHora.Controls.Add(this.label2);
             this.panelHora.Controls.Add(this.Efectivo);
             this.panelHora.Controls.Add(this.textBox2);
             this.panelHora.Controls.Add(this.textBox1);
             this.panelHora.Controls.Add(this.label1);
             this.panelHora.Controls.Add(this.label3);
             this.panelHora.Controls.Add(this.dgvPlatos);
-            this.panelHora.Location = new System.Drawing.Point(740, 1);
+            this.panelHora.Location = new System.Drawing.Point(743, 53);
             this.panelHora.Name = "panelHora";
-            this.panelHora.Size = new System.Drawing.Size(280, 667);
+            this.panelHora.Size = new System.Drawing.Size(274, 612);
             this.panelHora.TabIndex = 19;
             this.panelHora.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHora_Paint);
+            // 
+            // PanelBannerFactura
+            // 
+            this.PanelBannerFactura.BackColor = System.Drawing.Color.Silver;
+            this.PanelBannerFactura.Controls.Add(this.lblBannerFactura);
+            this.PanelBannerFactura.Location = new System.Drawing.Point(4, 448);
+            this.PanelBannerFactura.Name = "PanelBannerFactura";
+            this.PanelBannerFactura.Size = new System.Drawing.Size(264, 33);
+            this.PanelBannerFactura.TabIndex = 35;
+            // 
+            // txtTotalFactura
+            // 
+            this.txtTotalFactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtTotalFactura.Enabled = false;
+            this.txtTotalFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalFactura.Location = new System.Drawing.Point(116, 491);
+            this.txtTotalFactura.Mask = "₡ 999999";
+            this.txtTotalFactura.Name = "txtTotalFactura";
+            this.txtTotalFactura.ReadOnly = true;
+            this.txtTotalFactura.Size = new System.Drawing.Size(149, 33);
+            this.txtTotalFactura.TabIndex = 34;
+            // 
+            // Efectivo
+            // 
+            this.Efectivo.AutoSize = true;
+            this.Efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Efectivo.Location = new System.Drawing.Point(17, 534);
+            this.Efectivo.Name = "Efectivo";
+            this.Efectivo.Size = new System.Drawing.Size(98, 29);
+            this.Efectivo.TabIndex = 33;
+            this.Efectivo.Text = "Efectivo";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(116, 569);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(149, 33);
+            this.textBox2.TabIndex = 32;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(116, 530);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(149, 33);
+            this.textBox1.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 573);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 29);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Cambio";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 495);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 29);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Total";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.lblTiempoFactura);
-            this.panel3.Location = new System.Drawing.Point(236, 27);
+            this.panel3.Location = new System.Drawing.Point(201, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(41, 26);
             this.panel3.TabIndex = 36;
@@ -840,97 +928,41 @@
             this.lblTiempoFactura.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTiempoFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTiempoFactura.ForeColor = System.Drawing.Color.Black;
-            this.lblTiempoFactura.Location = new System.Drawing.Point(2, 2);
+            this.lblTiempoFactura.Location = new System.Drawing.Point(4, 5);
             this.lblTiempoFactura.Name = "lblTiempoFactura";
             this.lblTiempoFactura.Size = new System.Drawing.Size(34, 19);
             this.lblTiempoFactura.TabIndex = 0;
             this.lblTiempoFactura.Text = "      ";
             // 
-            // PanelBannerFactura
+            // panel2
             // 
-            this.PanelBannerFactura.BackColor = System.Drawing.Color.Silver;
-            this.PanelBannerFactura.Controls.Add(this.lblBannerFactura);
-            this.PanelBannerFactura.Location = new System.Drawing.Point(5, 496);
-            this.PanelBannerFactura.Name = "PanelBannerFactura";
-            this.PanelBannerFactura.Size = new System.Drawing.Size(272, 33);
-            this.PanelBannerFactura.TabIndex = 35;
+            this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(743, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(274, 50);
+            this.panel2.TabIndex = 29;
             // 
-            // txtTotalFactura
+            // PanelPlato
             // 
-            this.txtTotalFactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtTotalFactura.Enabled = false;
-            this.txtTotalFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalFactura.Location = new System.Drawing.Point(120, 542);
-            this.txtTotalFactura.Mask = "₡ 999999";
-            this.txtTotalFactura.Name = "txtTotalFactura";
-            this.txtTotalFactura.ReadOnly = true;
-            this.txtTotalFactura.Size = new System.Drawing.Size(149, 33);
-            this.txtTotalFactura.TabIndex = 34;
-            // 
-            // Efectivo
-            // 
-            this.Efectivo.AutoSize = true;
-            this.Efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Efectivo.Location = new System.Drawing.Point(21, 585);
-            this.Efectivo.Name = "Efectivo";
-            this.Efectivo.Size = new System.Drawing.Size(98, 29);
-            this.Efectivo.TabIndex = 33;
-            this.Efectivo.Text = "Efectivo";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(120, 620);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(149, 33);
-            this.textBox2.TabIndex = 32;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(120, 581);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 33);
-            this.textBox1.TabIndex = 31;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 624);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 29);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Cambio";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 546);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 29);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Total";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.panel1.Controls.Add(this.PanelPlato);
-            this.panel1.Location = new System.Drawing.Point(1, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(502, 618);
-            this.panel1.TabIndex = 28;
+            this.PanelPlato.AutoScroll = true;
+            this.PanelPlato.BackColor = System.Drawing.Color.Gray;
+            this.PanelPlato.Location = new System.Drawing.Point(2, 52);
+            this.PanelPlato.Margin = new System.Windows.Forms.Padding(1);
+            this.PanelPlato.Name = "PanelPlato";
+            this.PanelPlato.Size = new System.Drawing.Size(500, 613);
+            this.PanelPlato.TabIndex = 30;
             // 
             // frmFacturacion
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1020, 692);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PanelPlato);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.tspBarraCarga);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -956,18 +988,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).EndInit();
             this.panelHora.ResumeLayout(false);
             this.panelHora.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.PanelBannerFactura.ResumeLayout(false);
             this.PanelBannerFactura.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel PanelPlato;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblTituloCantidad;
         private System.Windows.Forms.Button btnPostres;
@@ -1030,13 +1061,14 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PanelBannerFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel PanelPlato;
     }
 }
 
