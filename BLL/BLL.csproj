@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BilleteBLL.cs" />
     <Compile Include="CajaBLL.cs" />
     <Compile Include="DetFacturaBLL.cs" />
     <Compile Include="EncFacturaBLL.cs" />

@@ -25,6 +25,7 @@ namespace AppSodaQuincho
         ArrayList arrayBilletes = new ArrayList();
         // Array con los botones del Teclado
         ArrayList arrayTeclado = new ArrayList();
+
         public frmFacturacion()
         {
             InitializeComponent();
@@ -75,15 +76,6 @@ namespace AppSodaQuincho
                 if (cont < 6)
                 {
                     //-----------Creacion de el pictureBox---------
-                    //var pictbox = new PictureBox();
-                    //pictbox.Location = new System.Drawing.Point(AnchoPictureBox, AltoPictureBox);
-                    //pictbox.Size = new System.Drawing.Size(90, 90);
-                    //pictbox.BackColor = System.Drawing.Color.White;
-                    //pictbox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    //pictbox.Visible = true;
-                    //DataRow row = ds.Rows[i];
-                    //Byte[] FOTO = (Byte[])row["foto"];
-                    //pictbox.Image = byteArrayToImage(FOTO);
                     var pictbox = new Button();
                     pictbox.Location = new System.Drawing.Point(AnchoPictureBox, AltoPictureBox);
                     pictbox.Size = new System.Drawing.Size(90, 90);
@@ -93,7 +85,8 @@ namespace AppSodaQuincho
                     Byte[] FOTO = (Byte[])row["foto"];
                     pictbox.BackgroundImage = byteArrayToImage(FOTO);
                     pictbox.BackgroundImageLayout = ImageLayout.Stretch;
-
+                    pictbox.Click += new System.EventHandler(this.ptbProducto_Click);
+                    pictbox.Tag = row["ID_Plato"].ToString();
                     //--------------------------------------------
 
                     //Creacion de Labels 
@@ -106,14 +99,7 @@ namespace AppSodaQuincho
                     label.BackColor = System.Drawing.Color.White;
                     label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     PanelPlato.Controls.Add(label);
-                    // Asignacion de Codigo del Producto
-                    pictbox.Tag = row["ID_Plato"].ToString();
-                    //--------------------------------------------
-
-                    // Asignacion del PictureBox al Panel y Evento Click
                     PanelPlato.Controls.Add(pictbox);
-                    pictbox.Click += new System.EventHandler(this.ptbProducto_Click);
-                    //---------------------------------------------------
                     AnchoPictureBox += 95;
                     AnchoLabel += 95;
                 }
@@ -130,6 +116,121 @@ namespace AppSodaQuincho
                         i -= 1;
                     }
                 }
+            }
+        }
+
+        private void ptbProducto_Click(object sender, EventArgs e)
+        {
+            Button cl = sender as Button;
+            //Muestra el precio del producto
+            if (PrecioProducto == true)
+            {
+                DataTable plato = PlatoBLL.ListarPlatoScalar(int.Parse(cl.Tag.ToString()));
+                DataRow row = plato.Rows[0];
+                MessageBoxTemporal.Show("Nombre: " + row["Nombre_Plato"].ToString().ToUpper() + "\n" + "\n" +
+                                        "Precio: " + row["Precio_Plato"].ToString(), "Informacion del Producto", 5, false);
+                btnPrecio.BackColor = System.Drawing.Color.NavajoWhite;
+                PrecioProducto = false;
+            }
+            else
+            {
+                //Inicia el tiempo de Facturacion
+                //IniciarTimerFactura();
+                try
+                {
+                    //Verifica si el turno esta abirto
+                    if (TurnoBLL.VereificarTurnoAbierto() == true)
+                    {
+                        //Verifica si ahi cajero Ingresado
+                        if (CajaBLL.VereificarCajaAbierta() == true)
+                        {
+                            int cantidad = 1;
+                            //Verifica si ahi facturas en Edicion 
+                            DataTable facturaPendiente = EncFacturaBLL.ListarEncFactura(6);
+                            //Si no ahi facturas en edicion Procede a ver 
+                            //si ahi facturas en proceso de facturacion
+                            if (facturaPendiente.Rows.Count == 0)
+                            {
+                                //Trae la factura en edicion
+                                DataTable factura = EncFacturaBLL.ListarEncFactura(1);
+                                //Si no ahi facturas procede a crear una nueva
+                                if (factura.Rows.Count == 0)
+                                {
+                                    if (txtCantidad.Text == "")
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        cantidad = int.Parse(txtCantidad.Text);
+                                    }
+                                    LimpiarCambioEfectivo();
+                                    int Codigo = int.Parse(cl.Tag.ToString());
+                                    int caja = int.Parse(CajaBLL.Caja());
+                                    int turno = int.Parse(TurnoBLL.Turno());
+                                    EncFacturaBLL.NuevoEncFactura(turno, caja);
+                                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                                    DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
+                                    RefrescarDataGrid();
+                                    dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                                    BannerFactura(1);
+                                    txtCantidad.Text = "";
+
+
+                                }
+                                else
+                                {
+                                    if (txtCantidad.Text == "")
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        cantidad = int.Parse(txtCantidad.Text);
+                                    }
+
+                                    int Codigo = int.Parse(cl.Tag.ToString());
+                                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                                    DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
+                                    RefrescarDataGrid();
+                                    dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                                    txtCantidad.Text = "";
+                                }
+                            }
+                            else
+                            {
+                                if (txtCantidad.Text == "")
+                                {
+
+                                }
+                                else
+                                {
+                                    cantidad = int.Parse(txtCantidad.Text);
+                                }
+                                int Codigo = int.Parse(cl.Tag.ToString());
+                                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                                DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
+                                RefrescarDataGrid();
+                                dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                            }
+
+                        }
+                        else
+                        {
+                            System.Windows.MessageBox.Show("No ahi Cajero Ingresado");
+                        }
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("No ahi turno abirto");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
             }
         }
         public Image byteArrayToImage(byte[] byteArrayIn)
@@ -164,6 +265,7 @@ namespace AppSodaQuincho
                         int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
                         dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
                         BannerFactura(1);
+                        TotalFactura();
                     }
                     }
                 else
@@ -198,7 +300,7 @@ namespace AppSodaQuincho
                 if (factura.Rows.Count == 0)
                 {
                     DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
-                    if (factura.Rows.Count == 0)
+                    if (factura2.Rows.Count == 0)
                     {
 
                     }
@@ -244,95 +346,7 @@ namespace AppSodaQuincho
             timerFactura.Start();
         }
 
-        private void ptbProducto_Click(object sender, EventArgs e)
-        {
-            Button cl = sender as Button;
-            if (PrecioProducto == true)
-            {   
-                DataTable plato = PlatoBLL.ListarPlatoScalar(int.Parse(cl.Tag.ToString()));
-                DataRow row = plato.Rows[0];
-                MessageBoxTemporal.Show("Nombre: "+ row["Nombre_Plato"].ToString().ToUpper() + "\n"+ "\n"+
-                                        "Precio: " + row["Precio_Plato"].ToString(), "Informacion del Producto", 5, false);
-                btnPrecio.BackColor = System.Drawing.Color.NavajoWhite;
-                PrecioProducto = false;
-            }
-            else
-            {
-            //Inicia el tiempo de Facturacion
-            IniciarTimerFactura();
-            try
-            {
-                //Verifica si el turno esta abirto
-                if (TurnoBLL.VereificarTurnoAbierto() == true)
-                {
-                    //Verifica si ahi cajero Ingresado
-                    if (CajaBLL.VereificarCajaAbierta() == true)
-                    {
-                        //Verifica si ahi facturas en Edicion 
-                        DataTable factura2 = EncFacturaBLL.ListarEncFactura(6);
-                            //Si no ahi facturas en edicion Procede a ver 
-                            //si ahi facturas en facturacion
-                            if (factura2.Rows.Count == 0)
-                            {
-                                //Trae la factura en edicion
-                                DataTable factura = EncFacturaBLL.ListarEncFactura(1);
-                                //Si no ahi facturas procede a crear una nueva
-                                if (factura.Rows.Count == 0)
-                                {
-                                    int cantidad = int.Parse(lblCantidad.Text);
-                                    int Codigo = int.Parse(cl.Tag.ToString());
-                                    int caja = int.Parse(CajaBLL.Caja());
-                                    int turno = int.Parse(TurnoBLL.Turno());
-                                    EncFacturaBLL.NuevoEncFactura(turno, caja);
-                                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
-                                    DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
-                                    RefrescarDataGrid();
-                                    TotalFactura();
-                                    dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
-                                    BannerFactura(1);
-                                }
-                                else
-                                {
-                                    int cantidad = int.Parse(lblCantidad.Text);
-                                    int Codigo = int.Parse(cl.Tag.ToString());
-                                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
-                                    DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
-                                    RefrescarDataGrid();
-                                    //TotalFactura();
-                                    dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
-                      
-                                }
-                            }
-                            else
-                            {
-                                int cantidad = int.Parse(lblCantidad.Text);
-                                int Codigo = int.Parse(cl.Tag.ToString());
-                                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
-                                DetFacturaBLL.NuevoDetFactura(Numfactura, Codigo, cantidad);
-                                RefrescarDataGrid();
-                                TotalFactura();
-                                dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
-                            }
-
-                    }
-                    else
-                    {
-                        System.Windows.MessageBox.Show("No ahi Cajero Ingresado");
-                    }
-                }
-                else
-                {
-                    System.Windows.MessageBox.Show("No ahi turno abirto");
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-            }
-        }
+        
 
         public void RefrescarFactura()
         {
@@ -361,33 +375,40 @@ namespace AppSodaQuincho
 
         private void Cantidad_Click(object sender, EventArgs e)
         {
-            int cantidad = int.Parse(lblCantidad.Text);
             Button cl = sender as Button;
-            if (cantidad < 10)
+            int valor = int.Parse(cl.Tag.ToString());
+            if (valor==0 && txtCantidad.Text=="")
             {
-                if (cantidad == 1)
-                {
-                    lblCantidad.Text = cl.Tag.ToString();
-                }
-                else
-                {
-                    lblCantidad.Text += cl.Tag.ToString();
-                }
+                txtCantidad.Text = "1";
             }
             else
             {
-                lblCantidad.Text = "1";
-            }
+                if (txtCantidad.Text!="")
+                {
+                    int cant = int.Parse(txtCantidad.Text.ToString());
+                    if (cant<10)
+                    {
+                        txtCantidad.Text += valor;
+                    }
+                    else
+                    {
+                        txtCantidad.Text = "";
+                    }
 
+                }
+                else
+                {
+                    txtCantidad.Text += valor;
+                }
+
+            }
         }
 
         private void timerHora_Tick(object sender, EventArgs e)
         {
             DateTime date1 = DateTime.Now;
-            tsbHora.Text = date1.ToString("hh:mm:ss tt",
-                              CultureInfo.InvariantCulture);
-            tsbFecha.Text = date1.ToString("dddd dd MMMM",
-                  CultureInfo.CreateSpecificCulture("es-CR"));
+            tsbHora.Text = date1.ToString("hh:mm:ss tt",CultureInfo.InvariantCulture);
+            tsbFecha.Text = date1.ToString("dddd dd MMMM",CultureInfo.CreateSpecificCulture("es-CR"));
         }
 
         private void frmFacturacion_Load(object sender, EventArgs e)
@@ -678,12 +699,12 @@ namespace AppSodaQuincho
 
         private void lblTituloCantidad_Click(object sender, EventArgs e)
         {
-            lblCantidad.Text = "1";
+            txtCantidad.Text = "";
         }
 
         private void lblCantidad_Click(object sender, EventArgs e)
         {
-            lblCantidad.Text = "1";
+            PanelCantidad.Text = "1";
         }
 
         public void llenarBilletes()
@@ -714,237 +735,506 @@ namespace AppSodaQuincho
             arrayTeclado.Add("9");
             arrayTeclado.Add("0");
         }
-        public void CambiarColorEstadoVerde()
-        {
-            lblBannerFactura.BackColor = System.Drawing.Color.Green;
-            lblBannerFactura.BackColor = System.Drawing.Color.Green;
-            lblBannerFactura.Text = "Facturado";
-        }
 
-        private void btnLlevar_Click(object sender, EventArgs e)
+        private void Facturacion(int tipo)
         {
-            NoScrollPanelPlato();
-            //CambiarColorEstadoVerde();
-            PanelPlato.Controls.Clear();
-            var fplBilletes = new FlowLayoutPanel();
-            fplBilletes.Location = new System.Drawing.Point(3, 3);
-            fplBilletes.Size = new System.Drawing.Size(496, 198);
-            fplBilletes.BackColor = System.Drawing.Color.Gray;
-            PanelPlato.Controls.Add(fplBilletes);
+            DataTable dat = new DataTable();
+            dat = EncFacturaBLL.ListarEncFactura(1);
 
-            arrayBilletes.Clear();
-            llenarBilletes();
-            int AnchoBoton = 118;
-            int AltoBoton = 60;
-            int cont = 0;
-            for (int i = 0; i < arrayBilletes.Count; i++)
+            if (dat.Rows.Count == 0)
             {
-                // Suma para seber cuando ahi que bajar de fila 
-                cont += 1;
-                // Pregunta si el contador esta preparado para 
-                // Dar un salto de linea 
-                if (cont < 5)
-                {
-                    //Creacion de el pictureBox Nulo
-                    var btnBilletes = new Button();
-                    btnBilletes.Size = new System.Drawing.Size(AnchoBoton, AltoBoton);
-                    btnBilletes.BackColor = System.Drawing.Color.White;
-                    btnBilletes.Visible = true;
-                    btnBilletes.Text = "₡ " + arrayBilletes[i].ToString();
-                    btnBilletes.Tag = arrayBilletes[i].ToString();
-                    btnBilletes.Font = new Font("Arial", 12, System.Drawing.FontStyle.Bold);
-                    btnBilletes.BackgroundImage = global::AppSodaQuincho.Properties.Resources.Billete;
-                    btnBilletes.BackgroundImageLayout = ImageLayout.Stretch;
-                    if (arrayBilletes[i].ToString() == "1000")
-                    {
-                        btnBilletes.ForeColor = System.Drawing.Color.Red;
-                    }
-                    if (arrayBilletes[i].ToString() == "2000")
-                    {
-                        btnBilletes.ForeColor = System.Drawing.Color.Blue;
-                    }
-                    if (arrayBilletes[i].ToString() == "5000")
-                    {
-                        btnBilletes.ForeColor = System.Drawing.Color.Gold;
-                    }
-                    if (arrayBilletes[i].ToString() == "10 000")
-                    {
-                        btnBilletes.ForeColor = System.Drawing.Color.Green;
-                    }
-                    if (arrayBilletes[i].ToString() == "20 000")
-                    {
-                        btnBilletes.ForeColor = System.Drawing.Color.Orange;
-                    }
-                    if (arrayBilletes[i].ToString() == "50 000")
-                    {
-                        btnBilletes.ForeColor = System.Drawing.Color.Purple;
-                    }
-                    fplBilletes.Controls.Add(btnBilletes);
-                    btnBilletes.Click += new System.EventHandler(this.btnBilletes_Click);
-                    //--------------------------------------------
-                }
-                else
-                {
-                    cont = 0;
-                    i -= 1;
-                }
+                System.Windows.MessageBox.Show("Debes agregar productos");
             }
-            // Teclado
-            var flpTecladoPago = new FlowLayoutPanel();
-            flpTecladoPago.Location = new System.Drawing.Point(3, 305);
-            flpTecladoPago.Size = new System.Drawing.Size(305,305);
-            flpTecladoPago.BackColor = System.Drawing.Color.Gray;
-            PanelPlato.Controls.Add(flpTecladoPago);
-            arrayTeclado.Clear();
-            llenarTeclado();
-
-            //Panel Botones de Pago
-            var flpBotonesPago = new FlowLayoutPanel();
-            flpBotonesPago.Location = new System.Drawing.Point(310, 305);
-            flpBotonesPago.Size = new System.Drawing.Size(188, 305);
-            flpBotonesPago.BackColor = System.Drawing.Color.Gray;
-            PanelPlato.Controls.Add(flpBotonesPago);
-            arrayTeclado.Clear();
-            llenarTeclado();
-
-            //Panel Monto Pago
-            var PanelMontoPago = new Panel();
-            PanelMontoPago.Location = new System.Drawing.Point(3, 205);
-            PanelMontoPago.Size = new System.Drawing.Size(305, 97);
-            PanelMontoPago.BackColor = System.Drawing.Color.Gray;
-            PanelPlato.Controls.Add(PanelMontoPago);
-
-            //Monto a Pagar
-            var MontoPago = new TextBox();
-            PanelMontoPago.Location = new System.Drawing.Point(20, 40);
-            MontoPago.Size = new System.Drawing.Size(250, 80);
-            PanelMontoPago.Controls.Add(MontoPago);
-
-            // Titulo Panel Monto Pago
-            var PanelMontoPagoTitulo = new FlowLayoutPanel();
-            PanelMontoPagoTitulo.Size = new System.Drawing.Size(305, 30);
-            PanelMontoPagoTitulo.BackColor = System.Drawing.Color.Blue;
-            PanelMontoPago.Controls.Add(PanelMontoPagoTitulo);
-
-            // Total de Pagar
-            var PanelTotalPago = new Panel();
-            PanelTotalPago.Location = new System.Drawing.Point(310, 205);
-            PanelTotalPago.Size = new System.Drawing.Size(188, 97);
-            PanelTotalPago.BackColor = System.Drawing.Color.Gray;
-            PanelPlato.Controls.Add(PanelTotalPago);
-
-            //Titulo Total de Pago
-            var PanelTotalPagoTitulo = new Panel();
-            PanelTotalPagoTitulo.Size = new System.Drawing.Size(188, 30);
-            PanelTotalPagoTitulo.BackColor = System.Drawing.Color.Blue;
-            PanelTotalPago.Controls.Add(PanelTotalPagoTitulo);
-
-            //Label Titulo Total de Pago
-            var lblTituloTotalPago = new Label();
-            lblTituloTotalPago.Text = "Monto Total";
-            lblTituloTotalPago.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
-            PanelTotalPagoTitulo.Controls.Add(lblTituloTotalPago);
-
-            //Asignar el valor a el label total de Pago
-            var lblTotalPago = new Label();
-            lblTotalPago.Font = new Font("Arial", 16, System.Drawing.FontStyle.Bold);
-            int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
-            double total = double.Parse(DetFacturaBLL.SumDetFactura(Numfactura));
-            lblTotalPago.Text = "₡ "+ total.ToString();
-            lblTotalPago.Location = new System.Drawing.Point(50, 50);
-            PanelTotalPago.Controls.Add(lblTotalPago);
-
-            arrayTeclado.Clear();
-            llenarTeclado();
-
-            for (int i = 0; i < arrayTeclado.Count; i++)
+            else
             {
+                NoScrollPanelPlato();
+                PanelPlato.Controls.Clear();
+                var fplBilletes = new FlowLayoutPanel();
+                fplBilletes.Location = new System.Drawing.Point(3, 3);
+                fplBilletes.Size = new System.Drawing.Size(496, 198);
+                fplBilletes.BackColor = System.Drawing.Color.White;
+                PanelPlato.Controls.Add(fplBilletes);
+
+                arrayBilletes.Clear();
+                llenarBilletes();
+                int AnchoBoton = 118;
+                int AltoBoton = 60;
+                int cont = 0;
+                for (int i = 0; i < arrayBilletes.Count; i++)
+                {
+                    // Suma para seber cuando ahi que bajar de fila 
+                    cont += 1;
+                    // Pregunta si el contador esta preparado para 
+                    // Dar un salto de linea 
+                    if (cont < 5)
+                    {
+                        //Creacion de el pictureBox Nulo
+                        var btnBilletes = new Button();
+                        btnBilletes.Size = new System.Drawing.Size(AnchoBoton, AltoBoton);
+                        btnBilletes.BackColor = System.Drawing.Color.White;
+                        btnBilletes.Visible = true;
+                        btnBilletes.Text = "₡ " + arrayBilletes[i].ToString();
+                        btnBilletes.Tag = arrayBilletes[i].ToString();
+                        btnBilletes.Font = new Font("Arial", 12, System.Drawing.FontStyle.Bold);
+                        btnBilletes.BackgroundImage = global::AppSodaQuincho.Properties.Resources.Billete;
+                        btnBilletes.BackgroundImageLayout = ImageLayout.Stretch;
+                        if (arrayBilletes[i].ToString() == "1000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Red;
+                            btnBilletes.Tag = 1000;
+                        }
+                        if (arrayBilletes[i].ToString() == "2000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Blue;
+                            btnBilletes.Tag = 2000;
+                        }
+                        if (arrayBilletes[i].ToString() == "3000")
+                        {
+                            btnBilletes.Tag = 3000;
+                        }
+                        if (arrayBilletes[i].ToString() == "4000")
+                        {
+                            btnBilletes.Tag = 4000;
+                        }
+                        if (arrayBilletes[i].ToString() == "5000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Gold;
+                            btnBilletes.Tag = 5000;
+                        }
+                        if (arrayBilletes[i].ToString() == "6000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Black;
+                            btnBilletes.Tag = 6000;
+                        }
+                        if (arrayBilletes[i].ToString() == "7000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Black;
+                            btnBilletes.Tag = 7000;
+                        }
+                        if (arrayBilletes[i].ToString() == "8000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Black;
+                            btnBilletes.Tag = 8000;
+                        }
+                        if (arrayBilletes[i].ToString() == "9000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Black;
+                            btnBilletes.Tag = 9000;
+                        }
+                        if (arrayBilletes[i].ToString() == "10 000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Green;
+                            btnBilletes.Tag = 10000;
+                        }
+                        if (arrayBilletes[i].ToString() == "20 000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Orange;
+                            btnBilletes.Tag = 20000;
+                        }
+                        if (arrayBilletes[i].ToString() == "50 000")
+                        {
+                            btnBilletes.ForeColor = System.Drawing.Color.Purple;
+                            btnBilletes.Tag = 50000;
+                        }
+                        fplBilletes.Controls.Add(btnBilletes);
+                        btnBilletes.Click += new System.EventHandler(this.btnBilletes_Click);
+                        //--------------------------------------------
+                    }
+                    else
+                    {
+                        cont = 0;
+                        i -= 1;
+                    }
+                }
+                // flowpanel TECLADO DE NUMEROS
+                var flpTecladoPago = new FlowLayoutPanel();
+                flpTecladoPago.Location = new System.Drawing.Point(3, 305);
+                flpTecladoPago.Size = new System.Drawing.Size(305, 305);
+                flpTecladoPago.BackColor = System.Drawing.Color.White;
+                PanelPlato.Controls.Add(flpTecladoPago);
+
+                //Panel Botones de Pago colones dolares
+                var flpBotonesPago = new FlowLayoutPanel();
+                flpBotonesPago.Location = new System.Drawing.Point(310, 305);
+                flpBotonesPago.Size = new System.Drawing.Size(188, 305);
+                flpBotonesPago.BackColor = System.Drawing.Color.White;
+                PanelPlato.Controls.Add(flpBotonesPago);
+
+                //Panel Pago digitado
+                var PanelMontoPago = new Panel();
+                PanelMontoPago.Location = new System.Drawing.Point(3, 205);
+                PanelMontoPago.Size = new System.Drawing.Size(305, 97);
+                PanelMontoPago.BackColor = System.Drawing.Color.White;
+                PanelPlato.Controls.Add(PanelMontoPago);
+
+                //MaskedTextBox monto a pagar digitado
+                txtPago.Location = new System.Drawing.Point(110, 45);
+                txtPago.Size = new System.Drawing.Size(90, 0);
+                txtPago.BackColor = System.Drawing.Color.White;
+                txtPago.Mask = "999999";
+                txtPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                txtPago.ReadOnly = true;
+                txtPago.Visible = true;
+                PanelMontoPago.Controls.Add(txtPago);
+
+                //Asignar el valor a el label total de Pago
+                var lblSigno = new Label();
+                lblSigno.Font = new Font("Arial", 16, System.Drawing.FontStyle.Bold);
+                lblSigno.Text = "₡ ";
+                lblSigno.Location = new System.Drawing.Point(80, 50);
+                PanelMontoPago.Controls.Add(lblSigno);
+
+                // Titulo Panel Pago digitado
+                var PanelMontoPagoTitulo = new FlowLayoutPanel();
+                PanelMontoPagoTitulo.Size = new System.Drawing.Size(305, 30);
+                PanelMontoPagoTitulo.BackColor = System.Drawing.Color.Blue;
+                PanelMontoPago.Controls.Add(PanelMontoPagoTitulo);
+
+                // Titulo Panel Pago digitado
+                var PagoDigitado = new Label();
+                PagoDigitado.Text = "Efectivo";
+                PagoDigitado.Font = new Font("Arial", 15, System.Drawing.FontStyle.Regular);
+                PanelMontoPagoTitulo.Controls.Add(PagoDigitado);
+
+                // Total de Pagar
+                var PanelTotalPago = new Panel();
+                PanelTotalPago.Location = new System.Drawing.Point(310, 205);
+                PanelTotalPago.Size = new System.Drawing.Size(188, 97);
+                PanelTotalPago.BackColor = System.Drawing.Color.White;
+                PanelPlato.Controls.Add(PanelTotalPago);
+
+                //Titulo Total de Pago
+                var PanelTotalPagoTitulo = new Panel();
+                PanelTotalPagoTitulo.Size = new System.Drawing.Size(188, 30);
+                PanelTotalPagoTitulo.BackColor = System.Drawing.Color.Blue;
+                PanelTotalPago.Controls.Add(PanelTotalPagoTitulo);
+
+                //Label Titulo Total de Pago
+                var lblTituloTotalPago = new Label();
+                lblTituloTotalPago.Text = "Monto Total";
+                lblTituloTotalPago.Font = new Font("Arial", 15, System.Drawing.FontStyle.Regular);
+                PanelTotalPagoTitulo.Controls.Add(lblTituloTotalPago);
+
+                //Asignar el valor a el label total de Pago
+                var lblTotalPago = new Label();
+                lblTotalPago.Font = new Font("Arial", 16, System.Drawing.FontStyle.Bold);
+                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                double total = double.Parse(DetFacturaBLL.SumDetFactura(Numfactura));
+                lblTotalPago.Text = "₡ " + total.ToString();
+                lblTotalPago.Location = new System.Drawing.Point(50, 50);
+                PanelTotalPago.Controls.Add(lblTotalPago);
+
+                arrayTeclado.Clear();
+                llenarTeclado();
+
+                for (int i = 0; i < arrayTeclado.Count; i++)
+                {
                     //Creacion de numeros del teclado
                     var btnNumerosTeclado = new Button();
                     btnNumerosTeclado.Size = new System.Drawing.Size(70, 70);
-                    btnNumerosTeclado.BackColor = System.Drawing.Color.White;
+                    btnNumerosTeclado.BackColor = System.Drawing.Color.Gray;
                     btnNumerosTeclado.Visible = true;
                     btnNumerosTeclado.Text = arrayTeclado[i].ToString();
                     btnNumerosTeclado.Tag = arrayTeclado[i].ToString();
-                    btnNumerosTeclado.Font = new Font("Arial",16, System.Drawing.FontStyle.Bold);
+                    btnNumerosTeclado.Font = new Font("Arial", 16, System.Drawing.FontStyle.Bold);
                     flpTecladoPago.Controls.Add(btnNumerosTeclado);
-                    
-                    //btnNumerosTeclado.Click += new System.EventHandler(this.btnBilletes_Click);
+
+                    btnNumerosTeclado.Click += new System.EventHandler(this.btnNumeros_Click);
                     //--------------------------------------------
+                }
+                var btn00 = new Button();
+                btn00.Size = new System.Drawing.Size(145, 70);
+                btn00.BackColor = System.Drawing.Color.Gray;
+                btn00.Visible = true;
+                btn00.Text = "00";
+                btn00.Tag = "00";
+                btn00.Font = new Font("Arial", 20, System.Drawing.FontStyle.Bold);
+                btn00.Click += new System.EventHandler(this.btnNumeros_Click);
+                flpTecladoPago.Controls.Add(btn00);
+
+                var btnLimpiar = new Button();
+                btnLimpiar.Size = new System.Drawing.Size(145, 70);
+                btnLimpiar.BackColor = System.Drawing.Color.Gray;
+                btnLimpiar.Visible = true;
+                btnLimpiar.Text = "CE";
+                btnLimpiar.Tag = "limpiar";
+                btnLimpiar.Font = new Font("Arial", 20, System.Drawing.FontStyle.Bold);
+                btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+                flpTecladoPago.Controls.Add(btnLimpiar);
+
+                var btnBorrar = new Button();
+                btnBorrar.Size = new System.Drawing.Size(145, 70);
+                btnBorrar.BackColor = System.Drawing.Color.Gray;
+                btnBorrar.Visible = true;
+                btnBorrar.Text = "<----";
+                btnBorrar.Tag = "borrar";
+                btnBorrar.Font = new Font("Arial", 20, System.Drawing.FontStyle.Bold);
+                flpTecladoPago.Controls.Add(btnBorrar);
+
+                //Creacion del boton pago exacto
+                var btnPagoExacto = new Button();
+                btnPagoExacto.Size = new System.Drawing.Size(183, 70);
+                btnPagoExacto.BackColor = System.Drawing.Color.Gray;
+                btnPagoExacto.Visible = true;
+                btnPagoExacto.Text = "Pago Exacto";
+                btnPagoExacto.Tag = "Exacto";
+                btnPagoExacto.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
+                flpBotonesPago.Controls.Add(btnPagoExacto);
+                btnPagoExacto.Click += new System.EventHandler(this.btnPagoExacto_Click);
+
+                var btnColones = new Button();
+                btnColones.Size = new System.Drawing.Size(183, 70);
+                btnColones.BackColor = System.Drawing.Color.Gray;
+                btnColones.Visible = true;
+                btnColones.Text = "Colones";
+                btnColones.Tag = "Colones";
+                btnColones.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
+                flpBotonesPago.Controls.Add(btnColones);
+                btnColones.Click += new System.EventHandler(this.btnPagoColones_Click);
+
+                var btnDolares = new Button();
+                btnDolares.Size = new System.Drawing.Size(183, 70);
+                btnDolares.BackColor = System.Drawing.Color.Gray;
+                btnDolares.Visible = true;
+                btnDolares.Text = "Dolares";
+                btnDolares.Tag = "Dolares";
+                btnDolares.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
+                flpBotonesPago.Controls.Add(btnDolares);
+
+                var btnTargeta = new Button();
+                btnTargeta.Size = new System.Drawing.Size(183, 70);
+                btnTargeta.BackColor = System.Drawing.Color.Gray;
+                btnTargeta.Visible = true;
+                btnTargeta.Text = "Targeta Credito";
+                btnTargeta.Tag = "Targeta";
+                btnTargeta.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
+                flpBotonesPago.Controls.Add(btnTargeta);
             }
-            var btnBorrar = new Button();
-            btnBorrar.Size = new System.Drawing.Size(145, 70);
-            btnBorrar.BackColor = System.Drawing.Color.White;
-            btnBorrar.Visible = true;
-            btnBorrar.Text = "<---";
-            btnBorrar.Tag = "borrar";
-            btnBorrar.Font = new Font("Arial", 20, System.Drawing.FontStyle.Bold);
-            flpTecladoPago.Controls.Add(btnBorrar);
+        }
 
-            var btnLimpiar = new Button();
-            btnLimpiar.Size = new System.Drawing.Size(145, 70);
-            btnLimpiar.BackColor = System.Drawing.Color.White;
-            btnLimpiar.Visible = true;
-            btnLimpiar.Text = "CE";
-            btnLimpiar.Tag = "limpiar";
-            btnLimpiar.Font = new Font("Arial", 20, System.Drawing.FontStyle.Bold);
-            flpTecladoPago.Controls.Add(btnLimpiar);
 
-            var btnAceptar = new Button();
-            btnAceptar.Size = new System.Drawing.Size(145, 70);
-            btnAceptar.BackColor = System.Drawing.Color.White;
-            btnAceptar.Visible = true;
-            btnAceptar.Text = "Aceptar";
-            btnAceptar.Tag = "aceptar";
-            btnAceptar.Font = new Font("Arial", 20, System.Drawing.FontStyle.Bold);
-            flpTecladoPago.Controls.Add(btnAceptar);
+        private void btnLlevar_Click(object sender, EventArgs e)
+        {
+            Facturacion(1);
+        }
 
-            var btnPagoExacto = new MetroButton();
-            btnPagoExacto.Size = new System.Drawing.Size(183, 70);
-            btnPagoExacto.BackColor = System.Drawing.Color.White;
-            btnPagoExacto.Visible = true;
-            btnPagoExacto.Text = "Pago Exacto";
-            btnPagoExacto.Tag = "Exacto";
-            btnPagoExacto.Font = new Font("Arial",16, System.Drawing.FontStyle.Regular);
-            flpBotonesPago.Controls.Add(btnPagoExacto);
 
-            var btnColones = new MetroButton();
-            btnColones.Size = new System.Drawing.Size(183, 70);
-            btnColones.BackColor = System.Drawing.Color.White;
-            btnColones.Visible = true;
-            btnColones.Text = "Colones";
-            btnColones.Tag = "Exacto";
-            btnColones.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
-            flpBotonesPago.Controls.Add(btnColones);
+        public void ActualizarCambio(double efectivo, double cambio)
+        {
+            txtEfectivo.Text = efectivo.ToString();
+            txtCambio.Text = cambio.ToString();
+        }
 
-            var btnDolares = new MetroButton();
-            btnDolares.Size = new System.Drawing.Size(183, 70);
-            btnDolares.BackColor = System.Drawing.Color.White;
-            btnDolares.Visible = true;
-            btnDolares.Text = "Dolares";
-            btnDolares.Tag = "Exacto";
-            btnDolares.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
-            flpBotonesPago.Controls.Add(btnDolares);
+        public void LimpiarCambioEfectivo()
+        {
+            txtCambio.Text = "";
+            txtEfectivo.Text = "";
+        }
 
-            var btnTargeta = new MetroButton();
-            btnTargeta.Size = new System.Drawing.Size(183, 70);
-            btnTargeta.BackColor = System.Drawing.Color.White;
-            btnTargeta.Visible = true;
-            btnTargeta.Text = "Targeta Credito";
-            btnTargeta.Tag = "Exacto";
-            btnTargeta.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
-            flpBotonesPago.Controls.Add(btnTargeta);
+        private void btnPagoColones_Click(object sender, EventArgs e)
+        {
+            if (txtPago.Text.ToString()!="")
+            {
+            double TotalFactura = double.Parse(txtTotalFactura.Text.ToString());
+            double efectivo = double.Parse(txtPago.Text.ToString());
+            if (efectivo >= TotalFactura)
+            {
+                double cambio = BilleteBLL.CalculoCambio(TotalFactura, efectivo);
+                ActualizarCambio(efectivo, cambio);
+                DataTable factura = EncFacturaBLL.ListarEncFactura(6);
+                if (factura.Rows.Count == 0)
+                {
+                    DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                    if (factura2.Rows.Count == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                        EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 3);
+                        btnMenuRegular.PerformClick();
+                        RefrescarDataGrid();
+                        dgvPlatos.Refresh();
+                        BannerFactura(3);
+                            LimpiarMontoDigitado();
+                    }
+                }
+                else
+                {
+                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                    EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 5);
+                    btnMenuRegular.PerformClick();
+                    RefrescarDataGrid();
+                    dgvPlatos.Refresh();
+                    BannerFactura(5);
+                    LimpiarMontoDigitado();
+
+                    }
+
+                }
+                else
+                {
+                    MessageBoxTemporal.Show("Digite un monto mayor a la factura", "Informacion",2 , false);
+                }
+
+            }
+            else
+            {
+                MessageBoxTemporal.Show("Digite un monto", "Informacion", 1, false);
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtPago.Text = "";
         }
 
         private void btnBilletes_Click(object sender, EventArgs e)
         {
-            frmIngresarCajero IngresarCajero = new frmIngresarCajero();
-            IngresarCajero.ShowDialog();
+            Button billet = sender as Button;
+            double TotalFactura = double.Parse(txtTotalFactura.Text.ToString());
+            double efectivo = double.Parse(billet.Tag.ToString());
+            if (efectivo>=TotalFactura)
+            {
+            double cambio = BilleteBLL.CalculoCambio(TotalFactura, efectivo);
+            ActualizarCambio(efectivo, cambio);
+            DataTable factura = EncFacturaBLL.ListarEncFactura(6);
+            if (factura.Rows.Count == 0)
+            {
+                DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                if (factura2.Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                    EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 3);
+                    btnMenuRegular.PerformClick();
+                    RefrescarDataGrid();
+                    dgvPlatos.Refresh();
+                    BannerFactura(3);
+                        LimpiarMontoDigitado();
+                }
+            }
+            else
+            {
+                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 5);
+                btnMenuRegular.PerformClick();
+                RefrescarDataGrid();
+                dgvPlatos.Refresh();
+                BannerFactura(5);
+                    LimpiarMontoDigitado();
+            }
+
+            }
+            else
+            {
+                string PagoDigitado = txtPago.Text.ToString();
+                if (PagoDigitado=="")
+                {
+                    txtPago.Text = efectivo.ToString();
+                }
+                else
+                {
+                    double digitado = double.Parse(PagoDigitado.ToString());
+                    double total = digitado + efectivo;
+                    txtPago.Text = total.ToString();
+                }
+            }
+
         }
+
+        public void LimpiarMontoDigitado()
+        {
+            txtPago.Text = "";
+        }
+
+
+        private void btnPagoExacto_Click(object sender, EventArgs e)
+        {
+            DataTable factura = EncFacturaBLL.ListarEncFactura(6);
+            if (factura.Rows.Count == 0)
+            {
+                DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                if (factura2.Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                    EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 3);
+                    btnMenuRegular.PerformClick();
+                    RefrescarDataGrid();
+                    dgvPlatos.Refresh();
+                    BannerFactura(3);
+                    txtEfectivo.Text = txtTotalFactura.Text.ToString();
+                    txtCambio.Text = "0";
+                    LimpiarMontoDigitado();
+                }
+            }
+            else
+            {
+                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 5);
+                btnMenuRegular.PerformClick();
+                RefrescarDataGrid();
+                dgvPlatos.Refresh();
+                BannerFactura(5);
+                LimpiarMontoDigitado();
+            }
+        }
+
+        public void PagoFactura(int estado,int banner,double efectivo,double cambio)
+        {
+            DataTable factura = EncFacturaBLL.ListarEncFactura(6);
+            if (factura.Rows.Count == 0)
+            {
+                DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
+                if (factura2.Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                    EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, estado);
+                    RefrescarDataGrid();
+                    dgvPlatos.Refresh();
+                    BannerFactura(banner);
+                    txtEfectivo.Text = txtTotalFactura.Text.ToString();
+                    btnMenuRegular.PerformClick();
+                    ActualizarCambio(efectivo, cambio);
+                    LimpiarMontoDigitado();
+                }
+            }
+            else
+            {
+                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
+                EncFacturaBLL.CambiarEstadoEncFactura(Numfactura, 5);
+                btnMenuRegular.PerformClick();
+                RefrescarDataGrid();
+                dgvPlatos.Refresh();
+                BannerFactura(5);
+                LimpiarMontoDigitado();
+            }
+        }
+
+        private void btnNumeros_Click(object sender, EventArgs e)
+        {
+            Button btnNumeros = sender as Button;
+            int numero = int.Parse(btnNumeros.Tag.ToString());
+            string PagoDigitado = txtPago.Text.ToString();   
+            txtPago.Text = PagoDigitado += numero.ToString();
+        }
+
 
         private void panelCantidad_MouseClick(object sender, MouseEventArgs e)
         {
-            lblCantidad.Text = "1";
+            PanelCantidad.Text = "1";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -954,17 +1244,27 @@ namespace AppSodaQuincho
             if (dgvPlatos.CurrentRow.Index >= 0)
             {
                 DataTable factura = EncFacturaBLL.ListarEncFactura(6);
+
                 if (factura.Rows.Count == 0)
                 {
                     try
                     {
-                        DataTable factura2 = EncFacturaBLL.ListarEncFactura(1);
                         int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
-                        int NumDet = int.Parse(dgvPlatos[0, dgvPlatos.CurrentRow.Index].Value.ToString());
-                        DetFacturaBLL.EliminarDetFactura(Numfactura, NumDet);
-                        System.Windows.MessageBox.Show("Producto Eliminado");
-                        RefrescarDataGrid();
-                        dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+
+                        DataTable Detalles = DetFacturaBLL.ListarDetFactura(Numfactura);
+                            if (Detalles.Rows.Count==1)
+                            {
+                                System.Windows.MessageBox.Show("No se puede eliminar agregar otro para poder eliminar");
+                            }
+                            else
+                            {
+                                int NumDet = int.Parse(dgvPlatos[0, dgvPlatos.CurrentRow.Index].Value.ToString());
+                                DetFacturaBLL.EliminarDetFactura(Numfactura, NumDet);
+                                System.Windows.MessageBox.Show("Producto Eliminado");
+                                RefrescarDataGrid();
+                                dgvPlatos.Rows[dgvPlatos.Rows.Count - 1].Selected = true;
+                            }
+
                     }
                     catch (Exception)
                     {
@@ -975,8 +1275,7 @@ namespace AppSodaQuincho
                 else
                 {
 
-
-                }
+                    }
             }
             else
             {
@@ -1055,14 +1354,37 @@ namespace AppSodaQuincho
 
         private void btnMesa_Click(object sender, EventArgs e)
         {
+            //Limpia Panel PrincipL
             PanelPlato.Controls.Clear();
-
+            //
+            //Panel del detalle de la Orden
+            //
+            var PanelDetalleOrden = new Panel();
+            PanelDetalleOrden.Location = new System.Drawing.Point(0, 0);
+            PanelDetalleOrden.Size = new System.Drawing.Size(500, 205);
+            PanelDetalleOrden.BackColor = System.Drawing.Color.Yellow;
+            PanelPlato.Controls.Add(PanelDetalleOrden);
+            //
+            //Panel de la mesa
+            // 
+            var PanelMesa = new Panel();
+            PanelMesa.Location = new System.Drawing.Point(0,205);
+            PanelMesa.Size = new System.Drawing.Size(500,405);
+            PanelMesa.BackColor = System.Drawing.Color.Black;
+            PanelPlato.Controls.Add(PanelMesa);
+            //
+            var PanelBotones = new Panel();
+            PanelBotones.Location = new System.Drawing.Point(0, 350);
+            PanelBotones.Size = new System.Drawing.Size(500, 100);
+            PanelBotones.BackColor = System.Drawing.Color.Red;
+            PanelMesa.Controls.Add(PanelBotones);
+            //
             var flpMesa = new FlowLayoutPanel();
             flpMesa.Location = new System.Drawing.Point(5, 5);
             flpMesa.Size = new System.Drawing.Size(490, 350);
             flpMesa.BackColor = System.Drawing.Color.Gray;
             flpMesa.AutoScroll = true;
-            PanelPlato.Controls.Add(flpMesa);
+            PanelMesa.Controls.Add(flpMesa);
 
             for (int i = 0; i < 20; i++)
             {
@@ -1085,16 +1407,16 @@ namespace AppSodaQuincho
 
                 flpMesa.Controls.Add(btnMesa);
             }
-          
+
             NoScrollPanelPlato();
             var btnEstacionarMesa = new Button();
-            btnEstacionarMesa.Size = new System.Drawing.Size(200, 200);
-            btnEstacionarMesa.Location = new System.Drawing.Point(1,1);
+            btnEstacionarMesa.Size = new System.Drawing.Size(150, 60);
+            btnEstacionarMesa.Location = new System.Drawing.Point(200,20);
             btnEstacionarMesa.BackColor = System.Drawing.Color.White;
             btnEstacionarMesa.Visible = true;
             btnEstacionarMesa.Text = "Estacionar Mesa";
             btnEstacionarMesa.Font = new Font("Arial", 16, System.Drawing.FontStyle.Regular);
-            PanelPlato.Controls.Add(btnEstacionarMesa);
+            PanelBotones.Controls.Add(btnEstacionarMesa);
             btnEstacionarMesa.Click += new System.EventHandler(this.btnEstacionarMesa_Click);
 
         }
@@ -1182,8 +1504,8 @@ namespace AppSodaQuincho
             switch (valor)
             {
                 case 1:
-                    PanelBannerFactura.BackColor = System.Drawing.Color.Green;
-                    lblBannerFactura.BackColor = System.Drawing.Color.Green;
+                    PanelBannerFactura.BackColor = System.Drawing.Color.Red;
+                    lblBannerFactura.BackColor = System.Drawing.Color.Red;
                     lblBannerFactura.Text = "En Facturacion"; 
                     break;
                 case 2:

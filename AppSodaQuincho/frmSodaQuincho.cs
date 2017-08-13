@@ -19,9 +19,9 @@ namespace AppSodaQuincho
         {
             //Thread t = new Thread(new ThreadStart(StartForm));
             //t.Start();
-            //Thread.Sleep(10000);
-            InitializeComponent();
             //t.Abort();
+            //Thread.Sleep(10000);
+            InitializeComponent(); 
         }
 
         public void StartForm()
@@ -29,14 +29,14 @@ namespace AppSodaQuincho
             System.Windows.Forms.Application.Run(new frmSplashScreen());
         }
 
-        public void SetColores() {
-            tsbVentaRapida.BackColor = System.Drawing.Color.Gray;
-            tsbOrdenMesa.BackColor = System.Drawing.Color.Gray;
-            tsbExpress.BackColor = System.Drawing.Color.Gray;
-            tsbAbrirTurno.BackColor = System.Drawing.Color.Gray;
-            tsbCerrarTurno.BackColor = System.Drawing.Color.Gray;
-            tsbMantenimientos.BackColor = System.Drawing.Color.Gray;
-        }
+        //public void SetColores() {
+        //    tsbVentaRapida.BackColor = System.Drawing.Color.Gray;
+        //    tsbOrdenMesa.BackColor = System.Drawing.Color.Gray;
+        //    tsbExpress.BackColor = System.Drawing.Color.Gray;
+        //    tsbAbrirTurno.BackColor = System.Drawing.Color.Gray;
+        //    tsbCerrarTurno.BackColor = System.Drawing.Color.Gray;
+        //    tsbMantenimientos.BackColor = System.Drawing.Color.Gray;
+        //}
 
         private void SodaQuincho_Load(object sender, EventArgs e)
         {
@@ -45,7 +45,6 @@ namespace AppSodaQuincho
             {
                 ActiveMdiChild.Close();
             }
-
             frmFacturacion newMDIChild = new frmFacturacion();
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this;
@@ -55,8 +54,8 @@ namespace AppSodaQuincho
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            SetColores();
-            tsbVentaRapida.BackColor = System.Drawing.Color.Transparent;
+            //SetColores();
+            //tsbVentaRapida.BackColor = System.Drawing.Color.Transparent;
             if (ActiveMdiChild != null)
             {
                 ActiveMdiChild.Close();
@@ -84,8 +83,8 @@ namespace AppSodaQuincho
 
         private void tsbAbrirTurno_Click(object sender, EventArgs e)
         {
-            SetColores();
-            tsbAbrirTurno.BackColor = System.Drawing.Color.Transparent;
+            //SetColores();
+            //tsbAbrirTurno.BackColor = System.Drawing.Color.Transparent;
             if (TurnoBLL.VereificarTurnoAbierto() == true)
             {
                 System.Windows.MessageBox.Show("Ya ahi un turno abierto");
@@ -104,8 +103,8 @@ namespace AppSodaQuincho
 
         private void tsbCerrarTurno_Click(object sender, EventArgs e)
         {
-            SetColores();
-            tsbCerrarTurno.BackColor = System.Drawing.Color.Transparent;
+            //SetColores();
+            //tsbCerrarTurno.BackColor = System.Drawing.Color.Transparent;
             if (TurnoBLL.VereificarTurnoAbierto() == false)
             {
                 System.Windows.MessageBox.Show("No ahi un turno para Cerrar");
@@ -151,8 +150,8 @@ namespace AppSodaQuincho
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-            SetColores();
-            tsbOrdenMesa.BackColor = System.Drawing.Color.Transparent;
+            //SetColores();
+            //tsbOrdenMesa.BackColor = System.Drawing.Color.Transparent;
             if (ActiveMdiChild != null)
             {
                 ActiveMdiChild.Close();
@@ -189,14 +188,14 @@ namespace AppSodaQuincho
 
         private void tsbExpress_Click(object sender, EventArgs e)
         {
-            SetColores();
-            tsbExpress.BackColor = System.Drawing.Color.Transparent;
+            //SetColores();
+            //tsbExpress.BackColor = System.Drawing.Color.Transparent;
         }
 
         private void tsbMantenimientos_Click(object sender, EventArgs e)
         {
-            SetColores();
-            tsbMantenimientos.BackColor = System.Drawing.Color.Transparent;
+            //SetColores();
+            //tsbMantenimientos.BackColor = System.Drawing.Color.Transparent;
         }
 
         private void toolStripButton1_Click_2(object sender, EventArgs e)

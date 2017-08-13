@@ -101,11 +101,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBSodaQuinchoDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBSodaQuinchoDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="frmAbrirTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,17 +224,6 @@
     <EmbeddedResource Include="frmSodaQuincho.resx">
       <DependentUpon>frmSodaQuincho.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DBSodaQuinchoDataSet.xsc">
-      <DependentUpon>DBSodaQuinchoDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DBSodaQuinchoDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DBSodaQuinchoDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DBSodaQuinchoDataSet.xss">
-      <DependentUpon>DBSodaQuinchoDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\Settings.settings">
@@ -346,6 +330,7 @@
   <ItemGroup>
     <None Include="Resources\MesaLibre.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

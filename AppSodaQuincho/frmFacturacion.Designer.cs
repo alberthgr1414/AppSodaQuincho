@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturacion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCombos = new System.Windows.Forms.Button();
+            this.txtPago = new System.Windows.Forms.MaskedTextBox();
             this.btnPedidoEspecial = new System.Windows.Forms.Button();
             this.btnProductosTemporada = new System.Windows.Forms.Button();
             this.btnPrecio = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.btnAdicionales = new System.Windows.Forms.Button();
             this.btnPostres = new System.Windows.Forms.Button();
             this.btnMenuRegular = new System.Windows.Forms.Button();
-            this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTituloCantidad = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnFuncionesPOS = new System.Windows.Forms.Button();
@@ -48,7 +48,8 @@
             this.btnComerAqui = new System.Windows.Forms.Button();
             this.btnExpress = new System.Windows.Forms.Button();
             this.btnLlevar = new System.Windows.Forms.Button();
-            this.panelCantidad = new System.Windows.Forms.Panel();
+            this.PanelCantidad = new System.Windows.Forms.Panel();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnNum1 = new System.Windows.Forms.Button();
             this.BtnNum4 = new System.Windows.Forms.Button();
@@ -63,25 +64,20 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.tlsGerente = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tlsCajero = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.tsbFecha = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbHora = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tspBarraCarga = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.dBSodaQuinchoDataSet = new AppSodaQuincho.DBSodaQuinchoDataSet();
             this.detFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.detFacturaTableAdapter = new AppSodaQuincho.DBSodaQuinchoDataSetTableAdapters.DetFacturaTableAdapter();
             this.dgvPlatos = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,22 +87,27 @@
             this.timerPicture = new System.Windows.Forms.Timer(this.components);
             this.lblBannerFactura = new System.Windows.Forms.Label();
             this.panelHora = new System.Windows.Forms.Panel();
+            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtCambio = new System.Windows.Forms.MaskedTextBox();
+            this.txtEfectivo = new System.Windows.Forms.MaskedTextBox();
             this.PanelBannerFactura = new System.Windows.Forms.Panel();
             this.txtTotalFactura = new System.Windows.Forms.MaskedTextBox();
             this.Efectivo = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTiempoFactura = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.PanelPlato = new System.Windows.Forms.Panel();
-            this.panelCantidad.SuspendLayout();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.PanelCantidad.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tspBarraCarga.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dBSodaQuinchoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detFacturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).BeginInit();
             this.panelHora.SuspendLayout();
@@ -127,6 +128,13 @@
             this.btnCombos.TabIndex = 8;
             this.btnCombos.Text = "Combos";
             this.btnCombos.UseVisualStyleBackColor = false;
+            // 
+            // txtPago
+            // 
+            this.txtPago.Location = new System.Drawing.Point(0, 0);
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(100, 20);
+            this.txtPago.TabIndex = 0;
             // 
             // btnPedidoEspecial
             // 
@@ -228,18 +236,6 @@
             this.btnMenuRegular.Text = "Menu Regular";
             this.btnMenuRegular.UseVisualStyleBackColor = false;
             this.btnMenuRegular.Click += new System.EventHandler(this.btnMenuRegular_Click);
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.BackColor = System.Drawing.Color.Silver;
-            this.lblCantidad.Font = new System.Drawing.Font("Berlin Sans FB", 20F);
-            this.lblCantidad.Location = new System.Drawing.Point(152, 8);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(21, 30);
-            this.lblCantidad.TabIndex = 9;
-            this.lblCantidad.Text = "1";
-            this.lblCantidad.Click += new System.EventHandler(this.lblCantidad_Click);
             // 
             // lblTituloCantidad
             // 
@@ -343,16 +339,27 @@
             this.btnLlevar.UseVisualStyleBackColor = false;
             this.btnLlevar.Click += new System.EventHandler(this.btnLlevar_Click);
             // 
-            // panelCantidad
+            // PanelCantidad
             // 
-            this.panelCantidad.BackColor = System.Drawing.Color.Silver;
-            this.panelCantidad.Controls.Add(this.lblTituloCantidad);
-            this.panelCantidad.Controls.Add(this.lblCantidad);
-            this.panelCantidad.Location = new System.Drawing.Point(505, 1);
-            this.panelCantidad.Name = "panelCantidad";
-            this.panelCantidad.Size = new System.Drawing.Size(235, 50);
-            this.panelCantidad.TabIndex = 18;
-            this.panelCantidad.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelCantidad_MouseClick);
+            this.PanelCantidad.BackColor = System.Drawing.Color.Silver;
+            this.PanelCantidad.Controls.Add(this.txtCantidad);
+            this.PanelCantidad.Controls.Add(this.lblTituloCantidad);
+            this.PanelCantidad.Location = new System.Drawing.Point(505, 1);
+            this.PanelCantidad.Name = "PanelCantidad";
+            this.PanelCantidad.Size = new System.Drawing.Size(235, 50);
+            this.PanelCantidad.TabIndex = 18;
+            this.PanelCantidad.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelCantidad_MouseClick);
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.BackColor = System.Drawing.Color.White;
+            this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCantidad.Enabled = false;
+            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.Location = new System.Drawing.Point(153, 12);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(30, 25);
+            this.txtCantidad.TabIndex = 11;
             // 
             // label2
             // 
@@ -590,12 +597,6 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(235, 613);
             this.flowLayoutPanel2.TabIndex = 27;
             // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(51, 21);
-            this.toolStripLabel2.Text = "Gerente:";
-            // 
             // tlsGerente
             // 
             this.tlsGerente.Name = "tlsGerente";
@@ -606,12 +607,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 24);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(47, 21);
-            this.toolStripLabel1.Text = "Cajero: ";
             // 
             // tlsCajero
             // 
@@ -650,11 +645,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 24);
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 24);
-            // 
             // tspBarraCarga
             // 
             this.tspBarraCarga.AutoSize = false;
@@ -678,7 +668,7 @@
             this.toolStripSeparator3});
             this.tspBarraCarga.Location = new System.Drawing.Point(0, 668);
             this.tspBarraCarga.Name = "tspBarraCarga";
-            this.tspBarraCarga.Size = new System.Drawing.Size(1020, 24);
+            this.tspBarraCarga.Size = new System.Drawing.Size(1018, 24);
             this.tspBarraCarga.TabIndex = 24;
             this.tspBarraCarga.Text = "toolStrip1";
             // 
@@ -720,19 +710,9 @@
             this.toolStripButton3.Size = new System.Drawing.Size(23, 21);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // dBSodaQuinchoDataSet
-            // 
-            this.dBSodaQuinchoDataSet.DataSetName = "DBSodaQuinchoDataSet";
-            this.dBSodaQuinchoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // detFacturaBindingSource
             // 
             this.detFacturaBindingSource.DataMember = "DetFactura";
-            this.detFacturaBindingSource.DataSource = this.dBSodaQuinchoDataSet;
-            // 
-            // detFacturaTableAdapter
-            // 
-            this.detFacturaTableAdapter.ClearBeforeFill = true;
             // 
             // dgvPlatos
             // 
@@ -755,18 +735,18 @@
             this.dgvPlatos.Name = "dgvPlatos";
             this.dgvPlatos.ReadOnly = true;
             this.dgvPlatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPlatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPlatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPlatos.RowHeadersVisible = false;
             this.dgvPlatos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvPlatos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvPlatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPlatos.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dgvPlatos.RowTemplate.Height = 30;
             this.dgvPlatos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -820,7 +800,7 @@
             this.lblBannerFactura.AutoSize = true;
             this.lblBannerFactura.BackColor = System.Drawing.Color.Silver;
             this.lblBannerFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBannerFactura.Location = new System.Drawing.Point(81, 5);
+            this.lblBannerFactura.Location = new System.Drawing.Point(64, 3);
             this.lblBannerFactura.Name = "lblBannerFactura";
             this.lblBannerFactura.Size = new System.Drawing.Size(133, 24);
             this.lblBannerFactura.TabIndex = 0;
@@ -829,11 +809,14 @@
             // panelHora
             // 
             this.panelHora.BackColor = System.Drawing.Color.DimGray;
+            this.panelHora.Controls.Add(this.maskedTextBox3);
+            this.panelHora.Controls.Add(this.maskedTextBox2);
+            this.panelHora.Controls.Add(this.maskedTextBox1);
+            this.panelHora.Controls.Add(this.txtCambio);
+            this.panelHora.Controls.Add(this.txtEfectivo);
             this.panelHora.Controls.Add(this.PanelBannerFactura);
             this.panelHora.Controls.Add(this.txtTotalFactura);
             this.panelHora.Controls.Add(this.Efectivo);
-            this.panelHora.Controls.Add(this.textBox2);
-            this.panelHora.Controls.Add(this.textBox1);
             this.panelHora.Controls.Add(this.label1);
             this.panelHora.Controls.Add(this.label3);
             this.panelHora.Controls.Add(this.dgvPlatos);
@@ -842,6 +825,57 @@
             this.panelHora.Size = new System.Drawing.Size(274, 612);
             this.panelHora.TabIndex = 19;
             this.panelHora.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHora_Paint);
+            // 
+            // maskedTextBox3
+            // 
+            this.maskedTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox3.Location = new System.Drawing.Point(117, 527);
+            this.maskedTextBox3.Mask = "₡";
+            this.maskedTextBox3.Name = "maskedTextBox3";
+            this.maskedTextBox3.Size = new System.Drawing.Size(28, 33);
+            this.maskedTextBox3.TabIndex = 40;
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox2.Location = new System.Drawing.Point(117, 566);
+            this.maskedTextBox2.Mask = "₡";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(28, 33);
+            this.maskedTextBox2.TabIndex = 39;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(117, 488);
+            this.maskedTextBox1.Mask = "₡";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(28, 33);
+            this.maskedTextBox1.TabIndex = 38;
+            // 
+            // txtCambio
+            // 
+            this.txtCambio.Enabled = false;
+            this.txtCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCambio.Location = new System.Drawing.Point(145, 566);
+            this.txtCambio.Mask = "999999";
+            this.txtCambio.Name = "txtCambio";
+            this.txtCambio.ReadOnly = true;
+            this.txtCambio.Size = new System.Drawing.Size(118, 33);
+            this.txtCambio.TabIndex = 37;
+            // 
+            // txtEfectivo
+            // 
+            this.txtEfectivo.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEfectivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtEfectivo.Enabled = false;
+            this.txtEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEfectivo.Location = new System.Drawing.Point(145, 527);
+            this.txtEfectivo.Mask = "999999";
+            this.txtEfectivo.Name = "txtEfectivo";
+            this.txtEfectivo.ReadOnly = true;
+            this.txtEfectivo.Size = new System.Drawing.Size(118, 33);
+            this.txtEfectivo.TabIndex = 36;
             // 
             // PanelBannerFactura
             // 
@@ -857,11 +891,11 @@
             this.txtTotalFactura.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtTotalFactura.Enabled = false;
             this.txtTotalFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalFactura.Location = new System.Drawing.Point(116, 491);
-            this.txtTotalFactura.Mask = "₡ 999999";
+            this.txtTotalFactura.Location = new System.Drawing.Point(145, 488);
+            this.txtTotalFactura.Mask = "999999";
             this.txtTotalFactura.Name = "txtTotalFactura";
             this.txtTotalFactura.ReadOnly = true;
-            this.txtTotalFactura.Size = new System.Drawing.Size(149, 33);
+            this.txtTotalFactura.Size = new System.Drawing.Size(118, 33);
             this.txtTotalFactura.TabIndex = 34;
             // 
             // Efectivo
@@ -873,24 +907,6 @@
             this.Efectivo.Size = new System.Drawing.Size(98, 29);
             this.Efectivo.TabIndex = 33;
             this.Efectivo.Text = "Efectivo";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(116, 569);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(149, 33);
-            this.textBox2.TabIndex = 32;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(116, 530);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 33);
-            this.textBox1.TabIndex = 31;
             // 
             // label1
             // 
@@ -951,8 +967,25 @@
             this.PanelPlato.Location = new System.Drawing.Point(2, 52);
             this.PanelPlato.Margin = new System.Windows.Forms.Padding(1);
             this.PanelPlato.Name = "PanelPlato";
-            this.PanelPlato.Size = new System.Drawing.Size(500, 613);
+            this.PanelPlato.Size = new System.Drawing.Size(500, 610);
             this.PanelPlato.TabIndex = 30;
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(47, 21);
+            this.toolStripLabel1.Text = "Cajero: ";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(51, 21);
+            this.toolStripLabel2.Text = "Gerente:";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 24);
             // 
             // frmFacturacion
             // 
@@ -960,14 +993,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(1020, 692);
+            this.ClientSize = new System.Drawing.Size(1018, 692);
             this.Controls.Add(this.PanelPlato);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.tspBarraCarga);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panelHora);
-            this.Controls.Add(this.panelCantidad);
+            this.Controls.Add(this.PanelCantidad);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -977,13 +1010,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmFacturacion_Load);
-            this.panelCantidad.ResumeLayout(false);
-            this.panelCantidad.PerformLayout();
+            this.PanelCantidad.ResumeLayout(false);
+            this.PanelCantidad.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tspBarraCarga.ResumeLayout(false);
             this.tspBarraCarga.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dBSodaQuinchoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detFacturaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlatos)).EndInit();
             this.panelHora.ResumeLayout(false);
@@ -999,7 +1031,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblTituloCantidad;
         private System.Windows.Forms.Button btnPostres;
         private System.Windows.Forms.Button btnMenuRegular;
@@ -1009,8 +1040,9 @@
         private System.Windows.Forms.Button btnMesa;
         private System.Windows.Forms.Button btnComerAqui;
         private System.Windows.Forms.Button btnExpress;
-        private System.Windows.Forms.Panel panelCantidad;
+        private System.Windows.Forms.Panel PanelCantidad;
         private System.Windows.Forms.Button btnCombos;
+        private System.Windows.Forms.MaskedTextBox txtPago;
         private System.Windows.Forms.Button btnPedidoEspecial;
         private System.Windows.Forms.Button btnProductosTemporada;
         private System.Windows.Forms.Button btnPrecio;
@@ -1030,11 +1062,9 @@
         private System.Windows.Forms.Button btnFuncionesPOS;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel tlsGerente;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel tlsCajero;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
         private System.Windows.Forms.ToolStripLabel tsbFecha;
@@ -1043,11 +1073,8 @@
         private System.Windows.Forms.ToolStripLabel tsbHora;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStrip tspBarraCarga;
-        private DBSodaQuinchoDataSet dBSodaQuinchoDataSet;
         private System.Windows.Forms.BindingSource detFacturaBindingSource;
-        private DBSodaQuinchoDataSetTableAdapters.DetFacturaTableAdapter detFacturaTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvPlatos;
         private System.Windows.Forms.Timer timerFactura;
@@ -1057,8 +1084,6 @@
         private System.Windows.Forms.Label lblTiempoFactura;
         private System.Windows.Forms.MaskedTextBox txtTotalFactura;
         private System.Windows.Forms.Label Efectivo;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel PanelBannerFactura;
@@ -1069,6 +1094,15 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel PanelPlato;
+        private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.MaskedTextBox txtCambio;
+        private System.Windows.Forms.MaskedTextBox txtEfectivo;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 
