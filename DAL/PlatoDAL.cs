@@ -132,5 +132,32 @@ namespace DAL
                 oDataTable.Dispose();
             }
         }
+
+
+        public static int EliminarPlato(int IDPlato)
+        {
+            //Declaración de objeto SqlCommand
+
+            SqlCommand oCommand = new SqlCommand();
+            int registrosActualizados = 0;
+            oCommand.CommandText = "SpEliminarPlato";
+            oCommand.CommandType = CommandType.StoredProcedure;
+
+            //Crear los Parámetros del procedimiento y sus valores
+            oCommand.Parameters.AddWithValue("@ID_Plato", IDPlato);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+            try
+            {
+                registrosActualizados = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
+                return registrosActualizados;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
     }
 }

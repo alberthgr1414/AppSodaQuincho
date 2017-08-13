@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using PersistenciaSqlServer;
 using BLL;
 using Entidades;
 
@@ -79,6 +75,7 @@ namespace AppSodaQuincho
             LimpiarDatos();
             PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
             llenarComboTipoPlato();
+            llenarComboTipoEstado();
             LlenarGrid();
             dgvPlato.AutoGenerateColumns = false;
             DesabilitarDatos();
@@ -119,6 +116,29 @@ namespace AppSodaQuincho
                 MessageBox.Show("" + ex);
             }
         
+        }
+
+        public void llenarComboTipoEstado()
+        {
+
+            DataTable oDataTable = new DataTable();
+            try
+            {
+                PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
+                //oDataTable = BLL.BLL.AutorBLL.consultaAutores();
+                SqlCommand oCommand = new SqlCommand();
+                oCommand.CommandText = "SpEstadoListar";
+                oCommand.CommandType = CommandType.StoredProcedure;
+                oDataTable = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarConsultaDataTable(oCommand);
+                cboEstado.DataSource = oDataTable;
+                cboEstado.DisplayMember = "Descripcion";
+                cboEstado.ValueMember = "ID_Estado";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex);
+            }
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -241,12 +261,12 @@ namespace AppSodaQuincho
             txtPrecio.Text = "";
             ptbFotografia.Image = null;
             cboTipoPlato.SelectedIndex = -1;
+            cboEstado.SelectedIndex = -1;
         }
 
         public void DesabilitarDatos()
         {
             PanelPlato.Enabled = false;
-            tsbEliminar.Enabled = true;
             tsbModificar.Enabled = true;
             tsbInsertar.Enabled = true; 
         }
@@ -254,7 +274,6 @@ namespace AppSodaQuincho
         public void HabilitarInsertar() 
         {
             PanelPlato.Enabled = true;
-            tsbEliminar.Enabled = false;
             tsbModificar.Enabled = false;
             tsbInsertar.Enabled = true;
             txtNombrePlato.Focus();
@@ -263,7 +282,6 @@ namespace AppSodaQuincho
         public void HabilitarModificar()
         {
             PanelPlato.Enabled = true;
-            tsbEliminar.Enabled = false;
             tsbInsertar.Enabled = false;
             tsbModificar.Enabled = true;
             txtNombrePlato.Focus();
@@ -337,6 +355,16 @@ namespace AppSodaQuincho
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarDatos();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

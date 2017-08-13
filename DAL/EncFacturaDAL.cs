@@ -66,7 +66,6 @@ namespace DAL
         {
             //Declaración de objeto SqlCommand
             SqlCommand oCommand = new SqlCommand();
-            string registro;
             oCommand.CommandText = "SpCambiarEstadoEncFactura";
             oCommand.CommandType = CommandType.StoredProcedure;
 

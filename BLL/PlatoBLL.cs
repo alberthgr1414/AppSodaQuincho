@@ -68,6 +68,18 @@ namespace BLL
             }
         }
 
+        public static int EliminarProducto(int ID_Plato)
+        {
+            try
+            {
+                return PlatoDAL.EliminarPlato(ID_Plato);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static DataTable ListarPlatoScalar(int ID_Plato)
         {
             try
