@@ -101,6 +101,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAbrirTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     </Compile>
     <Compile Include="frmIngreso.Designer.cs">
       <DependentUpon>frmIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogincs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogincs.Designer.cs">
+      <DependentUpon>frmLogincs.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMantenimientoPc.cs">
       <SubType>Form</SubType>
@@ -148,12 +160,6 @@
     </Compile>
     <Compile Include="frmMesa.Designer.cs">
       <DependentUpon>frmMesa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPruebas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPruebas.Designer.cs">
-      <DependentUpon>frmPruebas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSplashScreen.cs">
       <SubType>Form</SubType>
@@ -189,6 +195,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TipoMantenimiento.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAbrirTurno.resx">
       <DependentUpon>frmAbrirTurno.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngreso.resx">
       <DependentUpon>frmIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogincs.resx">
+      <DependentUpon>frmLogincs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoPc.resx">
       <DependentUpon>frmMantenimientoPc.cs</DependentUpon>
@@ -209,9 +221,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMesa.resx">
       <DependentUpon>frmMesa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPruebas.resx">
-      <DependentUpon>frmPruebas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplashScreen.resx">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
@@ -332,6 +341,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo-azul-blue-cuadros-fotorecurso.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

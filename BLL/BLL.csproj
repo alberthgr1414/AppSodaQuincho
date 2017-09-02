@@ -45,6 +45,7 @@
     <Compile Include="BilleteBLL.cs" />
     <Compile Include="CajaBLL.cs" />
     <Compile Include="DetFacturaBLL.cs" />
+    <Compile Include="DirecionMacBLL.cs" />
     <Compile Include="EncFacturaBLL.cs" />
     <Compile Include="PlatoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -163,6 +163,16 @@ namespace AppSodaQuincho.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondo_azul_blue_cuadros_fotorecurso {
+            get {
+                object obj = ResourceManager.GetObject("fondo-azul-blue-cuadros-fotorecurso", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gerente {
             get {
                 object obj = ResourceManager.GetObject("gerente", resourceCulture);

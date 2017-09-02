@@ -42,6 +42,7 @@
     <Compile Include="Billete.cs" />
     <Compile Include="Caja.cs" />
     <Compile Include="DetFactura.cs" />
+    <Compile Include="DirecionMac.cs" />
     <Compile Include="EncFactura.cs" />
     <Compile Include="Plato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

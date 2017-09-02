@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using BLL;
 using Entidades;
+using System.Net.NetworkInformation;
 
 namespace AppSodaQuincho
 {
@@ -75,16 +76,19 @@ namespace AppSodaQuincho
             LimpiarDatos();
             PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
             llenarComboTipoPlato();
+            llenarComboTipoPlatoBuscar();
             llenarComboTipoEstado();
-            LlenarGrid();
+            LlenarGrid(1);
             dgvPlato.AutoGenerateColumns = false;
             DesabilitarDatos();
         }
 
 
-        private void LlenarGrid()
+
+
+
+        private void LlenarGrid(int valor)
         {
-            int valor = 1;
             try
             {
                 dgvPlato.DataSource = PlatoBLL.ListarPlatos(valor);
@@ -116,6 +120,30 @@ namespace AppSodaQuincho
                 MessageBox.Show("" + ex);
             }
         
+        }
+
+
+        public void llenarComboTipoPlatoBuscar()
+        {
+
+            DataTable oDataTable = new DataTable();
+            try
+            {
+                PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion("sa", "123456");
+                //oDataTable = BLL.BLL.AutorBLL.consultaAutores();
+                SqlCommand oCommand = new SqlCommand();
+                oCommand.CommandText = "SpTipoPlatoListar";
+                oCommand.CommandType = CommandType.StoredProcedure;
+                oDataTable = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarConsultaDataTable(oCommand);
+                cboBuscarTipoPlato.DataSource = oDataTable;
+                cboBuscarTipoPlato.DisplayMember = "Descripcion";
+                cboBuscarTipoPlato.ValueMember = "ID_TipoPlato";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex);
+            }
+
         }
 
         public void llenarComboTipoEstado()
@@ -192,7 +220,6 @@ namespace AppSodaQuincho
                     Application.Exit();
                 }
             }
-            LlenarGrid();
         }
         
 
@@ -212,12 +239,12 @@ namespace AppSodaQuincho
                 PlatoBLL.GuardarPlato(ID_TipoPlato, Nombre_Plato, Precio, fotografia);
                 MessageBox.Show("Datos Insertados correctamente");
                 //deshabilitarDatos();
+                LlenarGrid(ID_TipoPlato);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
 
         }
 
@@ -365,6 +392,25 @@ namespace AppSodaQuincho
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboBuscarTipoPlato_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int ID_TipoPlato = int.Parse(cboBuscarTipoPlato.SelectedValue.ToString());
+                LlenarGrid(ID_TipoPlato);
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
     }
 
