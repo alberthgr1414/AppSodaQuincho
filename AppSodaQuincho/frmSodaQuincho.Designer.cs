@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSodaQuincho));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tspMenu = new System.Windows.Forms.ToolStrip();
             this.tsbVentaRapida = new System.Windows.Forms.ToolStripButton();
             this.tsbOrdenMesa = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -41,15 +41,15 @@
             this.mantenimientoExpressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.tspMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // tspMenu
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.BackColor = System.Drawing.Color.DimGray;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspMenu.AutoSize = false;
+            this.tspMenu.BackColor = System.Drawing.Color.DimGray;
+            this.tspMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tspMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbVentaRapida,
             this.tsbOrdenMesa,
             this.toolStripButton1,
@@ -58,14 +58,14 @@
             this.tsbCerrarTurno,
             this.tsbMantenimientos,
             this.toolStripButton2});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(1024, 70);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            this.tspMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.tspMenu.Location = new System.Drawing.Point(0, 0);
+            this.tspMenu.Name = "tspMenu";
+            this.tspMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.tspMenu.Size = new System.Drawing.Size(1024, 70);
+            this.tspMenu.TabIndex = 0;
+            this.tspMenu.Text = "toolStrip1";
+            this.tspMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // tsbVentaRapida
             // 
@@ -182,7 +182,7 @@
             // 
             this.mantenimientoProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoProductoToolStripMenuItem.Image")));
             this.mantenimientoProductoToolStripMenuItem.Name = "mantenimientoProductoToolStripMenuItem";
-            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.mantenimientoProductoToolStripMenuItem.Text = "Mantenimiento Producto";
             this.mantenimientoProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.mantenimientoProductoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoProductoToolStripMenuItem_Click);
@@ -190,13 +190,13 @@
             // mantenimientoExpressToolStripMenuItem
             // 
             this.mantenimientoExpressToolStripMenuItem.Name = "mantenimientoExpressToolStripMenuItem";
-            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.mantenimientoExpressToolStripMenuItem.Text = "Mantenimiento Express";
             // 
             // mantenimientoUsuariosToolStripMenuItem
             // 
             this.mantenimientoUsuariosToolStripMenuItem.Name = "mantenimientoUsuariosToolStripMenuItem";
-            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.mantenimientoUsuariosToolStripMenuItem.Text = "Mantenimiento Usuarios";
             // 
             // toolStripButton2
@@ -222,7 +222,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tspMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -231,15 +231,15 @@
             this.Text = "Soda Quincho";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.SodaQuincho_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tspMenu.ResumeLayout(false);
+            this.tspMenu.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tspMenu;
         private System.Windows.Forms.ToolStripButton tsbVentaRapida;
         private System.Windows.Forms.ToolStripButton tsbAbrirTurno;
         private System.Windows.Forms.ToolStripButton tsbCerrarTurno;

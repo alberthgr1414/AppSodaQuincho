@@ -45,11 +45,18 @@ namespace AppSodaQuincho
             {
                 ActiveMdiChild.Close();
             }
-            frmFacturacion newMDIChild = new frmFacturacion();
+            frmIngreso newMDIChild = new frmIngreso();
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this;
             // Display the new form.
             newMDIChild.Show();
+            tspMenu.Visible = false;
+
+        }
+
+        public void MenuVisible()
+        {
+            tspMenu.Visible = true;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -165,6 +172,16 @@ namespace AppSodaQuincho
 
         }
 
+        public void Abrir()
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            frmFacturacion newMDIChild = new frmFacturacion();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
         {

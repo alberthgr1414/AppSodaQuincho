@@ -45,6 +45,7 @@
     <Compile Include="CajaDAL.cs" />
     <Compile Include="DetFacturaDAL.cs" />
     <Compile Include="EncFacturaDAL.cs" />
+    <Compile Include="IngresoDAL.cs" />
     <Compile Include="PlatoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TurnoDAL.cs" />

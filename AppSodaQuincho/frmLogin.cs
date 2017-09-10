@@ -1,5 +1,4 @@
-﻿using MetroFramework.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,16 +10,11 @@ using System.Windows.Forms;
 
 namespace AppSodaQuincho
 {
-    public partial class frmLogincs : MetroForm
+    public partial class frmLogin : Form
     {
-        public frmLogincs()
+        public frmLogin()
         {
             InitializeComponent();
-        }
-
-        private void frmLogincs_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

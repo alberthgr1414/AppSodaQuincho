@@ -125,11 +125,11 @@
     <Compile Include="frmIngreso.Designer.cs">
       <DependentUpon>frmIngreso.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogincs.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogincs.Designer.cs">
-      <DependentUpon>frmLogincs.cs</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMantenimientoPc.cs">
       <SubType>Form</SubType>
@@ -166,6 +166,12 @@
     </Compile>
     <Compile Include="frmSplashScreen.Designer.cs">
       <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTecnico.Designer.cs">
+      <DependentUpon>frmTecnico.cs</DependentUpon>
     </Compile>
     <Compile Include="MessageBoxTemporal.cs" />
     <Compile Include="Program.cs" />
@@ -207,8 +213,8 @@
     <EmbeddedResource Include="frmIngreso.resx">
       <DependentUpon>frmIngreso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogincs.resx">
-      <DependentUpon>frmLogincs.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoPc.resx">
       <DependentUpon>frmMantenimientoPc.cs</DependentUpon>
@@ -344,6 +350,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fondo-azul-blue-cuadros-fotorecurso.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
