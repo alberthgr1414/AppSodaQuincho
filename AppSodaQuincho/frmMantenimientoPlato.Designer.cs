@@ -224,7 +224,6 @@
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // tsbInsertar
             // 
@@ -255,7 +254,6 @@
             this.tsbSalir.Text = "   Salir   ";
             this.tsbSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
             // tsbModificar
             // 
@@ -416,7 +414,6 @@
             this.lblEstado.Size = new System.Drawing.Size(73, 25);
             this.lblEstado.TabIndex = 15;
             this.lblEstado.Text = "Estado";
-            this.lblEstado.Click += new System.EventHandler(this.label5_Click);
             // 
             // cboEstado
             // 
@@ -426,7 +423,6 @@
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(228, 33);
             this.cboEstado.TabIndex = 14;
-            this.cboEstado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -481,7 +477,6 @@
             this.cboBuscarTipoPlato.Name = "cboBuscarTipoPlato";
             this.cboBuscarTipoPlato.Size = new System.Drawing.Size(133, 28);
             this.cboBuscarTipoPlato.TabIndex = 17;
-            this.cboBuscarTipoPlato.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             this.cboBuscarTipoPlato.SelectedValueChanged += new System.EventHandler(this.cboBuscarTipoPlato_SelectedValueChanged);
             // 
             // label6

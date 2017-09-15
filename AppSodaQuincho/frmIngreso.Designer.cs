@@ -129,7 +129,7 @@
             // 
             this.btnCerrar.BackgroundImage = global::AppSodaQuincho.Properties.Resources.close;
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.Location = new System.Drawing.Point(972, 7);
+            this.btnCerrar.Location = new System.Drawing.Point(960, 10);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(46, 37);
             this.btnCerrar.TabIndex = 10;
@@ -148,6 +148,7 @@
             // 
             // frmIngreso
             // 
+            this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AppSodaQuincho.Properties.Resources.fondo_azul_blue_cuadros_fotorecurso;

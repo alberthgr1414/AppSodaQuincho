@@ -335,7 +335,6 @@ namespace AppSodaQuincho
 
         private void tsbModificar_Click(object sender, EventArgs e)
         {
-
             if (dgvPlato.SelectedRows.Count > 0)
             {
                 LimpiarDatos();
@@ -364,39 +363,9 @@ namespace AppSodaQuincho
             return returnImage;
         }
 
-        private void tsbSalir_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void tsbEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarDatos();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
         }
 
         private void cboBuscarTipoPlato_SelectedValueChanged(object sender, EventArgs e)

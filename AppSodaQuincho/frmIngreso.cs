@@ -60,16 +60,15 @@ namespace AppSodaQuincho
                         int tipo = int.Parse(row["ID_TipoUsuario"].ToString());
                         if (tipo==5)
                         {
-                            frmTecnico fr = new frmTecnico();
-                            fr.Show();
-                        }
+                                frmSodaQuincho frmParent = this.MdiParent as frmSodaQuincho;
+                                frmParent.MenuVisible();
+                                frmParent.InicioSessionTecnico();
+                            }
                         else
                         {
                                 frmSodaQuincho frmParent = this.MdiParent as frmSodaQuincho;
                                 frmParent.MenuVisible();
-                                frmParent.Abrir();
-                                
-
+                                frmParent.InicioSession();
                             }
                         }
                     }
@@ -125,7 +124,8 @@ namespace AppSodaQuincho
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            frmSodaQuincho frmParent = this.MdiParent as frmSodaQuincho;
+            frmParent.Close();
         }
 
         private void progressBar2_Click(object sender, EventArgs e)
@@ -143,5 +143,6 @@ namespace AppSodaQuincho
         {
 
         }
+
     }
 }

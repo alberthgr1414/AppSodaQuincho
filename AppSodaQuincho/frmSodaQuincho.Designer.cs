@@ -41,7 +41,14 @@
             this.mantenimientoExpressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.tspMenuTecnico = new System.Windows.Forms.ToolStrip();
+            this.tsbInicio = new System.Windows.Forms.ToolStripButton();
+            this.tsbConfigCaja = new System.Windows.Forms.ToolStripButton();
+            this.tsbDetalle = new System.Windows.Forms.ToolStripButton();
+            this.tsbMantUsuario = new System.Windows.Forms.ToolStripButton();
+            this.tsbCerrarSessionTec = new System.Windows.Forms.ToolStripButton();
             this.tspMenu.SuspendLayout();
+            this.tspMenuTecnico.SuspendLayout();
             this.SuspendLayout();
             // 
             // tspMenu
@@ -210,29 +217,129 @@
             this.toolStripButton2.Margin = new System.Windows.Forms.Padding(260, 1, 1, 1);
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(90, 70);
-            this.toolStripButton2.Text = "Salir";
+            this.toolStripButton2.Text = "Cerrar Session";
             this.toolStripButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton2.ToolTipText = "Salir";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click_1);
+            // 
+            // tspMenuTecnico
+            // 
+            this.tspMenuTecnico.AutoSize = false;
+            this.tspMenuTecnico.BackColor = System.Drawing.Color.DimGray;
+            this.tspMenuTecnico.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tspMenuTecnico.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbInicio,
+            this.tsbConfigCaja,
+            this.tsbDetalle,
+            this.tsbMantUsuario,
+            this.tsbCerrarSessionTec});
+            this.tspMenuTecnico.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.tspMenuTecnico.Location = new System.Drawing.Point(0, 70);
+            this.tspMenuTecnico.Name = "tspMenuTecnico";
+            this.tspMenuTecnico.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.tspMenuTecnico.Size = new System.Drawing.Size(1024, 70);
+            this.tspMenuTecnico.TabIndex = 2;
+            this.tspMenuTecnico.Text = "toolStrip1";
+            // 
+            // tsbInicio
+            // 
+            this.tsbInicio.AutoSize = false;
+            this.tsbInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbInicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tsbInicio.ForeColor = System.Drawing.Color.White;
+            this.tsbInicio.Image = ((System.Drawing.Image)(resources.GetObject("tsbInicio.Image")));
+            this.tsbInicio.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbInicio.Margin = new System.Windows.Forms.Padding(1);
+            this.tsbInicio.Name = "tsbInicio";
+            this.tsbInicio.Size = new System.Drawing.Size(90, 70);
+            this.tsbInicio.Tag = "Facturacion";
+            this.tsbInicio.Text = "Inicio";
+            this.tsbInicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbInicio.Click += new System.EventHandler(this.tsbInicio_Click);
+            // 
+            // tsbConfigCaja
+            // 
+            this.tsbConfigCaja.AutoSize = false;
+            this.tsbConfigCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbConfigCaja.ForeColor = System.Drawing.Color.White;
+            this.tsbConfigCaja.Image = ((System.Drawing.Image)(resources.GetObject("tsbConfigCaja.Image")));
+            this.tsbConfigCaja.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbConfigCaja.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbConfigCaja.Margin = new System.Windows.Forms.Padding(1);
+            this.tsbConfigCaja.Name = "tsbConfigCaja";
+            this.tsbConfigCaja.Size = new System.Drawing.Size(120, 70);
+            this.tsbConfigCaja.Text = "Configurar Terminal";
+            this.tsbConfigCaja.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbConfigCaja.Click += new System.EventHandler(this.tsbConfigCaja_Click);
+            // 
+            // tsbDetalle
+            // 
+            this.tsbDetalle.AutoSize = false;
+            this.tsbDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbDetalle.ForeColor = System.Drawing.Color.White;
+            this.tsbDetalle.Image = ((System.Drawing.Image)(resources.GetObject("tsbDetalle.Image")));
+            this.tsbDetalle.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.tsbDetalle.Name = "tsbDetalle";
+            this.tsbDetalle.Size = new System.Drawing.Size(90, 70);
+            this.tsbDetalle.Text = "Detalles";
+            this.tsbDetalle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbDetalle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // tsbMantUsuario
+            // 
+            this.tsbMantUsuario.AutoSize = false;
+            this.tsbMantUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbMantUsuario.ForeColor = System.Drawing.Color.White;
+            this.tsbMantUsuario.Image = ((System.Drawing.Image)(resources.GetObject("tsbMantUsuario.Image")));
+            this.tsbMantUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbMantUsuario.Margin = new System.Windows.Forms.Padding(1);
+            this.tsbMantUsuario.Name = "tsbMantUsuario";
+            this.tsbMantUsuario.Size = new System.Drawing.Size(140, 70);
+            this.tsbMantUsuario.Text = "Mantenimiento Usuario";
+            this.tsbMantUsuario.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbMantUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // tsbCerrarSessionTec
+            // 
+            this.tsbCerrarSessionTec.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbCerrarSessionTec.AutoSize = false;
+            this.tsbCerrarSessionTec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbCerrarSessionTec.ForeColor = System.Drawing.Color.White;
+            this.tsbCerrarSessionTec.Image = ((System.Drawing.Image)(resources.GetObject("tsbCerrarSessionTec.Image")));
+            this.tsbCerrarSessionTec.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCerrarSessionTec.Margin = new System.Windows.Forms.Padding(485, 1, 1, 1);
+            this.tsbCerrarSessionTec.Name = "tsbCerrarSessionTec";
+            this.tsbCerrarSessionTec.Size = new System.Drawing.Size(90, 70);
+            this.tsbCerrarSessionTec.Text = "Cerrar Session";
+            this.tsbCerrarSessionTec.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbCerrarSessionTec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbCerrarSessionTec.ToolTipText = "Salir";
+            this.tsbCerrarSessionTec.Click += new System.EventHandler(this.tsbCerrarSessionTec_Click);
             // 
             // frmSodaQuincho
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.tspMenuTecnico);
             this.Controls.Add(this.tspMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "frmSodaQuincho";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Soda Quincho";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.SodaQuincho_Load);
             this.tspMenu.ResumeLayout(false);
             this.tspMenu.PerformLayout();
+            this.tspMenuTecnico.ResumeLayout(false);
+            this.tspMenuTecnico.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -251,5 +358,11 @@
         private System.Windows.Forms.ToolStripMenuItem mantenimientoUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStrip tspMenuTecnico;
+        private System.Windows.Forms.ToolStripButton tsbInicio;
+        private System.Windows.Forms.ToolStripButton tsbConfigCaja;
+        private System.Windows.Forms.ToolStripButton tsbDetalle;
+        private System.Windows.Forms.ToolStripButton tsbMantUsuario;
+        private System.Windows.Forms.ToolStripButton tsbCerrarSessionTec;
     }
 }
