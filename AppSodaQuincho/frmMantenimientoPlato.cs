@@ -78,7 +78,7 @@ namespace AppSodaQuincho
             llenarComboTipoPlato();
             llenarComboTipoPlatoBuscar();
             llenarComboTipoEstado();
-            LlenarGrid(1);
+            LlenarGridMantePlato(1);
             dgvPlato.AutoGenerateColumns = false;
             DesabilitarDatos();
         }
@@ -92,6 +92,18 @@ namespace AppSodaQuincho
             try
             {
                 dgvPlato.DataSource = PlatoBLL.ListarPlatos(valor);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message);
+            }
+        }
+
+        private void LlenarGridMantePlato(int valor)
+        {
+            try
+            {
+                dgvPlato.DataSource = PlatoBLL.ListarPlatosMantenimiento(valor);
             }
             catch (Exception ex)
             {
@@ -235,8 +247,10 @@ namespace AppSodaQuincho
                 string Nombre_Plato = txtNombrePlato.Text;
                 // Foto del plato
                 byte[] fotografia = (byte[])this.ptbFotografia.Tag;
+                // Estado
+                int ID_Estado = int.Parse(cboEstado.SelectedValue.ToString());
 
-                PlatoBLL.GuardarPlato(ID_TipoPlato, Nombre_Plato, Precio, fotografia);
+                PlatoBLL.GuardarPlato(ID_TipoPlato, Nombre_Plato, Precio, fotografia, ID_Estado);
                 MessageBox.Show("Datos Insertados correctamente");
                 //deshabilitarDatos();
                 LlenarGrid(ID_TipoPlato);
@@ -260,8 +274,10 @@ namespace AppSodaQuincho
                 string Nombre_Plato = txtNombrePlato.Text;
                 // Foto del plato
                 byte[] fotografia = (byte[])this.ptbFotografia.Tag;
+                // Codigo del Status
+                int ID_Estado = int.Parse(cboEstado.SelectedValue.ToString());
 
-                PlatoBLL.ModificarPlato(IdPlato, ID_TipoPlato, Nombre_Plato, Precio, fotografia);
+                PlatoBLL.ModificarPlato(IdPlato, ID_TipoPlato, Nombre_Plato, Precio, fotografia, ID_Estado);
                 MessageBox.Show("Datos Modificados correctamente");
                 deshabilitarDatos();
             }
@@ -287,36 +303,53 @@ namespace AppSodaQuincho
             txtNombrePlato.Text = "";
             txtPrecio.Text = "";
             ptbFotografia.Image = null;
-            cboTipoPlato.SelectedIndex = -1;
-            cboEstado.SelectedIndex = -1;
         }
 
         public void DesabilitarDatos()
         {
-            PanelPlato.Enabled = false;
+            txtNombrePlato.Enabled = false;
+            txtPrecio.Enabled = false;
+            cboEstado.Enabled = false;
+            cboTipoPlato.Enabled = false;
+            ptbFotografia.Enabled = false;
+
+            btnAceptar.Enabled = false;
+            btnCancelar.Enabled = false;
+            btnLimpiar.Enabled = false;
+
             tsbModificar.Enabled = true;
             tsbInsertar.Enabled = true; 
         }
 
         public void HabilitarInsertar() 
         {
-            PanelPlato.Enabled = true;
+            txtNombrePlato.Enabled = true;
+            txtPrecio.Enabled = true;
+            cboEstado.Enabled = true;
+            cboTipoPlato.Enabled = true;
+            ptbFotografia.Enabled = true;
             tsbModificar.Enabled = false;
             tsbInsertar.Enabled = true;
+            btnAceptar.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnLimpiar.Enabled = true;
             txtNombrePlato.Focus();
         }
+
 
         public void HabilitarModificar()
         {
-            PanelPlato.Enabled = true;
-            tsbInsertar.Enabled = false;
+            txtNombrePlato.Enabled = true;
+            txtPrecio.Enabled = true;
+            cboEstado.Enabled = true;
+            cboTipoPlato.Enabled = true;
+            ptbFotografia.Enabled = true;
             tsbModificar.Enabled = true;
+            tsbInsertar.Enabled = false;
+            btnAceptar.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnLimpiar.Enabled = true;
             txtNombrePlato.Focus();
-        }
-
-        private void txtPrecio_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void tsbInsertar_Click(object sender, EventArgs e)
@@ -340,11 +373,14 @@ namespace AppSodaQuincho
                 LimpiarDatos();
                 HabilitarModificar();
                 Plato oUsuario = this.dgvPlato.SelectedRows[0].DataBoundItem as Plato;
+
+
                 IdPlato = int.Parse(this.dgvPlato[0, dgvPlato.CurrentRow.Index].Value.ToString());
-                cboTipoPlato.Text = this.dgvPlato[1, dgvPlato.CurrentRow.Index].Value.ToString();
-                txtNombrePlato.Text = this.dgvPlato[2, dgvPlato.CurrentRow.Index].Value.ToString();
-                txtPrecio.Text = this.dgvPlato[3, dgvPlato.CurrentRow.Index].Value.ToString();
+                txtNombrePlato.Text = this.dgvPlato[1, dgvPlato.CurrentRow.Index].Value.ToString();
+                txtPrecio.Text = this.dgvPlato[2, dgvPlato.CurrentRow.Index].Value.ToString();
+                cboTipoPlato.Text = this.dgvPlato[3, dgvPlato.CurrentRow.Index].Value.ToString();
                 Byte[] FOTO = (Byte[])this.dgvPlato[4, dgvPlato.CurrentRow.Index].Value;
+
                 ptbFotografia.Image = byteArrayToImage(FOTO);
                 ptbFotografia.Tag = FOTO;
                 txtNombrePlato.Focus();
@@ -373,13 +409,28 @@ namespace AppSodaQuincho
             try
             {
                 int ID_TipoPlato = int.Parse(cboBuscarTipoPlato.SelectedValue.ToString());
-                LlenarGrid(ID_TipoPlato);
+                LlenarGridMantePlato(ID_TipoPlato);
             }
             catch (Exception)
             {
 
             }
             
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void PanelPlato_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboBuscarTipoPlato_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -32,6 +32,9 @@ namespace DAL
 
             oCommand.Parameters.AddWithValue("@foto", pPlato.foto);
             oCommand.Parameters[3].Direction = ParameterDirection.Input;
+
+            oCommand.Parameters.AddWithValue("@ID_Estado", pPlato.ID_Estado);
+            oCommand.Parameters[4].Direction = ParameterDirection.Input;
             try
             {
                 //PersistenciaSqlServer.Persistencia.Persistencia.getInstance().establecerConexion2();
@@ -72,6 +75,9 @@ namespace DAL
 
             oCommand.Parameters.AddWithValue("@foto", pPlato.foto);
             oCommand.Parameters[3].Direction = ParameterDirection.Input;
+
+            oCommand.Parameters.AddWithValue("@status", pPlato.ID_Estado);
+            oCommand.Parameters[4].Direction = ParameterDirection.Input;
             try
             {
                 registrosActualizados = PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarSqlActualizacion(oCommand);
@@ -95,6 +101,30 @@ namespace DAL
             oCommand.Parameters.AddWithValue("@TipoPlato", tipoPlato);
             oCommand.Parameters[0].Direction = ParameterDirection.Input;
             try 
+            {
+                return PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarConsultaDataTable(oCommand);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                oDataTable.Dispose();
+            }
+        }
+
+        public static DataTable ListarPlatosMantenimiento(int tipoPlato)
+        {
+            //Declaración de objeto SqlCommand           
+            SqlCommand oCommand = new SqlCommand();
+            //Declaración de Objeto DataTable
+            DataTable oDataTable = new DataTable();
+            oCommand.CommandText = "SpPlatoListarMantenimiento";
+            oCommand.CommandType = CommandType.StoredProcedure;
+            oCommand.Parameters.AddWithValue("@TipoPlato", tipoPlato);
+            oCommand.Parameters[0].Direction = ParameterDirection.Input;
+            try
             {
                 return PersistenciaSqlServer.Persistencia.Persistencia.getInstance().EjecutarConsultaDataTable(oCommand);
             }

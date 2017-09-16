@@ -40,17 +40,6 @@
             this.TipoPlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbInsertar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.ofdImagen = new System.Windows.Forms.OpenFileDialog();
             this.txtNombrePlato = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,14 +56,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.PanelPlato = new System.Windows.Forms.GroupBox();
             this.ptbFotografia = new System.Windows.Forms.PictureBox();
-            this.cboBuscarTipoPlato = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.cboBuscarTipoPlato = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tsbInsertar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbModificar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.PanelPlato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotografia)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvPlato
@@ -84,6 +83,7 @@
             this.dgvPlato.AllowUserToResizeColumns = false;
             this.dgvPlato.AllowUserToResizeRows = false;
             this.dgvPlato.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvPlato.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvPlato.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -110,9 +110,8 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPlato.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPlato.Location = new System.Drawing.Point(367, 93);
+            this.dgvPlato.Location = new System.Drawing.Point(366, 78);
             this.dgvPlato.Name = "dgvPlato";
-            this.dgvPlato.ReadOnly = true;
             this.dgvPlato.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -125,7 +124,7 @@
             this.dgvPlato.RowHeadersWidth = 20;
             this.dgvPlato.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPlato.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlato.Size = new System.Drawing.Size(648, 579);
+            this.dgvPlato.Size = new System.Drawing.Size(648, 610);
             this.dgvPlato.TabIndex = 1;
             this.dgvPlato.TabStop = false;
             // 
@@ -135,8 +134,8 @@
             this.Codigo.FillWeight = 101.5228F;
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
             this.Codigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Codigo.Width = 80;
             // 
             // NombrePlato
             // 
@@ -144,9 +143,8 @@
             this.NombrePlato.FillWeight = 99.61929F;
             this.NombrePlato.HeaderText = "Nombre Plato";
             this.NombrePlato.Name = "NombrePlato";
-            this.NombrePlato.ReadOnly = true;
             this.NombrePlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NombrePlato.Width = 150;
+            this.NombrePlato.Width = 80;
             // 
             // PrecioPlato
             // 
@@ -154,7 +152,6 @@
             this.PrecioPlato.FillWeight = 99.61929F;
             this.PrecioPlato.HeaderText = "Precio Plato";
             this.PrecioPlato.Name = "PrecioPlato";
-            this.PrecioPlato.ReadOnly = true;
             this.PrecioPlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.PrecioPlato.Width = 124;
             // 
@@ -164,7 +161,6 @@
             this.TipoPlato.FillWeight = 99.61929F;
             this.TipoPlato.HeaderText = "Tipo Plato";
             this.TipoPlato.Name = "TipoPlato";
-            this.TipoPlato.ReadOnly = true;
             this.TipoPlato.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.TipoPlato.Width = 124;
             // 
@@ -181,126 +177,13 @@
             this.Column1.HeaderText = "Foto";
             this.Column1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             this.Column1.Width = 130;
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "estado";
             this.Column2.HeaderText = "Estado";
             this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 60);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 60);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbInsertar,
-            this.toolStripSeparator4,
-            this.toolStripSeparator5,
-            this.tsbSalir,
-            this.toolStripSeparator2,
-            this.tsbModificar,
-            this.toolStripSeparator3,
-            this.toolStripComboBox1,
-            this.toolStripTextBox1,
-            this.toolStripButton1});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1020, 60);
-            this.toolStrip1.Stretch = true;
-            this.toolStrip1.TabIndex = 13;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbInsertar
-            // 
-            this.tsbInsertar.AutoSize = false;
-            this.tsbInsertar.Image = ((System.Drawing.Image)(resources.GetObject("tsbInsertar.Image")));
-            this.tsbInsertar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbInsertar.Name = "tsbInsertar";
-            this.tsbInsertar.Size = new System.Drawing.Size(80, 70);
-            this.tsbInsertar.Text = "Insertar";
-            this.tsbInsertar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.tsbInsertar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbInsertar.Click += new System.EventHandler(this.tsbInsertar_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 60);
-            // 
-            // tsbSalir
-            // 
-            this.tsbSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbSalir.AutoSize = false;
-            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
-            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSalir.Name = "tsbSalir";
-            this.tsbSalir.Size = new System.Drawing.Size(80, 70);
-            this.tsbSalir.Text = "   Salir   ";
-            this.tsbSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // tsbModificar
-            // 
-            this.tsbModificar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbModificar.AutoSize = false;
-            this.tsbModificar.Image = ((System.Drawing.Image)(resources.GetObject("tsbModificar.Image")));
-            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbModificar.Name = "tsbModificar";
-            this.tsbModificar.Size = new System.Drawing.Size(80, 70);
-            this.tsbModificar.Text = "Modificar";
-            this.tsbModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.tsbModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbModificar.Click += new System.EventHandler(this.tsbModificar_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 60);
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripComboBox1.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.toolStripComboBox1.Margin = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 60);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.toolStripTextBox1.Margin = new System.Windows.Forms.Padding(1, 0, 15, 0);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(250, 60);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Enabled = false;
-            this.toolStripButton1.Image = global::AppSodaQuincho.Properties.Resources.Search;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(60, 73);
-            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // ofdImagen
             // 
@@ -347,7 +230,7 @@
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnAceptar.Location = new System.Drawing.Point(18, 541);
+            this.btnAceptar.Location = new System.Drawing.Point(9, 550);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(109, 48);
             this.btnAceptar.TabIndex = 3;
@@ -371,7 +254,6 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(228, 30);
             this.txtPrecio.TabIndex = 1;
-            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // label4
             // 
@@ -386,7 +268,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnLimpiar.Location = new System.Drawing.Point(133, 541);
+            this.btnLimpiar.Location = new System.Drawing.Point(124, 550);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(109, 48);
             this.btnLimpiar.TabIndex = 4;
@@ -397,7 +279,7 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnCancelar.Location = new System.Drawing.Point(248, 541);
+            this.btnCancelar.Location = new System.Drawing.Point(239, 550);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(109, 48);
             this.btnCancelar.TabIndex = 5;
@@ -428,7 +310,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(158, 340);
+            this.label5.Location = new System.Drawing.Point(161, 361);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 25);
             this.label5.TabIndex = 16;
@@ -452,47 +334,29 @@
             this.PanelPlato.Controls.Add(this.label1);
             this.PanelPlato.Controls.Add(this.txtNombrePlato);
             this.PanelPlato.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelPlato.Location = new System.Drawing.Point(6, 63);
+            this.PanelPlato.Location = new System.Drawing.Point(6, 78);
             this.PanelPlato.Name = "PanelPlato";
-            this.PanelPlato.Size = new System.Drawing.Size(356, 625);
+            this.PanelPlato.Size = new System.Drawing.Size(356, 610);
             this.PanelPlato.TabIndex = 0;
             this.PanelPlato.TabStop = false;
             this.PanelPlato.Text = "Mantenimiento Plato";
+            this.PanelPlato.Enter += new System.EventHandler(this.PanelPlato_Enter);
             // 
             // ptbFotografia
             // 
             this.ptbFotografia.BackColor = System.Drawing.Color.White;
-            this.ptbFotografia.Location = new System.Drawing.Point(127, 381);
+            this.ptbFotografia.Location = new System.Drawing.Point(130, 402);
             this.ptbFotografia.Name = "ptbFotografia";
             this.ptbFotografia.Size = new System.Drawing.Size(115, 118);
             this.ptbFotografia.TabIndex = 11;
             this.ptbFotografia.TabStop = false;
             this.ptbFotografia.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // cboBuscarTipoPlato
-            // 
-            this.cboBuscarTipoPlato.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboBuscarTipoPlato.FormattingEnabled = true;
-            this.cboBuscarTipoPlato.Location = new System.Drawing.Point(881, 61);
-            this.cboBuscarTipoPlato.Name = "cboBuscarTipoPlato";
-            this.cboBuscarTipoPlato.Size = new System.Drawing.Size(133, 28);
-            this.cboBuscarTipoPlato.TabIndex = 17;
-            this.cboBuscarTipoPlato.SelectedValueChanged += new System.EventHandler(this.cboBuscarTipoPlato_SelectedValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(799, 63);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 25);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Mostrar";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(944, 675);
+            this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(938, 672);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 18;
@@ -501,11 +365,126 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(999, 675);
+            this.label8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(998, 671);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(13, 13);
             this.label8.TabIndex = 19;
             this.label8.Text = "0";
+            // 
+            // cboBuscarTipoPlato
+            // 
+            this.cboBuscarTipoPlato.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBuscarTipoPlato.FormattingEnabled = true;
+            this.cboBuscarTipoPlato.Location = new System.Drawing.Point(473, 26);
+            this.cboBuscarTipoPlato.Name = "cboBuscarTipoPlato";
+            this.cboBuscarTipoPlato.Size = new System.Drawing.Size(133, 28);
+            this.cboBuscarTipoPlato.TabIndex = 17;
+            this.cboBuscarTipoPlato.SelectedIndexChanged += new System.EventHandler(this.cboBuscarTipoPlato_SelectedIndexChanged);
+            this.cboBuscarTipoPlato.SelectedValueChanged += new System.EventHandler(this.cboBuscarTipoPlato_SelectedValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(379, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 25);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Mostrar";
+            // 
+            // tsbInsertar
+            // 
+            this.tsbInsertar.AutoSize = false;
+            this.tsbInsertar.Image = ((System.Drawing.Image)(resources.GetObject("tsbInsertar.Image")));
+            this.tsbInsertar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbInsertar.Name = "tsbInsertar";
+            this.tsbInsertar.Size = new System.Drawing.Size(80, 70);
+            this.tsbInsertar.Text = "Insertar";
+            this.tsbInsertar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbInsertar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbInsertar.Click += new System.EventHandler(this.tsbInsertar_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 75);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 75);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 75);
+            // 
+            // tsbModificar
+            // 
+            this.tsbModificar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbModificar.AutoSize = false;
+            this.tsbModificar.Image = ((System.Drawing.Image)(resources.GetObject("tsbModificar.Image")));
+            this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModificar.Name = "tsbModificar";
+            this.tsbModificar.Size = new System.Drawing.Size(80, 70);
+            this.tsbModificar.Text = "Modificar";
+            this.tsbModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbModificar.Click += new System.EventHandler(this.tsbModificar_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 75);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.toolStripTextBox1.Margin = new System.Windows.Forms.Padding(1, 0, 15, 0);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(250, 75);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Enabled = false;
+            this.toolStripButton1.Image = global::AppSodaQuincho.Properties.Resources.Search;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(60, 73);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbInsertar,
+            this.toolStripSeparator4,
+            this.toolStripSeparator5,
+            this.toolStripSeparator2,
+            this.tsbModificar,
+            this.toolStripSeparator3,
+            this.toolStripTextBox1,
+            this.toolStripButton1});
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(1020, 75);
+            this.toolStrip1.Stretch = true;
+            this.toolStrip1.TabIndex = 13;
+            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // frmMantenimientoPlato
             // 
@@ -517,9 +496,9 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboBuscarTipoPlato);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgvPlato);
             this.Controls.Add(this.PanelPlato);
+            this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -529,11 +508,11 @@
             this.Text = "MantenimientoPlato";
             this.Load += new System.EventHandler(this.MantenimientoPlato_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlato)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.PanelPlato.ResumeLayout(false);
             this.PanelPlato.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotografia)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,18 +520,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvPlato;
-        private System.Windows.Forms.ToolStripButton tsbInsertar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton tsbModificar;
-        private System.Windows.Forms.ToolStripButton tsbSalir;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.OpenFileDialog ofdImagen;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.TextBox txtNombrePlato;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -568,15 +536,25 @@
         private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox PanelPlato;
-        private System.Windows.Forms.ComboBox cboBuscarTipoPlato;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cboBuscarTipoPlato;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripButton tsbInsertar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton tsbModificar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombrePlato;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioPlato;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoPlato;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

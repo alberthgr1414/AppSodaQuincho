@@ -11,7 +11,7 @@ namespace BLL
     public class PlatoBLL
     {
 
-        public static int GuardarPlato(int ID_TipoPlato, string Nombre_Plato, double Precio_Plato,Byte[] foto)
+        public static int GuardarPlato(int ID_TipoPlato, string Nombre_Plato, double Precio_Plato,Byte[] foto,int ID_Estado)
         {
             //Construir el cliente
 
@@ -21,6 +21,7 @@ namespace BLL
                 Nombre_Plato = Nombre_Plato,
                 Precio_Plato = Precio_Plato,
                 foto = foto,
+                ID_Estado = ID_Estado,
             };
             try
             {
@@ -33,7 +34,7 @@ namespace BLL
         }
 
 
-        public static int ModificarPlato(int idPlato, int ID_TipoPlato, string Nombre_Plato, double Precio_Plato, Byte[] foto)
+        public static int ModificarPlato(int idPlato, int ID_TipoPlato, string Nombre_Plato, double Precio_Plato, Byte[] foto,int ID_Estado)
         {
             //Construir el cliente
 
@@ -44,6 +45,7 @@ namespace BLL
                 Nombre_Plato = Nombre_Plato,
                 Precio_Plato = Precio_Plato,
                 foto = foto,
+                ID_Estado = ID_Estado
             };
             try
             {
@@ -61,6 +63,19 @@ namespace BLL
             try
             {
                 return PlatoDAL.ListarPlatos(TipoPlato);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public static DataTable ListarPlatosMantenimiento(int TipoPlato)
+        {
+            try
+            {
+                return PlatoDAL.ListarPlatosMantenimiento(TipoPlato);
             }
             catch (Exception ex)
             {

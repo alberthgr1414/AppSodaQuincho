@@ -12,5 +12,6 @@ namespace Entidades
         public string Nombre_Plato { set; get; }
         public double Precio_Plato { set; get; }
         public Byte[] foto { set; get; }
+        public int ID_Estado { set; get; }
     }
 }
