@@ -56,6 +56,10 @@ namespace AppSodaQuincho
             neg.ResizeForm(this, 768, 1366);
         }
 
+        public void cambio()
+        {
+            tsbVentaRapida.PerformClick();
+        }
 
         public class Neg_General
         {

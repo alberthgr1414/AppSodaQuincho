@@ -14,7 +14,6 @@ namespace BLL
         public static int NuevoEncFactura(int ID_Turno, int ID_Caja)
         {
             //Construir el cliente
-
             EncFactura oEncFactura = new EncFactura()
             {
                 ID_Caja = ID_Caja,

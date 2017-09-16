@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.flpMesa = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.tspBarraCarga = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.tsbFecha = new System.Windows.Forms.ToolStripLabel();
@@ -38,8 +37,8 @@
             this.tsbHora = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.tspBarraCarga.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,17 +51,6 @@
             this.flpMesa.Name = "flpMesa";
             this.flpMesa.Size = new System.Drawing.Size(1010, 630);
             this.flpMesa.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(5, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 26);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Facturas en Mesas";
             // 
             // tspBarraCarga
             // 
@@ -133,25 +121,26 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 24);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(32, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(196, 26);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Facturas en Mesas";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(235, 30);
+            this.panel1.Size = new System.Drawing.Size(284, 30);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(205, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmMesa
             // 
@@ -178,7 +167,6 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flpMesa;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip tspBarraCarga;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
         private System.Windows.Forms.ToolStripLabel tsbFecha;
@@ -187,7 +175,7 @@
         private System.Windows.Forms.ToolStripLabel tsbHora;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
     }
 }

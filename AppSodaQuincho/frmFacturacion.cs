@@ -273,16 +273,6 @@ namespace AppSodaQuincho
                     int Numfactura = int.Parse(EncFacturaBLL.EncFactura(6));
                     dgvPlatos.DataSource = DetFacturaBLL.ListarDetFactura(Numfactura);
                     BannerFactura(6);
-                    //DataTable datos = DetFacturaBLL.ListarDetFactura(Numfactura);
-                    //for (int i = 0; i < datos.Rows.Count; i++)
-                    //{
-                    //    DataRow row = datos.Rows[i];
-                    //    for (int f = 0; f < 2; f++)
-                    //    {
-                    //        dgvPlatos[i, f].Value = "Albertn";
-                    //    }
-
-                    //}
                     TotalFactura();
                 }
             }
@@ -290,6 +280,11 @@ namespace AppSodaQuincho
             {
                 throw;
             }
+        }
+
+        public void btnMenu()
+        {
+
         }
 
         public void TotalFactura()
@@ -739,7 +734,7 @@ namespace AppSodaQuincho
         private void Facturacion(int tipo)
         {
             DataTable dat = new DataTable();
-            dat = EncFacturaBLL.ListarEncFactura(1);
+            dat = EncFacturaBLL.ListarEncFactura(tipo);
 
             if (dat.Rows.Count == 0)
             {
@@ -918,7 +913,7 @@ namespace AppSodaQuincho
                 //Asignar el valor a el label total de Pago
                 var lblTotalPago = new Label();
                 lblTotalPago.Font = new Font("Arial", 16, System.Drawing.FontStyle.Bold);
-                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(1));
+                int Numfactura = int.Parse(EncFacturaBLL.EncFactura(tipo));
                 double total = double.Parse(DetFacturaBLL.SumDetFactura(Numfactura));
                 lblTotalPago.Text = "₡ " + total.ToString();
                 lblTotalPago.Location = new System.Drawing.Point(50, 50);
@@ -1015,7 +1010,18 @@ namespace AppSodaQuincho
 
         private void btnLlevar_Click(object sender, EventArgs e)
         {
-            Facturacion(1);
+            DataTable facturaPendiente1 = EncFacturaBLL.ListarEncFactura(1);
+            DataTable facturaPendiente6 = EncFacturaBLL.ListarEncFactura(6);
+            // Si no hay orden se edita y se redirige a la facturacion y se edita la factura 
+            if (facturaPendiente6.Rows.Count != 0)
+            {
+                Facturacion(6);
+            }
+            else
+            {
+                if (facturaPendiente1.Rows.Count != 0)
+                    Facturacion(1);
+            }
         }
 
 
@@ -1057,7 +1063,7 @@ namespace AppSodaQuincho
                         RefrescarDataGrid();
                         dgvPlatos.Refresh();
                         BannerFactura(3);
-                            LimpiarMontoDigitado();
+                        LimpiarMontoDigitado();
                     }
                 }
                 else
@@ -1099,6 +1105,7 @@ namespace AppSodaQuincho
             {
             double cambio = BilleteBLL.CalculoCambio(TotalFactura, efectivo);
             ActualizarCambio(efectivo, cambio);
+
             DataTable factura = EncFacturaBLL.ListarEncFactura(6);
             if (factura.Rows.Count == 0)
             {
@@ -1115,7 +1122,7 @@ namespace AppSodaQuincho
                     RefrescarDataGrid();
                     dgvPlatos.Refresh();
                     BannerFactura(3);
-                        LimpiarMontoDigitado();
+                    LimpiarMontoDigitado();
                 }
             }
             else
@@ -1126,7 +1133,7 @@ namespace AppSodaQuincho
                 RefrescarDataGrid();
                 dgvPlatos.Refresh();
                 BannerFactura(5);
-                    LimpiarMontoDigitado();
+                LimpiarMontoDigitado();
             }
 
             }
@@ -1184,6 +1191,8 @@ namespace AppSodaQuincho
                 RefrescarDataGrid();
                 dgvPlatos.Refresh();
                 BannerFactura(5);
+                txtEfectivo.Text = txtTotalFactura.Text.ToString();
+                txtCambio.Text = "0";
                 LimpiarMontoDigitado();
             }
         }

@@ -36,10 +36,6 @@
             this.tsbExpress = new System.Windows.Forms.ToolStripButton();
             this.tsbAbrirTurno = new System.Windows.Forms.ToolStripButton();
             this.tsbCerrarTurno = new System.Windows.Forms.ToolStripButton();
-            this.tsbMantenimientos = new System.Windows.Forms.ToolStripDropDownButton();
-            this.mantenimientoProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenimientoExpressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenimientoUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.tspMenuTecnico = new System.Windows.Forms.ToolStrip();
             this.tsbInicio = new System.Windows.Forms.ToolStripButton();
@@ -47,6 +43,10 @@
             this.tsbDetalle = new System.Windows.Forms.ToolStripButton();
             this.tsbMantUsuario = new System.Windows.Forms.ToolStripButton();
             this.tsbCerrarSessionTec = new System.Windows.Forms.ToolStripButton();
+            this.mantenimientoProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoExpressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbMantenimientos = new System.Windows.Forms.ToolStripDropDownButton();
             this.tspMenu.SuspendLayout();
             this.tspMenuTecnico.SuspendLayout();
             this.SuspendLayout();
@@ -165,47 +165,6 @@
             this.tsbCerrarTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbCerrarTurno.Click += new System.EventHandler(this.tsbCerrarTurno_Click);
             // 
-            // tsbMantenimientos
-            // 
-            this.tsbMantenimientos.AutoSize = false;
-            this.tsbMantenimientos.AutoToolTip = false;
-            this.tsbMantenimientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tsbMantenimientos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mantenimientoProductoToolStripMenuItem,
-            this.mantenimientoExpressToolStripMenuItem,
-            this.mantenimientoUsuariosToolStripMenuItem});
-            this.tsbMantenimientos.ForeColor = System.Drawing.Color.White;
-            this.tsbMantenimientos.Image = ((System.Drawing.Image)(resources.GetObject("tsbMantenimientos.Image")));
-            this.tsbMantenimientos.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbMantenimientos.Margin = new System.Windows.Forms.Padding(1);
-            this.tsbMantenimientos.Name = "tsbMantenimientos";
-            this.tsbMantenimientos.Size = new System.Drawing.Size(120, 70);
-            this.tsbMantenimientos.Text = "Mantenimientos";
-            this.tsbMantenimientos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.tsbMantenimientos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbMantenimientos.Click += new System.EventHandler(this.tsbMantenimientos_Click);
-            // 
-            // mantenimientoProductoToolStripMenuItem
-            // 
-            this.mantenimientoProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoProductoToolStripMenuItem.Image")));
-            this.mantenimientoProductoToolStripMenuItem.Name = "mantenimientoProductoToolStripMenuItem";
-            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.mantenimientoProductoToolStripMenuItem.Text = "Mantenimiento Producto";
-            this.mantenimientoProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.mantenimientoProductoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoProductoToolStripMenuItem_Click);
-            // 
-            // mantenimientoExpressToolStripMenuItem
-            // 
-            this.mantenimientoExpressToolStripMenuItem.Name = "mantenimientoExpressToolStripMenuItem";
-            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.mantenimientoExpressToolStripMenuItem.Text = "Mantenimiento Express";
-            // 
-            // mantenimientoUsuariosToolStripMenuItem
-            // 
-            this.mantenimientoUsuariosToolStripMenuItem.Name = "mantenimientoUsuariosToolStripMenuItem";
-            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.mantenimientoUsuariosToolStripMenuItem.Text = "Mantenimiento Usuarios";
-            // 
             // toolStripButton2
             // 
             this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -318,6 +277,47 @@
             this.tsbCerrarSessionTec.ToolTipText = "Salir";
             this.tsbCerrarSessionTec.Click += new System.EventHandler(this.tsbCerrarSessionTec_Click);
             // 
+            // mantenimientoProductoToolStripMenuItem
+            // 
+            this.mantenimientoProductoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mantenimientoProductoToolStripMenuItem.Image")));
+            this.mantenimientoProductoToolStripMenuItem.Name = "mantenimientoProductoToolStripMenuItem";
+            this.mantenimientoProductoToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoProductoToolStripMenuItem.Text = "Mantenimiento Producto";
+            this.mantenimientoProductoToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.mantenimientoProductoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoProductoToolStripMenuItem_Click);
+            // 
+            // mantenimientoExpressToolStripMenuItem
+            // 
+            this.mantenimientoExpressToolStripMenuItem.Name = "mantenimientoExpressToolStripMenuItem";
+            this.mantenimientoExpressToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoExpressToolStripMenuItem.Text = "Mantenimiento Express";
+            // 
+            // mantenimientoUsuariosToolStripMenuItem
+            // 
+            this.mantenimientoUsuariosToolStripMenuItem.Name = "mantenimientoUsuariosToolStripMenuItem";
+            this.mantenimientoUsuariosToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.mantenimientoUsuariosToolStripMenuItem.Text = "Mantenimiento Usuarios";
+            // 
+            // tsbMantenimientos
+            // 
+            this.tsbMantenimientos.AutoSize = false;
+            this.tsbMantenimientos.AutoToolTip = false;
+            this.tsbMantenimientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tsbMantenimientos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mantenimientoProductoToolStripMenuItem,
+            this.mantenimientoExpressToolStripMenuItem,
+            this.mantenimientoUsuariosToolStripMenuItem});
+            this.tsbMantenimientos.ForeColor = System.Drawing.Color.White;
+            this.tsbMantenimientos.Image = ((System.Drawing.Image)(resources.GetObject("tsbMantenimientos.Image")));
+            this.tsbMantenimientos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbMantenimientos.Margin = new System.Windows.Forms.Padding(1);
+            this.tsbMantenimientos.Name = "tsbMantenimientos";
+            this.tsbMantenimientos.Size = new System.Drawing.Size(120, 70);
+            this.tsbMantenimientos.Text = "Mantenimientos";
+            this.tsbMantenimientos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tsbMantenimientos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbMantenimientos.Click += new System.EventHandler(this.tsbMantenimientos_Click);
+            // 
             // frmSodaQuincho
             // 
             this.AllowDrop = true;
@@ -350,12 +350,8 @@
         private System.Windows.Forms.ToolStripButton tsbVentaRapida;
         private System.Windows.Forms.ToolStripButton tsbAbrirTurno;
         private System.Windows.Forms.ToolStripButton tsbCerrarTurno;
-        private System.Windows.Forms.ToolStripDropDownButton tsbMantenimientos;
-        private System.Windows.Forms.ToolStripMenuItem mantenimientoProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton tsbExpress;
         private System.Windows.Forms.ToolStripButton tsbOrdenMesa;
-        private System.Windows.Forms.ToolStripMenuItem mantenimientoExpressToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mantenimientoUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStrip tspMenuTecnico;
@@ -364,5 +360,9 @@
         private System.Windows.Forms.ToolStripButton tsbDetalle;
         private System.Windows.Forms.ToolStripButton tsbMantUsuario;
         private System.Windows.Forms.ToolStripButton tsbCerrarSessionTec;
+        private System.Windows.Forms.ToolStripDropDownButton tsbMantenimientos;
+        private System.Windows.Forms.ToolStripMenuItem mantenimientoProductoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mantenimientoExpressToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mantenimientoUsuariosToolStripMenuItem;
     }
 }

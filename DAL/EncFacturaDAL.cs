@@ -91,6 +91,7 @@ namespace DAL
             //Declaración de objeto SqlCommand
             SqlCommand oCommand = new SqlCommand();
             DataTable registro;
+
             oCommand.CommandText = "SpEncFacturaListar";
             oCommand.CommandType = CommandType.StoredProcedure;
 

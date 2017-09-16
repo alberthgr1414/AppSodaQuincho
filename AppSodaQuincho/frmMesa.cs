@@ -38,7 +38,6 @@ namespace AppSodaQuincho
                 for (int i = 0; i < mesas.Rows.Count; i++)
                 {
                     int EncFactura = int.Parse(mesas.Rows[i][0].ToString());
-                    string Cliente = mesas.Rows[i][6].ToString();
 
                     var panelMesa = new Panel();
                     panelMesa.Size = new System.Drawing.Size(192, 306);
@@ -75,7 +74,7 @@ namespace AppSodaQuincho
 
                     var NCliente = new Label();
                     NCliente.Location = new System.Drawing.Point(0, 25);
-                    NCliente.Text = Cliente.ToString();
+                    NCliente.Text = "";
                     panelNumOrden.Controls.Add(NCliente);
 
                     var listox = new ListBox();
@@ -91,6 +90,8 @@ namespace AppSodaQuincho
                     btnEditar.Size = new System.Drawing.Size(91, 30);
                     btnEditar.Location = new System.Drawing.Point(5, 270);
                     btnEditar.Visible = true;
+                    btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+                    btnEditar.Tag = EncFactura;
                     panelMesa.Controls.Add(btnEditar);
 
 
@@ -128,6 +129,27 @@ namespace AppSodaQuincho
             }
 
 
+        }
+
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            DataTable facturaPendiente1 = EncFacturaBLL.ListarEncFactura(1);
+            DataTable facturaPendiente6 = EncFacturaBLL.ListarEncFactura(6);
+            // Si no hay orden se edita y se redirige a la facturacion y se edita la factura 
+            if (facturaPendiente1.Rows.Count == 0 || facturaPendiente6.Rows.Count == 0)
+            {
+                Button cl = sender as Button;
+                int codigo = int.Parse(  cl.Tag.ToString() );
+                EncFacturaBLL.CambiarEstadoEncFactura(codigo,6);
+                frmSodaQuincho frmParent = this.MdiParent as frmSodaQuincho;
+                frmParent.cambio();
+            }
+            else
+            {
+                // si hay una orden en facturacion no edita sale mensaje de que ahi orden
+                MessageBox.Show("Ahi una factura pendiente de facturacion");
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
